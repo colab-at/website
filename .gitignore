@@ -1,4 +1,6 @@
 *.sublime-project
+*.sass-cache
+*.scssc
 
 # Compiled source #
 ###################

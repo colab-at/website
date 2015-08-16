@@ -1,0 +1,31 @@
+
+/* main.scss */
+
+@import "compass";
+@import "compass/reset";
+@import "variables";
+
+/**/
+
+html{
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: helvetica;
+	padding: 2em;
+}
+
+header.main-header {
+
+	h1 {
+		color: $colab-red;
+		font-size: 3em;
+
+	}
+}
+
+section.main {
+	margin-top: 1em;
+}
