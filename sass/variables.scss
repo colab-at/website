@@ -1,0 +1,16 @@
+// Dimensions
+$wrap-width: 960px;
+
+
+// Colors
+
+$colab-red: #ff6633;
+$colab-blue-light: #00ffff;
+$colab-blue-dark: #336699;
+
+
+// Mixins 
+@mixin colspan ( $size ) {
+	width: $size;
+	padding-bottom: $size;
+}

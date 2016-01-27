@@ -1,31 +1,90 @@
+// main.scss
 
-/* main.scss */
-
+@import "variables";
 @import "compass";
 @import "compass/reset";
-@import "variables";
 
-/**/
+@media screen and (max-width: 960px) {
 
-html{
+	$wrap-width: 10px;
+}
+
+//
+html, body {
+	height: 100%; 
+}
+
+html {
+	font-family: "Open Sans", Helvetica, Arial, Geneva, sans-serif;
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 }
 
 body {
-	font-family: helvetica;
-	padding: 2em;
+	background-color: #eee;
 }
 
+div.wrap, .wrap {
+	width: $wrap-width;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+//
 header.main-header {
 
-	h1 {
-		color: $colab-red;
+	background-color: $colab-blue-light;
+	@include background-image(linear-gradient(135deg, $colab-blue-dark, $colab-blue-light));
+	min-height: $wrap-width;
+
+	h1.logo {
+
 		font-size: 3em;
+		color: #fff
 
 	}
 }
 
-section.main {
-	margin-top: 1em;
+
+//
+section.matrix {
+
+	margin-top: - $wrap-width / 3;
+
+	article {
+		background-color: #ccc;
+		float: left;
+		position: relative;
+  		height: 0;
+		
+		&.colspan-1{
+			@include colspan( 33.333% );
+		}
+		&.colspan-2{
+			@include colspan( 66.666% );
+		}
+		&.colspan-3{
+			@include colspan( 99.999% );
+		}
+
+		&:nth-child(odd) {
+			background-color: #ddd;
+		}
+	}
+
 }
+
+
+
+// Responsive
+@media screen and (max-width: 960px) {
+
+	div.wrap, .wrap {
+		background-color: red;
+		width: 100%;
+	}
+
+//end
+}
+
+
