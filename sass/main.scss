@@ -1,13 +1,8 @@
 // main.scss
-
 @import "variables";
 @import "compass";
 @import "compass/reset";
 
-@media screen and (max-width: 960px) {
-
-	$wrap-width: 10px;
-}
 
 //
 html, body {
@@ -17,31 +12,84 @@ html, body {
 html {
 	font-family: "Open Sans", Helvetica, Arial, Geneva, sans-serif;
 	font-size: 100%;
+	color: #333;
 	-webkit-font-smoothing: antialiased;
 }
 
 body {
-	background-color: #eee;
+	background-color: color(grey-light);
 }
 
 div.wrap, .wrap {
-	width: $wrap-width;
+	width: $mid;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
+strong {
+	font-weight: $extra-bold;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    height: 32px;
+    width: 32px;
+    display: inline-block; 
+    fill: currentColor; 
+}
+
+
+//
+
+//creates a class for each color in array $colors
+//with name #color
+@each $key, $color in $colors {
+	.#{$key} {
+		background-color: map-deep-get($colors, $key, 'background-color') !important;
+		color: map-deep-get($colors, $key, 'color') !important;
+	}
+}
+
+//animations
+@include keyframes (brighter) {
+    0% { @include filter(brightness(1.2)); }
+    100% { @include filter(brightness(1)); }
+}
+
+
 //
 header.main-header {
 
-	background-color: $colab-blue-light;
-	@include background-image(linear-gradient(135deg, $colab-blue-dark, $colab-blue-light));
-	min-height: $wrap-width;
+	background-color: color(blue-light);
+	@include background-image(linear-gradient(135deg, color(colab-blue), color(blue-light) ));
+	min-height: $header-height;
 
 	h1.logo {
 
-		font-size: 3em;
-		color: #fff
+		width: $col;
+		height: 2.1rem;
+		overflow: hidden;
+		margin-top: $col / 2;
 
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
+
+	h2.tagline {
+		font-size: 3em;
+		color: color(blue-light);
+		text-align: center;
+		margin-top: 15%;
+		background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
+		background-size: 1.8em;
+		padding-bottom: 2.2em;
+
+		strong {
+			display: block;
+			color: #fff;
+		}
 	}
 }
 
@@ -49,40 +97,152 @@ header.main-header {
 //
 section.matrix {
 
-	margin-top: - $wrap-width / 3;
+	margin-top: - $header-height / 3;
 
 	article {
+		position: relative;
 		background-color: #ccc;
 		float: left;
 		position: relative;
   		height: 0;
-		
-		&.colspan-1{
-			@include colspan( 33.333% );
+  		font-size: 1.1em;
+
+  		@include transition(all 0.5s ease);
+
+  		//var
+  		$col2: $col * 2;
+  		$col4: $col * 4;
+  		$col6: $col * 6;
+
+		//width
+		&.col2 {
+			width: $col2;
 		}
-		&.colspan-2{
-			@include colspan( 66.666% );
+		&.col4 {
+			width: $col4;
 		}
-		&.colspan-3{
-			@include colspan( 99.999% );
+		&.col6 {
+			width: $col6;
+		}
+		//height
+		&.row2 {
+			padding-bottom: $col2;
+		}
+		&.row4 {
+			padding-bottom: $col4;
+		}
+		&.row6 {
+			padding-bottom: $col6;
 		}
 
-		&:nth-child(odd) {
-			background-color: #ddd;
-		}
-	}
+		//actions
+		&:hover {
+    		//@include animation(brighter 0.8s ease forwards);
+    		@include filter(brightness(1.2));
+    		cursor: pointer;
 
-}
+    		a {
+    			opacity: 1;
+    		}
+		}
+
+		//
+		header {
+			padding: $padding-normal $padding-normal 1em $padding-normal;
+
+			h3 {
+				font-size: 2em;
+				font-weight: $medium;
+			}
+		}
+
+		div.content {
+			padding: 0 $padding-normal $padding-normal;
+
+			p {
+				line-height: 1.2em;
+			}
+		}
+
+		a {
+			position: absolute;
+			right: 1em; bottom: 1em;
+			color: inherit;
+			@include transition(opacity 0.5s ease);
+			opacity: 0;
+
+		}
+
+
+
+	}//article
+}//.matrix
 
 
 
 // Responsive
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $mid) {
 
 	div.wrap, .wrap {
-		background-color: red;
 		width: 100%;
 	}
+
+	header.main-header {
+		padding: 0 2.5rem;
+	}
+
+	section.matrix {
+
+		article {
+			//var
+	  		$col2: 33.333%;
+	  		$col4: 66.666%;
+	  		$col6: 99.999%;
+
+			&.col2 {
+				width: $col2;
+			}
+			&.col4 {
+				width: $col4;
+			}
+			&.col6 {
+				width: $col6;
+			}
+
+			&.row2 {
+				padding-bottom: $col2;
+			}
+			&.row4 {
+				padding-bottom: $col4;
+			}
+			&.row6 {
+				padding-bottom: $col6;
+			}
+		}
+	}
+
+
+
+//end
+}
+
+@media screen and (min-width: $wide + $col) {
+
+	header.main-header {
+		padding: 0 2.5rem;
+
+		h2.tagline {
+			margin-top: 8%;
+			font-size: 4em;
+		}
+
+	}
+
+
+	div.wrap, .wrap {
+		width: $wide;
+	}
+
 
 //end
 }
