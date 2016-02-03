@@ -1,0 +1,349 @@
+/**
+ * Fix for vw, vh, vmin, vmax on iOS 7.
+ * http://caniuse.com/#feat=viewport-units
+ *
+ * @author BenMorel
+ * https://gist.github.com/BenMorel/e9e34c08360ebbbd0634
+ *
+ * This fix works by replacing viewport units with px values on known screen sizes.
+ *
+ * iPhone 6 and 6 Plus cannot run iOS 7, so are not targeted by this fix.
+ * Target devices running iOS 8+ will incidentally execute the media query,
+ * but this will still produce the expected result; so this is not a problem.
+ *
+ * As an example, replace:
+ *
+ *   height: 50vh;
+ *   font-size: 5vmin;
+ *
+ * with:
+ *
+ *   @include viewport-unit(height, 50vh);
+ *   @include viewport-unit(font-size, 5vmin);
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+html, body {
+  height: 100%; }
+
+html {
+  font-family: "Open Sans", Helvetica, Arial, Geneva, sans-serif;
+  font-size: 100%;
+  color: #333;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  position: relative;
+  height: 100%; }
+
+div.wrap, .wrap {
+  overflow: hidden;
+  *zoom: 1;
+  width: 100%; }
+
+strong {
+  font-weight: 800; }
+
+[class^="icon-"], [class*=" icon-"] {
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  fill: currentColor; }
+
+.colab-red {
+  background-color: #ff6633 !important;
+  color: #fff !important; }
+
+.colab-blue {
+  background-color: #336699 !important;
+  color: #fff !important; }
+
+.blue-light {
+  background-color: #00ffff !important;
+  color: inherit !important; }
+
+.yellow-light {
+  background-color: #ffff00 !important;
+  color: inherit !important; }
+
+.grey-light {
+  background-color: #eee !important;
+  color: inherit !important; }
+
+.white {
+  background-color: #fff !important;
+  color: #336699 !important; }
+
+header.main-header {
+  height: 10rem;
+  position: relative;
+  z-index: 777; }
+  header.main-header h1.logo a {
+    width: 10rem;
+    line-height: 10rem; }
+    header.main-header h1.logo a img {
+      width: inherit;
+      vertical-align: middle; }
+
+section.banner {
+  overflow: hidden;
+  *zoom: 1;
+  min-height: 10rem;
+  margin-top: -10rem;
+  background-color: #00ffff;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuMCIgeDI9IjEuMCIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzNjY5OSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -moz-linear-gradient(315deg, #336699, #00ffff);
+  background-image: -webkit-linear-gradient(315deg, #336699, #00ffff);
+  background-image: linear-gradient(135deg, #336699, #00ffff); }
+
+.home {
+  background-color: #eee; }
+@-moz-keyframes brighter {
+  0% {
+    filter: brightness(1.2); }
+  100% {
+    filter: brightness(1); } }
+@-webkit-keyframes brighter {
+  0% {
+    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2); }
+  100% {
+    -webkit-filter: brightness(1);
+    filter: brightness(1); } }
+@keyframes brighter {
+  0% {
+    -webkit-filter: brightness(1.2);
+    filter: brightness(1.2); }
+  100% {
+    -webkit-filter: brightness(1);
+    filter: brightness(1); } }
+  .home div.wrap, .home .wrap {
+    width: 60rem;
+    margin: 0 auto; }
+  .home header.main-header h1.logo {
+    padding-top: 1rem; }
+  .home section.banner {
+    min-height: 100vh;
+    margin-top: -10rem; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+      .home section.banner {
+        min-height: 1024px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+      .home section.banner {
+        min-height: 768px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+      .home section.banner {
+        min-height: 480px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+      .home section.banner {
+        min-height: 320px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+      .home section.banner {
+        min-height: 568px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+      .home section.banner {
+        min-height: 320px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+      .home section.banner {
+        min-height: 667px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+      .home section.banner {
+        min-height: 375px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+      .home section.banner {
+        min-height: 736px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+      .home section.banner {
+        min-height: 414px; } }
+    .home section.banner h2.tagline {
+      font-size: 3em;
+      color: #00ffff;
+      text-align: center;
+      background: transparent url("../img/logo_shield_blue_light.svg") center bottom no-repeat;
+      background-size: 1.8em;
+      padding-bottom: 2.2em;
+      margin-top: 25vh; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+        .home section.banner h2.tagline {
+          margin-top: 256px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+        .home section.banner h2.tagline {
+          margin-top: 192px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+        .home section.banner h2.tagline {
+          margin-top: 120px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+        .home section.banner h2.tagline {
+          margin-top: 80px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+        .home section.banner h2.tagline {
+          margin-top: 142px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+        .home section.banner h2.tagline {
+          margin-top: 80px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+        .home section.banner h2.tagline {
+          margin-top: 166.75px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+        .home section.banner h2.tagline {
+          margin-top: 93.75px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+        .home section.banner h2.tagline {
+          margin-top: 184px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+        .home section.banner h2.tagline {
+          margin-top: 103.5px; } }
+      .home section.banner h2.tagline strong {
+        display: block;
+        color: #fff; }
+  .home section.matrix {
+    margin-top: -20rem; }
+    .home section.matrix article {
+      position: relative;
+      background-color: #ccc;
+      float: left;
+      position: relative;
+      height: 0;
+      font-size: 1.1em; }
+      .home section.matrix article.col2 {
+        width: 20rem; }
+      .home section.matrix article.col4 {
+        width: 40rem; }
+      .home section.matrix article.col6 {
+        width: 60rem; }
+      .home section.matrix article.row2 {
+        padding-bottom: 20rem; }
+      .home section.matrix article.row4 {
+        padding-bottom: 40rem; }
+      .home section.matrix article.row6 {
+        padding-bottom: 60rem; }
+      .home section.matrix article:hover {
+        cursor: pointer; }
+        .home section.matrix article:hover a {
+          opacity: 1; }
+      .home section.matrix article header {
+        padding: 2.5rem 2.5rem 1em 2.5rem; }
+        .home section.matrix article header h3 {
+          font-size: 2em;
+          font-weight: 600; }
+      .home section.matrix article div.content {
+        padding: 0 2.5rem 2.5rem; }
+        .home section.matrix article div.content p {
+          line-height: 1.2em; }
+      .home section.matrix article a {
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        color: inherit;
+        -moz-transition: opacity 0.3s ease-in;
+        -o-transition: opacity 0.3s ease-in;
+        -webkit-transition: opacity 0.3s ease-in;
+        transition: opacity 0.3s ease-in;
+        opacity: 0; }
+  @media screen and (min-width: 90rem) {
+    .home header.main-header {
+      padding: 0 2.5rem; }
+    .home section.banner h2.tagline {
+      margin-top: 20vh;
+      font-size: 4em; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    .home section.banner h2.tagline {
+      margin-top: 204.8px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    .home section.banner h2.tagline {
+      margin-top: 153.6px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    .home section.banner h2.tagline {
+      margin-top: 96px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    .home section.banner h2.tagline {
+      margin-top: 64px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    .home section.banner h2.tagline {
+      margin-top: 113.6px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    .home section.banner h2.tagline {
+      margin-top: 64px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+    .home section.banner h2.tagline {
+      margin-top: 133.4px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+    .home section.banner h2.tagline {
+      margin-top: 75px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+    .home section.banner h2.tagline {
+      margin-top: 147.2px; } }
+  @media only screen and (min-width: 90rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+    .home section.banner h2.tagline {
+      margin-top: 82.8px; } }
+  @media screen and (min-width: 90rem) {
+    .home div.wrap, .home .wrap {
+      width: 80rem; } }
+  @media screen and (max-width: 62.5rem) {
+    .home div.wrap, .home .wrap {
+      width: 100%; }
+    .home header.main-header {
+      padding: 0 2.5rem; }
+    .home section.matrix article.col2 {
+      width: 33.333%; }
+    .home section.matrix article.col4 {
+      width: 66.666%; }
+    .home section.matrix article.col6 {
+      width: 99.999%; }
+    .home section.matrix article header h3 {
+      font-size: 3.5vw; } }
+  @media screen and (max-width: 50rem) {
+    .home section.matrix article.col2 {
+      width: 100%; }
+    .home section.matrix article.col4 {
+      width: 100%; }
+    .home section.matrix article.col6 {
+      width: 100%; }
+    .home section.matrix article header h3 {
+      font-size: 2em; } }

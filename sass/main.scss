@@ -17,22 +17,23 @@ html {
 }
 
 body {
-	background-color: color(grey-light);
+	position: relative;
+	height: 100%;
 }
 
 div.wrap, .wrap {
-	width: $mid;
-	margin: 0 auto;
-	overflow: hidden;
+	@include clearfix;
+	width: 100%;
 }
 
 strong {
 	font-weight: $extra-bold;
 }
 
+// Styles for svg icons
 [class^="icon-"], [class*=" icon-"] {
-    height: 32px;
-    width: 32px;
+    height: 2rem;
+    width: 2rem;
     display: inline-block; 
     fill: currentColor; 
 }
@@ -49,202 +50,43 @@ strong {
 	}
 }
 
-//animations
-@include keyframes (brighter) {
-    0% { @include filter(brightness(1.2)); }
-    100% { @include filter(brightness(1)); }
-}
-
 
 //
 header.main-header {
 
-	background-color: color(blue-light);
-	@include background-image(linear-gradient(135deg, color(colab-blue), color(blue-light) ));
-	min-height: $header-height;
+	height: $header-height;
+	position: relative;
+	z-index: $z-high;
 
 	h1.logo {
 
-		width: $col;
-		height: 2.1rem;
-		overflow: hidden;
-		margin-top: $col / 2;
-
-		img {
-			display: block;
-			width: 100%;
-		}
-
-	}
-
-	h2.tagline {
-		font-size: 3em;
-		color: color(blue-light);
-		text-align: center;
-		margin-top: 15%;
-		background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
-		background-size: 1.8em;
-		padding-bottom: 2.2em;
-
-		strong {
-			display: block;
-			color: #fff;
-		}
-	}
-}
-
-
-//
-section.matrix {
-
-	margin-top: - $header-height / 3;
-
-	article {
-		position: relative;
-		background-color: #ccc;
-		float: left;
-		position: relative;
-  		height: 0;
-  		font-size: 1.1em;
-
-  		@include transition(all 0.5s ease);
-
-  		//var
-  		$col2: $col * 2;
-  		$col4: $col * 4;
-  		$col6: $col * 6;
-
-		//width
-		&.col2 {
-			width: $col2;
-		}
-		&.col4 {
-			width: $col4;
-		}
-		&.col6 {
-			width: $col6;
-		}
-		//height
-		&.row2 {
-			padding-bottom: $col2;
-		}
-		&.row4 {
-			padding-bottom: $col4;
-		}
-		&.row6 {
-			padding-bottom: $col6;
-		}
-
-		//actions
-		&:hover {
-    		//@include animation(brighter 0.8s ease forwards);
-    		@include filter(brightness(1.2));
-    		cursor: pointer;
-
-    		a {
-    			opacity: 1;
-    		}
-		}
-
-		//
-		header {
-			padding: $padding-normal $padding-normal 1em $padding-normal;
-
-			h3 {
-				font-size: 2em;
-				font-weight: $medium;
-			}
-		}
-
-		div.content {
-			padding: 0 $padding-normal $padding-normal;
-
-			p {
-				line-height: 1.2em;
-			}
-		}
-
 		a {
-			position: absolute;
-			right: 1em; bottom: 1em;
-			color: inherit;
-			@include transition(opacity 0.5s ease);
-			opacity: 0;
+			width: $col;
+			line-height: $col;
 
-		}
-
-
-
-	}//article
-}//.matrix
-
-
-
-// Responsive
-@media screen and (max-width: $mid) {
-
-	div.wrap, .wrap {
-		width: 100%;
-	}
-
-	header.main-header {
-		padding: 0 2.5rem;
-	}
-
-	section.matrix {
-
-		article {
-			//var
-	  		$col2: 33.333%;
-	  		$col4: 66.666%;
-	  		$col6: 99.999%;
-
-			&.col2 {
-				width: $col2;
-			}
-			&.col4 {
-				width: $col4;
-			}
-			&.col6 {
-				width: $col6;
-			}
-
-			&.row2 {
-				padding-bottom: $col2;
-			}
-			&.row4 {
-				padding-bottom: $col4;
-			}
-			&.row6 {
-				padding-bottom: $col6;
+			img {
+				width: inherit;
+				vertical-align: middle;
 			}
 		}
 	}
 
+}//.main-header
+
+section.banner {
+
+	@include clearfix;
+	min-height: $banner-height;
+	margin-top: - $header-height;
+
+	background-color: color(blue-light);
+	@include background-image(linear-gradient(135deg, color(colab-blue), color(blue-light) ));
+
+}//.banner
 
 
-//end
-}
-
-@media screen and (min-width: $wide + $col) {
-
-	header.main-header {
-		padding: 0 2.5rem;
-
-		h2.tagline {
-			margin-top: 8%;
-			font-size: 4em;
-		}
-
-	}
 
 
-	div.wrap, .wrap {
-		width: $wide;
-	}
 
-
-//end
-}
 
 

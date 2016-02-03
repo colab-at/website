@@ -141,3 +141,111 @@ section.banner {
   background-image: -moz-linear-gradient(315deg, #336699, #00ffff);
   background-image: -webkit-linear-gradient(315deg, #336699, #00ffff);
   background-image: linear-gradient(135deg, #336699, #00ffff); }
+
+.page .main-header, .page .banner {
+  float: left;
+  width: 100%; }
+  .page .main-header h1.logo, .page .banner h1.logo {
+    margin-left: 22.5rem; }
+.page section.main {
+  float: left;
+  overflow: hidden;
+  /*
+  		header.children-fixed {
+  
+  			h2.title {
+  				@include align-self(center);
+  				font-size: $font-bigger;
+  				margin-right: $sidebar-width + $col - 2.2rem;
+  			}
+  
+  			svg {
+  				right: $sidebar-width + $padding-normal;
+  			}
+  		}
+  */ }
+  .page section.main header {
+    position: relative;
+    margin-left: 20rem;
+    background-color: #ffff00;
+    height: 20rem;
+    width: 100%; }
+    .page section.main header div.wrapper {
+      height: inherit;
+      display: -webkit-flex;
+      display: flex; }
+      .page section.main header div.wrapper h2.title {
+        padding: 2.5rem;
+        padding-bottom: 3.5rem;
+        margin-right: 20rem;
+        -webkit-align-self: flex-end;
+        align-self: flex-end;
+        font-size: 3em;
+        font-weight: 600; }
+      .page section.main header div.wrapper svg {
+        height: 3.33333rem;
+        width: 3.33333rem;
+        position: absolute;
+        top: 3.33333rem;
+        right: -100%; }
+  .page section.main header.fixed {
+    width: 100% !important; }
+    .page section.main header.fixed div.wrapper {
+      position: absolute;
+      bottom: 0;
+      height: 10rem;
+      width: 100%; }
+      .page section.main header.fixed div.wrapper h2.title {
+        padding: 2.5rem;
+        margin-right: 27.8rem;
+        -webkit-align-self: center;
+        align-self: center;
+        font-size: 2em; }
+      .page section.main header.fixed div.wrapper svg {
+        right: 22.5rem; }
+  .page section.main section.content {
+    margin-left: 20rem;
+    padding: 2.5rem; }
+    .page section.main section.content p {
+      font-size: 1.1em;
+      line-height: 1.2em; }
+.page aside.sidebar {
+  background-color: #eee;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 888;
+  width: 20rem;
+  float: left; }
+  .page aside.sidebar header {
+    font-size: 2em;
+    font-weight: 600;
+    background-color: #336699;
+    line-height: 10rem;
+    text-indent: 2.5rem;
+    color: #fff; }
+  .page aside.sidebar ul {
+    padding: 2.5rem; }
+    .page aside.sidebar ul li.parent {
+      font-size: 1.5em;
+      font-weight: 600;
+      padding-bottom: 0.5em; }
+    .page aside.sidebar ul li a {
+      display: block;
+      line-height: 1.8em;
+      text-decoration: none;
+      color: #999;
+      font-size: 1.1em;
+      font-weight: 600; }
+      .page aside.sidebar ul li a:hover, .page aside.sidebar ul li a:active {
+        color: #000; }
+      .page aside.sidebar ul li a.selected {
+        color: #336699;
+        border-left: #336699 0.2em solid;
+        padding-left: 0.5em;
+        margin: 0.3em 0;
+        cursor: default; }

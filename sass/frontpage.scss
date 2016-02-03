@@ -1,0 +1,236 @@
+// frontpage.scss
+@import "main";
+
+.home {
+
+	//animations
+	@include keyframes (brighter) {
+	    0% { @include filter(brightness(1.2)); }
+	    100% { @include filter(brightness(1)); }
+	}
+
+	//
+	background-color: color(grey-light);
+
+	//
+	div.wrap, .wrap {
+		width: $mid;
+		margin: 0 auto;
+	}
+
+	//
+	header.main-header {
+
+		h1.logo {
+			padding-top: 1rem;
+			
+		}
+
+	}//.main-header
+
+	//
+	section.banner {
+
+		@include viewport-unit(min-height, 100vh);
+		margin-top: - $header-height;
+
+		h2.tagline {
+			font-size: 3em;
+			color: color(blue-light);
+			text-align: center;
+			background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
+			background-size: 1.8em;
+			padding-bottom: 2.2em;
+			
+			@include viewport-unit(margin-top, 25vh);
+
+			strong {
+				display: block;
+				color: #fff;
+			}
+		}
+	}//.banner
+
+
+	//
+	section.matrix {
+
+		margin-top: - $col * 2;
+
+		article {
+			position: relative;
+			background-color: #ccc;
+			float: left;
+			position: relative;
+	  		height: 0;
+	  		font-size: $font-normal;
+
+	  		//@include transition(all 0.5s ease);
+
+	  		//var
+	  		$col2: $col * 2;
+	  		$col4: $col * 4;
+	  		$col6: $col * 6;
+
+			//width
+			&.col2 {
+				width: $col2;
+			}
+			&.col4 {
+				width: $col4;
+			}
+			&.col6 {
+				width: $col6;
+			}
+			//height
+			&.row2 {
+				padding-bottom: $col2;
+			}
+			&.row4 {
+				padding-bottom: $col4;
+			}
+			&.row6 {
+				padding-bottom: $col6;
+			}
+
+			//actions
+			&:hover {
+	    		//@include animation(brighter 0.8s ease forwards);
+	    		//@include filter(brightness(1.2));
+	    		cursor: pointer;
+
+	    		a {
+	    			opacity: 1;
+	    		}
+			}
+
+			//
+			header {
+				padding: $padding-normal $padding-normal 1em $padding-normal;
+
+				h3 {
+					font-size: 2em;
+					font-weight: $medium;
+					//word-wrap: break-word;
+				}
+			}
+
+			div.content {
+				padding: 0 $padding-normal $padding-normal;
+
+				p {
+					line-height: 1.2em;
+				}
+			}
+
+			a {
+				position: absolute;
+				right: 1em; bottom: 1em;
+				color: inherit;
+				@include transition(opacity 0.3s ease-in);
+				opacity: 0;
+
+			}
+
+		}//article
+	}//.matrix
+
+
+	// Responsive
+
+	// Wide 1280px + 160px
+	@media screen and (min-width: $wide + $col) {
+
+		header.main-header {
+			padding: 0 2.5rem;
+
+		}
+
+		section.banner {
+			h2.tagline {
+				@include viewport-unit(margin-top, 20vh);
+				font-size: 4em;
+			}
+		}
+
+		div.wrap, .wrap {
+			width: $wide;
+		}
+
+
+	}//@media $wide
+
+	// Mid 960px + 40px
+	@media screen and (max-width: $mid + $padding-normal) {
+
+		div.wrap, .wrap {
+			width: 100%;
+		}
+
+		header.main-header {
+			padding: 0 $padding-normal
+
+		}
+
+		section.matrix {
+
+			article {
+				//var
+		  		$col2: 33.333%;
+		  		$col4: 66.666%;
+		  		$col6: 99.999%;
+
+				&.col2 {
+					width: $col2;
+				}
+				&.col4 {
+					width: $col4;
+				}
+				&.col6 {
+					width: $col6;
+				}
+
+				header h3 {
+					font-size: 3.5vw;
+				}
+			}
+		}
+
+
+
+	}//@media $mid
+
+	// Small 800px
+	@media screen and (max-width: $small ) {
+
+		section.matrix {
+
+			article {
+				//var
+		  		$col2: 100%;
+		  		$col4: 100%;
+		  		$col6: 100%;
+
+				&.col2 {
+					width: $col2;
+				}
+				&.col4 {
+					width: $col4;
+				}
+				&.col6 {
+					width: $col6;
+				}
+
+				header h3 {
+					font-size: 2em;
+				}
+			}
+		}
+
+	}//@media $small
+
+
+
+
+}//end .home
+

@@ -1,7 +1,7 @@
 
         <script src="<?php bloginfo('template_directory'); ?>/js/vendor/modernizr-2.8.3.min.js" async></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" defer></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.2.0.min.js"><\/script defer>')</script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/vendor/ScrollMagic.min.js" defer></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/plugins.js" defer></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/main.js" defer></script>
 
@@ -16,5 +16,7 @@
         ga('send', 'pageview');
         </script>
          <!-- End Google Analytics -->
+
+         <?php wp_footer(); ?>
     </body>
 </html>

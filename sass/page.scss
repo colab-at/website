@@ -1,0 +1,164 @@
+// page.scss
+@import "compass/layout/stretching";
+@import "main";
+
+.page {
+
+	.main-header, .banner {
+		float: left;
+		width: 100%;
+		//margin-left: $sidebar-width;
+
+		h1.logo {
+			margin-left: $sidebar-width + $padding-normal;
+		}
+
+	}
+
+	section.main{
+
+		float: left;
+		overflow: hidden;
+
+		header {
+			position: relative;
+			margin-left: $sidebar-width;
+			background-color: color(yellow-light);
+			height: $col * 2;
+			width: 100%;
+
+			div.wrapper {
+				height: inherit;
+				@include display-flex;
+
+				h2.title {
+					padding: $padding-normal;
+					padding-bottom: $padding-normal + 1rem;
+					margin-right: $sidebar-width;
+	  				@include align-self(flex-end);
+					font-size: $font-biggest;
+					font-weight: $medium;
+				}
+
+				svg {
+					height: $col / 3;
+					width: $col / 3;
+
+					position: absolute;
+					top: $col / 3;
+					right: -100%; // hide from view
+				}
+			}
+		}
+
+		header.fixed {
+			width: 100% !important;	
+
+			div.wrapper {				
+				position: absolute;
+				bottom: 0;
+				height: $col;
+				width: 100%;
+
+				h2.title {
+					padding: $padding-normal;
+					margin-right: $sidebar-width + $col - 2.2rem;
+					@include align-self(center);
+					font-size: $font-bigger;
+				}
+
+				svg {
+					right: $sidebar-width + $padding-normal;
+				}
+			}
+		}
+
+/*
+		header.children-fixed {
+
+			h2.title {
+				@include align-self(center);
+				font-size: $font-bigger;
+				margin-right: $sidebar-width + $col - 2.2rem;
+			}
+
+			svg {
+				right: $sidebar-width + $padding-normal;
+			}
+		}
+*/
+		//
+		section.content {
+
+			margin-left: $sidebar-width;
+			padding: $padding-normal;
+
+			p {
+				font-size: $font-normal;
+				line-height: 1.2em;
+			}
+
+		}
+
+
+	}//.main
+
+	aside.sidebar{
+
+		background-color: color(grey-light);
+		@include box-sizing; // inside borders
+		@include stretch-y; //stretch to view height
+		position: fixed;
+		z-index: $z-higher;
+		width: $sidebar-width;
+		float: left;
+
+		header {
+			font-size: $font-bigger;
+			font-weight: $medium;
+			background-color: color(colab-blue);
+			line-height: $col;
+			text-indent: $padding-normal;
+			color: #fff;
+		}
+
+		ul {
+			padding: $padding-normal;
+
+			li {
+
+				&.parent {
+					font-size: $font-big;
+					font-weight: $medium;
+					padding-bottom: 0.5em;
+				}
+
+				a {
+					display: block;
+					line-height: 1.8em;
+					text-decoration: none;
+					color: #999;
+					font-size: $font-normal;
+					font-weight: $medium;
+
+					&:hover, &:active {
+						color: #000;
+					}
+
+					&.selected {
+						color: color(colab-blue);
+						border-left: color(colab-blue) 0.2em solid;
+						padding-left: 0.5em;
+						margin: 0.3em 0;
+						cursor: default;
+					}
+				}
+
+
+			}
+		}
+
+	}//.sidebar
+
+
+}//end .page
