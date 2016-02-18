@@ -27,7 +27,7 @@ div.wrap, .wrap {
 }
 
 strong {
-	font-weight: $extra-bold;
+	font-weight: $bold;
 }
 
 // Styles for svg icons
@@ -79,8 +79,8 @@ section.banner {
 	min-height: $banner-height;
 	margin-top: - $header-height;
 
-	background-color: color(blue-light);
-	@include background-image(linear-gradient(135deg, color(colab-blue), color(blue-light) ));
+	background-color: color("blue");
+	//@include background-image(linear-gradient(135deg, color(colab-blue), color(blue-light) ));
 
 }//.banner
 

@@ -22,7 +22,7 @@
 	header.main-header {
 
 		h1.logo {
-			padding-top: 1rem;
+			margin: 1rem 0;
 			
 		}
 
@@ -31,9 +31,24 @@
 	//
 	section.banner {
 
-		@include viewport-unit(min-height, 100vh);
+		@include viewport-unit(height, 100vh);
+		min-height: 768px;
 		margin-top: - $header-height;
 
+		h2.tagline {
+			font-size: 2em;
+			font-weight: $light;
+			color: #fff;
+			line-height: 1.2em;
+			margin-top: 5em;
+
+			strong {
+				font-weight: $medium;
+			}
+
+		}
+		
+/*
 		h2.tagline {
 			font-size: 3em;
 			color: color(blue-light);
@@ -49,6 +64,8 @@
 				color: #fff;
 			}
 		}
+*/
+
 	}//.banner
 
 
@@ -136,20 +153,22 @@
 	}//.matrix
 
 
-	// Responsive
+	// RESPONSIVE
 
 	// Wide 1280px + 160px
 	@media screen and (min-width: $wide + $col) {
 
 		header.main-header {
-			padding: 0 2.5rem;
 
 		}
 
 		section.banner {
 			h2.tagline {
+
+				/*
 				@include viewport-unit(margin-top, 20vh);
 				font-size: 4em;
+				*/
 			}
 		}
 
@@ -168,8 +187,13 @@
 		}
 
 		header.main-header {
-			padding: 0 $padding-normal
+			h1.logo {
+				margin: 1rem $padding-normal;
+			}
+		}
 
+		section.banner {
+			padding: 0 $padding-normal;
 		}
 
 		section.matrix {
@@ -202,6 +226,14 @@
 
 	// Small 800px
 	@media screen and (max-width: $small ) {
+
+		section.banner {
+			h2.tagline {
+				br {
+					display: none;
+				}
+			}
+		}
 
 		section.matrix {
 

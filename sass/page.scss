@@ -73,20 +73,7 @@
 			}
 		}
 
-/*
-		header.children-fixed {
 
-			h2.title {
-				@include align-self(center);
-				font-size: $font-bigger;
-				margin-right: $sidebar-width + $col - 2.2rem;
-			}
-
-			svg {
-				right: $sidebar-width + $padding-normal;
-			}
-		}
-*/
 		//
 		section.content {
 
@@ -95,7 +82,10 @@
 
 			p {
 				font-size: $font-normal;
-				line-height: 1.2em;
+				line-height: 1.5em;
+				font-weight: $regular;
+				color: #333;
+				padding-bottom: 1em;
 			}
 
 		}

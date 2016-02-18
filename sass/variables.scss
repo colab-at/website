@@ -48,6 +48,10 @@ $colors: (
 		color: #fff
 	),
 	//
+	"blue": (
+		background-color: #0099ff,
+		color: inherit
+	),
 	blue-light: (
 		background-color: #00ffff,
 		color: inherit
@@ -62,7 +66,7 @@ $colors: (
 	),
 	"white": (
 		background-color: #fff,
-		color: #336699
+		color: #0099FF
 	)
 );
 

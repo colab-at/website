@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
 		<section class="banner" role="banner">
-
-			<h2 class="tagline">Make <strong>collaboration</strong> your super power</h2>
-
+			<div class="wrap">
+				<h2 class="tagline">A collaborative effort to make it possible <br>for <strong>anyone</strong> to design, build and bring <br>their ideas into reality.</h2>
+			</div>
 		</section>
 
 		<section class="matrix wrap">
@@ -15,7 +15,7 @@
 				<div class="content">
 					<p>Morbi vel ligula quis risus dignissim tincidunt vel eu eros. Nullam sit amet tempor quam. </p>
 				</div>
-				<a href="<?php bloginfo('url'); ?>/sample-page/"><svg class="icon-plus"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-plus"></use></svg></a>
+				<a href="<?php bloginfo('url'); ?>/sample-page/"><svg class="icon-plus"><use xlink:href="<?php echo get_template_directory_uri() ?>/img/icons.svg#icon-plus"></use></svg></a>
 			</article>
 
 			<article class="col2 row2 colab-red">

@@ -31,7 +31,7 @@
 
             <h1 class="logo">
                 <a href="<?php bloginfo('url'); ?>">
-                    <img class="svg" src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.svg" alt="Colab" > 
+                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
                 </a>
             </h1>
             
