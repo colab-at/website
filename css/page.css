@@ -98,30 +98,51 @@ strong {
 .colab-red {
   background-color: #ff6633 !important;
   color: #fff !important; }
+  .colab-red:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
-.colab-blue {
+.about {
   background-color: #336699 !important;
   color: #fff !important; }
+  .about:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .blue {
   background-color: #0099ff !important;
   color: inherit !important; }
+  .blue:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .blue-light {
   background-color: #00ffff !important;
   color: inherit !important; }
+  .blue-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .yellow-light {
   background-color: #ffff00 !important;
   color: inherit !important; }
+  .yellow-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .grey-light {
   background-color: #eee !important;
   color: inherit !important; }
+  .grey-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .white {
   background-color: #fff !important;
   color: #0099FF !important; }
+  .white:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 header.main-header {
   height: 10rem;

@@ -23,7 +23,7 @@
 		header {
 			position: relative;
 			margin-left: $sidebar-width;
-			background-color: color(yellow-light);
+			background-color: $yellow-light;
 			height: $col * 2;
 			width: 100%;
 
@@ -95,7 +95,7 @@
 
 	aside.sidebar{
 
-		background-color: color(grey-light);
+		background-color: $grey-light;
 		@include box-sizing; // inside borders
 		@include stretch-y; //stretch to view height
 		position: fixed;
@@ -106,7 +106,7 @@
 		header {
 			font-size: $font-bigger;
 			font-weight: $medium;
-			background-color: color(colab-blue);
+			background-color: $colab-blue;
 			line-height: $col;
 			text-indent: $padding-normal;
 			color: #fff;
@@ -136,8 +136,8 @@
 					}
 
 					&.selected {
-						color: color(colab-blue);
-						border-left: color(colab-blue) 0.2em solid;
+						color: $colab-blue;
+						border-left: $colab-blue 0.2em solid;
 						padding-left: 0.5em;
 						margin: 0.3em 0;
 						cursor: default;

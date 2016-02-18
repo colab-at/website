@@ -98,30 +98,51 @@ strong {
 .colab-red {
   background-color: #ff6633 !important;
   color: #fff !important; }
+  .colab-red:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
-.colab-blue {
+.about {
   background-color: #336699 !important;
   color: #fff !important; }
+  .about:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .blue {
   background-color: #0099ff !important;
   color: inherit !important; }
+  .blue:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .blue-light {
   background-color: #00ffff !important;
   color: inherit !important; }
+  .blue-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .yellow-light {
   background-color: #ffff00 !important;
   color: inherit !important; }
+  .yellow-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .grey-light {
   background-color: #eee !important;
   color: inherit !important; }
+  .grey-light:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 .white {
   background-color: #fff !important;
   color: #0099FF !important; }
+  .white:hover {
+    background-color: #fff !important;
+    color: #0099ff !important; }
 
 header.main-header {
   height: 10rem;
@@ -174,7 +195,7 @@ section.banner {
     /*
     		h2.tagline {
     			font-size: 3em;
-    			color: color(blue-light);
+    			color: $blue-light;
     			text-align: center;
     			background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
     			background-size: 1.8em;
@@ -230,11 +251,18 @@ section.banner {
     margin-top: -20rem; }
     .home section.matrix article {
       position: relative;
-      background-color: #ccc;
       float: left;
-      position: relative;
       height: 0;
-      font-size: 1.1em; }
+      font-size: 1.1em;
+      background-color: #ccc;
+      color: #333;
+      -moz-transition: background-color 0.2s, color 0.2s;
+      -o-transition: background-color 0.2s, color 0.2s;
+      -webkit-transition: background-color 0.2s, color 0.2s;
+      transition: background-color 0.2s, color 0.2s;
+      overflow: hidden;
+      width: 20rem;
+      padding-bottom: 20rem; }
       .home section.matrix article.col2 {
         width: 20rem; }
       .home section.matrix article.col4 {
@@ -247,29 +275,30 @@ section.banner {
         padding-bottom: 40rem; }
       .home section.matrix article.row6 {
         padding-bottom: 60rem; }
+      .home section.matrix article svg {
+        height: 10rem;
+        width: 10rem;
+        padding: 5rem;
+        float: left; }
+      .home section.matrix article header {
+        padding: 2.5rem; }
+        .home section.matrix article header h3 {
+          font-size: 2em;
+          font-weight: 600;
+          padding-bottom: 0.5em; }
+        .home section.matrix article header p {
+          line-height: 1.2em; }
+      .home section.matrix article > a {
+        position: absolute;
+        left: 1em;
+        top: 1em;
+        color: transparent; }
       .home section.matrix article:hover {
+        background-color: #fff;
+        color: #0099ff;
         cursor: pointer; }
         .home section.matrix article:hover a {
           opacity: 1; }
-      .home section.matrix article header {
-        padding: 2.5rem 2.5rem 1em 2.5rem; }
-        .home section.matrix article header h3 {
-          font-size: 2em;
-          font-weight: 600; }
-      .home section.matrix article div.content {
-        padding: 0 2.5rem 2.5rem; }
-        .home section.matrix article div.content p {
-          line-height: 1.2em; }
-      .home section.matrix article a {
-        position: absolute;
-        right: 1em;
-        bottom: 1em;
-        color: inherit;
-        -moz-transition: opacity 0.3s ease-in;
-        -o-transition: opacity 0.3s ease-in;
-        -webkit-transition: opacity 0.3s ease-in;
-        transition: opacity 0.3s ease-in;
-        opacity: 0; }
   @media screen and (min-width: 90rem) {
     .home section.banner h2.tagline {
       /*

@@ -4,7 +4,7 @@ $(function(){
 	// if is .home 
 	if($("body").hasClass("home")){
 
-		// Adds href value from child a to parent  
+		// Passes href value from child a to parent  
 		$( "section.matrix" ).on( "click", "article", function() {
 			var url = $("a", $(this)).attr("href");
 			document.location = url;

@@ -38,6 +38,15 @@ $font-normal:	1.1em;
 
 
 // Colors
+$colab-red:		#ff6633;
+$colab-blue: 	#336699;
+$blue:		 	#0099ff;
+$blue-light: 	#00ffff;
+$yellow-light: 	#ffff00;
+$grey-light: 	#eee;
+$white: 		#fff;
+
+
 $colors: (
 	colab-red: (
 		background-color: #ff6633,
@@ -69,6 +78,39 @@ $colors: (
 		color: #0099FF
 	)
 );
+
+// Categories styles
+$tags: (
+	colab-red: (
+		background-color: $colab-red,
+		color: #fff
+	),
+	about: (
+		background-color: $colab-blue,
+		color: #fff
+	),
+	"blue": (
+		background-color: $blue,
+		color: inherit
+	),
+	blue-light: (
+		background-color: $blue-light,
+		color: inherit
+	),
+	yellow-light: (
+		background-color: $yellow-light,
+		color: inherit
+	),
+	grey-light: (
+		background-color: $grey-light,
+		color: inherit
+	),
+	"white": (
+		background-color: $white,
+		color: #0099FF
+	)
+);
+
 
 
 

@@ -10,7 +10,7 @@
 	}
 
 	//
-	background-color: color(grey-light);
+	background-color: $grey-light;
 
 	//
 	div.wrap, .wrap {
@@ -51,7 +51,7 @@
 /*
 		h2.tagline {
 			font-size: 3em;
-			color: color(blue-light);
+			color: $blue-light;
 			text-align: center;
 			background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
 			background-size: 1.8em;
@@ -76,19 +76,25 @@
 
 		article {
 			position: relative;
-			background-color: #ccc;
 			float: left;
-			position: relative;
 	  		height: 0;
 	  		font-size: $font-normal;
 
-	  		//@include transition(all 0.5s ease);
+	  		background-color: #ccc;
+	  		color: #333;
+	  		@include transition(background-color 0.2s, color 0.2s);
+
+	  		overflow: hidden;
 
 	  		//var
 	  		$col2: $col * 2;
 	  		$col4: $col * 4;
 	  		$col6: $col * 6;
 
+	  		//default
+	  		width: $col2;
+	  		padding-bottom: $col2;
+	  		
 			//width
 			&.col2 {
 				width: $col2;
@@ -110,10 +116,45 @@
 				padding-bottom: $col6;
 			}
 
+
+			//
+			svg {
+				height: $col;
+				width: $col;
+				padding: $col / 2;
+				float: left;
+			}
+
+			header {
+				padding: $padding-normal;
+
+				h3 {
+					font-size: 2em;
+					font-weight: $medium;
+					padding-bottom: 0.5em;
+					//word-wrap: break-word;
+				}
+
+				p {
+					line-height: 1.2em;
+				}
+			}
+
+
+			> a {
+				position: absolute;
+				left: 1em; top: 1em;
+				color: transparent;
+
+			}
+
+
 			//actions
 			&:hover {
 	    		//@include animation(brighter 0.8s ease forwards);
 	    		//@include filter(brightness(1.2));
+	    		background-color: #fff;
+				color: $blue;
 	    		cursor: pointer;
 
 	    		a {
@@ -121,33 +162,6 @@
 	    		}
 			}
 
-			//
-			header {
-				padding: $padding-normal $padding-normal 1em $padding-normal;
-
-				h3 {
-					font-size: 2em;
-					font-weight: $medium;
-					//word-wrap: break-word;
-				}
-			}
-
-			div.content {
-				padding: 0 $padding-normal $padding-normal;
-
-				p {
-					line-height: 1.2em;
-				}
-			}
-
-			a {
-				position: absolute;
-				right: 1em; bottom: 1em;
-				color: inherit;
-				@include transition(opacity 0.3s ease-in);
-				opacity: 0;
-
-			}
 
 		}//article
 	}//.matrix
@@ -260,7 +274,6 @@
 		}
 
 	}//@media $small
-
 
 
 
