@@ -210,6 +210,12 @@
 			}
 		}
 
+		nav.main-nav {
+			a.logo, ul.menu {
+				margin-left: $padding-normal;
+			}
+		}
+
 		section.banner {
 			padding: 0 $padding-normal;
 		}

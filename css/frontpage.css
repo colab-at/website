@@ -167,44 +167,51 @@ header.main-header {
         width: inherit;
         vertical-align: middle; }
 
+button.activate-menu {
+  float: right;
+  margin: 4.6rem 2.5rem;
+  background-color: #0099ff;
+  width: 3rem;
+  height: 3rem;
+  -moz-border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  border-radius: 3rem; }
+  button.activate-menu svg[class^="icon-"], button.activate-menu svg[class*=" icon-"] {
+    color: #fff;
+    width: 2.5em;
+    height: 2.5em; }
+  button.activate-menu:hover {
+    background-color: #fff; }
+    button.activate-menu:hover svg[class^="icon-"], button.activate-menu:hover svg[class*=" icon-"] {
+      color: #0099ff; }
+
 nav.main-nav {
   position: absolute;
-  background-color: transparent;
+  z-index: 777;
   right: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  -moz-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s; }
+  background-color: #fff;
+  opacity: 0;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  visibility: hidden; }
   nav.main-nav a.logo {
-    display: none;
+    display: block;
     float: left;
     width: 10rem;
     line-height: 10rem; }
     nav.main-nav a.logo img {
       width: inherit;
       vertical-align: middle; }
-  nav.main-nav button {
-    float: right;
-    margin: 4.6rem 2.5rem;
-    background-color: #0099ff;
-    width: 3rem;
-    height: 3rem;
-    -moz-border-radius: 2rem;
-    -webkit-border-radius: 2rem;
-    border-radius: 2rem; }
-    nav.main-nav button svg[class^="icon-"], nav.main-nav button svg[class*=" icon-"] {
-      color: #fff;
-      width: 2.5em;
-      height: 2.5em; }
-    nav.main-nav button:hover {
-      background-color: #fff; }
-      nav.main-nav button:hover svg[class^="icon-"], nav.main-nav button:hover svg[class*=" icon-"] {
-        color: #0099ff; }
+  nav.main-nav button.activate-menu:hover {
+    background-color: #0099ff; }
+    nav.main-nav button.activate-menu:hover svg[class^="icon-"], nav.main-nav button.activate-menu:hover svg[class*=" icon-"] {
+      color: #fff; }
   nav.main-nav ul.menu {
-    display: none;
     float: left;
     width: 100%;
     margin-top: -2rem; }
@@ -218,14 +225,8 @@ nav.main-nav {
         nav.main-nav ul.menu li a:hover {
           color: #336699; }
   nav.main-nav.active {
-    background-color: #fff;
-    z-index: 777; }
-    nav.main-nav.active button:hover {
-      background-color: #0099ff; }
-      nav.main-nav.active button:hover svg[class^="icon-"], nav.main-nav.active button:hover svg[class*=" icon-"] {
-        color: #fff; }
-    nav.main-nav.active a.logo, nav.main-nav.active ul.menu {
-      display: block; }
+    visibility: visible;
+    opacity: 1; }
 
 section.banner {
   overflow: hidden;
@@ -388,6 +389,8 @@ section.banner {
       width: 100%; }
     .home header.main-header h1.logo {
       margin: 1rem 2.5rem; }
+    .home nav.main-nav a.logo, .home nav.main-nav ul.menu {
+      margin-left: 2.5rem; }
     .home section.banner {
       padding: 0 2.5rem; }
     .home section.matrix article.col2 {

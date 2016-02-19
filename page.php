@@ -7,7 +7,6 @@
 			<header id="page-header">
 			<div class="wrapper">
 				<h2 class="title">Make collaboration your super power</h2>
-				<svg class="icon-logo-triangle"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-logo-triangle"></use></svg>
 			</div>
 			</header>
 

@@ -3,8 +3,8 @@ $(function(){
 
 	// All website
 
-	$( "nav.main-nav" ).on( "click", "button", function() {
-		$(this).closest("nav").toggleClass("active");
+	$( "button.activate-menu" ).on( "click", function() {
+		$("nav.main-nav").toggleClass("active");
 	});
 
 
