@@ -36,3 +36,21 @@
             </h1>
             
         </header>
+
+        <nav class="main-nav" role="navigation">
+            <div class="wrap">
+
+                <button><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
+
+                <a class="logo" href="<?php bloginfo('url'); ?>">
+                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
+                </a>                
+
+                <ul class="menu">
+                    <li><a href="">About</a></li>
+                    <li><a href="">Docs</a></li>
+                    <li><a href="https://blog.colab.at/latest/">Blog</a></li>
+                </ul>
+
+            </div>
+        </nav>

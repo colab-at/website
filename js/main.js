@@ -1,13 +1,22 @@
 // Jquery
 $(function(){
 
+	// All website
+
+	$( "nav.main-nav" ).on( "click", "button", function() {
+		$(this).closest("nav").toggleClass("active");
+	});
+
+
 	// if is .home 
 	if($("body").hasClass("home")){
 
 		// Passes href value from child a to parent  
 		$( "section.matrix" ).on( "click", "article", function() {
 			var url = $("a", $(this)).attr("href");
-			document.location = url;
+			if ( url !== undefined ) {
+				document.location = url;
+			}
 		});
 
 	}//is home

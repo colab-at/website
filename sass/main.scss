@@ -38,6 +38,18 @@ strong {
     fill: currentColor; 
 }
 
+button {
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 
 //
 
@@ -58,11 +70,13 @@ strong {
 //
 header.main-header {
 
+	@include clearfix;
 	height: $header-height;
 	position: relative;
-	z-index: $z-high;
+	//z-index: $z-highest;
 
 	h1.logo {
+		float: left;
 
 		a {
 			width: $col;
@@ -77,6 +91,97 @@ header.main-header {
 
 }//.main-header
 
+
+// Main navigation
+nav.main-nav {
+	position: absolute;
+	background-color: transparent;
+	right: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+
+	@include transition(background-color 0.2s);
+
+	a.logo {
+		display: none;
+		float: left;
+		width: $col;
+		line-height: $col;
+
+		img {
+			width: inherit;
+			vertical-align: middle;
+		}
+	}
+
+
+	button {
+		float: right;
+		margin: 4.6rem $padding-normal;
+
+		background-color: $blue;
+		width: 3rem;
+		height: 3rem;
+		@include border-radius(2rem);
+
+		svg[class^="icon-"], svg[class*=" icon-"] {
+			color: $white;
+			width: 2.5em;
+			height: 2.5em;
+		} 
+
+		&:hover {
+			background-color: $white;
+
+			svg[class^="icon-"], svg[class*=" icon-"] {
+				color: $blue;
+			} 
+		}
+	}
+
+	ul.menu {
+		display: none;
+		float: left;
+		width: 100%;
+		margin-top: -2rem;
+
+		li {
+			padding-bottom: 1em;
+
+			a {
+				font-size: $font-bigger;
+				text-decoration: none;
+				text-align: center;
+				color: $blue;
+				
+				&:hover {
+					color: $colab-blue;
+				}
+			}
+		}
+	}
+
+	&.active {
+		background-color: $white;
+		z-index: $z-high;
+
+		button:hover {
+			background-color: $blue;
+			svg[class^="icon-"], svg[class*=" icon-"] {
+				color: $white;
+			} 
+		}
+
+		a.logo, ul.menu {
+			display: block;
+		}
+	}
+
+
+}
+
+//
 section.banner {
 
 	@include clearfix;

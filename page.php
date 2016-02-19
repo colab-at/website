@@ -2,7 +2,7 @@
 
 		<section id="banner" class="banner" role="main"></section>
 
-		<section class="main" role="main">
+		<main role="main">
 			
 			<header id="page-header">
 			<div class="wrapper">
@@ -37,7 +37,7 @@
 
 			</section>
 
-		</section>
+		</main>
 
 		<aside class="sidebar">
 

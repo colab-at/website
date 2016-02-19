@@ -95,6 +95,15 @@ strong {
   display: inline-block;
   fill: currentColor; }
 
+button {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none; }
+  button:hover {
+    cursor: pointer; }
+
 .colab-red {
   background-color: #ff6633 !important;
   color: #fff !important; }
@@ -145,15 +154,78 @@ strong {
     color: #0099ff !important; }
 
 header.main-header {
+  overflow: hidden;
+  *zoom: 1;
   height: 10rem;
-  position: relative;
-  z-index: 777; }
-  header.main-header h1.logo a {
+  position: relative; }
+  header.main-header h1.logo {
+    float: left; }
+    header.main-header h1.logo a {
+      width: 10rem;
+      line-height: 10rem; }
+      header.main-header h1.logo a img {
+        width: inherit;
+        vertical-align: middle; }
+
+nav.main-nav {
+  position: absolute;
+  background-color: transparent;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s; }
+  nav.main-nav a.logo {
+    display: none;
+    float: left;
     width: 10rem;
     line-height: 10rem; }
-    header.main-header h1.logo a img {
+    nav.main-nav a.logo img {
       width: inherit;
       vertical-align: middle; }
+  nav.main-nav button {
+    float: right;
+    margin: 4.6rem 2.5rem;
+    background-color: #0099ff;
+    width: 3rem;
+    height: 3rem;
+    -moz-border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    border-radius: 2rem; }
+    nav.main-nav button svg[class^="icon-"], nav.main-nav button svg[class*=" icon-"] {
+      color: #fff;
+      width: 2.5em;
+      height: 2.5em; }
+    nav.main-nav button:hover {
+      background-color: #fff; }
+      nav.main-nav button:hover svg[class^="icon-"], nav.main-nav button:hover svg[class*=" icon-"] {
+        color: #0099ff; }
+  nav.main-nav ul.menu {
+    display: none;
+    float: left;
+    width: 100%;
+    margin-top: -2rem; }
+    nav.main-nav ul.menu li {
+      padding-bottom: 1em; }
+      nav.main-nav ul.menu li a {
+        font-size: 2em;
+        text-decoration: none;
+        text-align: center;
+        color: #0099ff; }
+        nav.main-nav ul.menu li a:hover {
+          color: #336699; }
+  nav.main-nav.active {
+    background-color: #fff;
+    z-index: 777; }
+    nav.main-nav.active button:hover {
+      background-color: #0099ff; }
+      nav.main-nav.active button:hover svg[class^="icon-"], nav.main-nav.active button:hover svg[class*=" icon-"] {
+        color: #fff; }
+    nav.main-nav.active a.logo, nav.main-nav.active ul.menu {
+      display: block; }
 
 section.banner {
   overflow: hidden;
@@ -167,20 +239,20 @@ section.banner {
   width: 100%; }
   .page .main-header h1.logo, .page .banner h1.logo {
     margin-left: 22.5rem; }
-.page section.main {
+.page main {
   float: left;
   overflow: hidden; }
-  .page section.main header {
+  .page main header {
     position: relative;
     margin-left: 20rem;
     background-color: #ffff00;
     height: 20rem;
     width: 100%; }
-    .page section.main header div.wrapper {
+    .page main header div.wrapper {
       height: inherit;
       display: -webkit-flex;
       display: flex; }
-      .page section.main header div.wrapper h2.title {
+      .page main header div.wrapper h2.title {
         padding: 2.5rem;
         padding-bottom: 3.5rem;
         margin-right: 20rem;
@@ -188,31 +260,31 @@ section.banner {
         align-self: flex-end;
         font-size: 3em;
         font-weight: 600; }
-      .page section.main header div.wrapper svg {
+      .page main header div.wrapper svg {
         height: 3.33333rem;
         width: 3.33333rem;
         position: absolute;
         top: 3.33333rem;
         right: -100%; }
-  .page section.main header.fixed {
+  .page main header.fixed {
     width: 100% !important; }
-    .page section.main header.fixed div.wrapper {
+    .page main header.fixed div.wrapper {
       position: absolute;
       bottom: 0;
       height: 10rem;
       width: 100%; }
-      .page section.main header.fixed div.wrapper h2.title {
+      .page main header.fixed div.wrapper h2.title {
         padding: 2.5rem;
         margin-right: 27.8rem;
         -webkit-align-self: center;
         align-self: center;
         font-size: 2em; }
-      .page section.main header.fixed div.wrapper svg {
+      .page main header.fixed div.wrapper svg {
         right: 22.5rem; }
-  .page section.main section.content {
+  .page main section.content {
     margin-left: 20rem;
     padding: 2.5rem; }
-    .page section.main section.content p {
+    .page main section.content p {
       font-size: 1.1em;
       line-height: 1.5em;
       font-weight: 400;
