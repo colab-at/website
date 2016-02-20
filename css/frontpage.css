@@ -79,12 +79,23 @@ html {
 
 body {
   position: relative;
-  height: 100%; }
+  height: 100%;
+  background-color: #0099ff;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eeeeee), color-stop(100%, #eeeeee));
+  background-image: -moz-linear-gradient(left, #eeeeee, #eeeeee);
+  background-image: -webkit-linear-gradient(left, #eeeeee, #eeeeee);
+  background-image: linear-gradient(to right, #eeeeee, #eeeeee);
+  background-position: 0 100vh;
+  background-size: 200%;
+  background-repeat: no-repeat; }
 
 div.wrap, .wrap {
   overflow: hidden;
   *zoom: 1;
-  width: 100%; }
+  width: 60rem;
+  margin: 0 auto; }
 
 strong {
   font-weight: 700; }
@@ -139,13 +150,6 @@ button {
     background-color: #fff !important;
     color: #0099ff !important; }
 
-.grey-light {
-  background-color: #eee !important;
-  color: inherit !important; }
-  .grey-light:hover {
-    background-color: #fff !important;
-    color: #0099ff !important; }
-
 .white {
   background-color: #fff !important;
   color: #0099FF !important; }
@@ -161,6 +165,7 @@ header.main-header {
   header.main-header h1.logo {
     float: left; }
     header.main-header h1.logo a {
+      display: block;
       width: 10rem;
       line-height: 10rem; }
       header.main-header h1.logo a img {
@@ -169,7 +174,7 @@ header.main-header {
 
 button.activate-menu {
   float: right;
-  margin: 4.6rem 2.5rem;
+  margin: 3.6rem 2.5rem;
   background-color: #0099ff;
   width: 3rem;
   height: 3rem;
@@ -186,12 +191,12 @@ button.activate-menu {
       color: #0099ff; }
 
 nav.main-nav {
-  position: absolute;
+  position: fixed;
   z-index: 777;
   right: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   opacity: 0;
   -moz-transition: opacity 0.2s;
@@ -235,180 +240,135 @@ section.banner {
   margin-top: -10rem;
   background-color: #0099ff; }
 
-.home {
-  background-color: #eee; }
-@-moz-keyframes brighter {
-  0% {
-    filter: brightness(1.2); }
-  100% {
-    filter: brightness(1); } }
-@-webkit-keyframes brighter {
-  0% {
-    -webkit-filter: brightness(1.2);
-    filter: brightness(1.2); }
-  100% {
-    -webkit-filter: brightness(1);
-    filter: brightness(1); } }
-@keyframes brighter {
-  0% {
-    -webkit-filter: brightness(1.2);
-    filter: brightness(1.2); }
-  100% {
-    -webkit-filter: brightness(1);
-    filter: brightness(1); } }
-  .home div.wrap, .home .wrap {
-    width: 60rem;
-    margin: 0 auto; }
-  .home header.main-header h1.logo {
-    margin: 1rem 0; }
-  .home nav a.logo {
-    margin-top: 1rem; }
-  .home section.banner {
-    height: 100vh;
-    min-height: 768px;
-    margin-top: -10rem;
-    /*
-    		h2.tagline {
-    			font-size: 3em;
-    			color: $blue-light;
-    			text-align: center;
-    			background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
-    			background-size: 1.8em;
-    			padding-bottom: 2.2em;
-    			
-    			@include viewport-unit(margin-top, 25vh);
-    
-    			strong {
-    				display: block;
-    				color: #fff;
-    			}
-    		}
-    */ }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-      .home section.banner {
-        height: 1024px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-      .home section.banner {
-        height: 768px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-      .home section.banner {
-        height: 480px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-      .home section.banner {
-        height: 320px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-      .home section.banner {
-        height: 568px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-      .home section.banner {
-        height: 320px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
-      .home section.banner {
-        height: 667px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
-      .home section.banner {
-        height: 375px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
-      .home section.banner {
-        height: 736px; } }
-    @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
-      .home section.banner {
-        height: 414px; } }
-    .home section.banner h2.tagline {
-      font-size: 2em;
-      font-weight: 300;
-      color: #fff;
-      line-height: 1.2em;
-      margin-top: 5em; }
-      .home section.banner h2.tagline strong {
-        font-weight: 600; }
-  .home section.matrix {
-    position: relative;
-    z-index: 999;
-    margin-top: -20rem; }
-    .home section.matrix article {
-      position: relative;
-      float: left;
-      height: 0;
-      font-size: 1.1em;
-      background-color: #ccc;
-      color: #333;
-      -moz-transition: background-color 0.2s, color 0.2s;
-      -o-transition: background-color 0.2s, color 0.2s;
-      -webkit-transition: background-color 0.2s, color 0.2s;
-      transition: background-color 0.2s, color 0.2s;
-      overflow: hidden;
-      width: 20rem;
-      padding-bottom: 20rem; }
-      .home section.matrix article.col2 {
-        width: 20rem; }
-      .home section.matrix article.col4 {
-        width: 40rem; }
-      .home section.matrix article.col6 {
-        width: 60rem; }
-      .home section.matrix article.row2 {
-        padding-bottom: 20rem; }
-      .home section.matrix article.row4 {
-        padding-bottom: 40rem; }
-      .home section.matrix article.row6 {
-        padding-bottom: 60rem; }
-      .home section.matrix article svg {
-        height: 10rem;
-        width: 10rem;
-        padding: 5rem;
-        float: left; }
-      .home section.matrix article header {
-        padding: 2.5rem; }
-        .home section.matrix article header h3 {
-          font-size: 2em;
-          font-weight: 600;
-          padding-bottom: 0.5em; }
-        .home section.matrix article header p {
-          line-height: 1.2em; }
-      .home section.matrix article > a {
-        position: absolute;
-        left: 1em;
-        top: 1em;
-        color: transparent; }
-      .home section.matrix article:hover {
-        background-color: #fff;
-        color: #0099ff;
-        cursor: pointer; }
-        .home section.matrix article:hover a {
-          opacity: 1; }
-  @media screen and (min-width: 90rem) {
-    .home section.banner h2.tagline {
-      /*
-      @include viewport-unit(margin-top, 20vh);
-      font-size: 4em;
-      */ }
-    .home div.wrap, .home .wrap {
-      width: 80rem; } }
-  @media screen and (max-width: 62.5rem) {
-    .home div.wrap, .home .wrap {
-      width: 100%; }
-    .home header.main-header h1.logo {
-      margin: 1rem 2.5rem; }
-    .home nav.main-nav a.logo, .home nav.main-nav ul.menu {
-      margin-left: 2.5rem; }
+@media screen and (min-width: 90rem) {
+  div.wrap, .wrap {
+    width: 80rem; } }
+@media screen and (max-width: 62.5rem) {
+  div.wrap, .wrap {
+    width: 100%; }
+
+  header.main-header h1.logo {
+    margin: 0 2.5rem; }
+
+  nav.main-nav a.logo, nav.main-nav ul.menu {
+    margin-left: 2.5rem; } }
+.home section.banner {
+  height: 100vh;
+  min-height: 768px;
+  margin-top: -10rem; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
     .home section.banner {
-      padding: 0 2.5rem; }
+      height: 1024px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    .home section.banner {
+      height: 768px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    .home section.banner {
+      height: 480px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    .home section.banner {
+      height: 320px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    .home section.banner {
+      height: 568px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    .home section.banner {
+      height: 320px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+    .home section.banner {
+      height: 667px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+    .home section.banner {
+      height: 375px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+    .home section.banner {
+      height: 736px; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+    .home section.banner {
+      height: 414px; } }
+  .home section.banner h2.tagline {
+    font-size: 2em;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.2em;
+    margin-top: 5em; }
+    .home section.banner h2.tagline strong {
+      font-weight: 600; }
+.home section.matrix {
+  position: relative;
+  z-index: 999;
+  margin-top: -20rem; }
+  .home section.matrix article {
+    position: relative;
+    float: left;
+    height: 0;
+    font-size: 1.1em;
+    background-color: #ccc;
+    color: #333;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    overflow: hidden;
+    width: 20rem;
+    padding-bottom: 20rem; }
     .home section.matrix article.col2 {
-      width: 33.333%; }
+      width: 20rem; }
     .home section.matrix article.col4 {
-      width: 66.666%; }
+      width: 40rem; }
     .home section.matrix article.col6 {
-      width: 99.999%; }
-    .home section.matrix article header h3 {
-      font-size: 3.5vw; } }
-  @media screen and (max-width: 50rem) {
-    .home section.banner h2.tagline br {
-      display: none; }
-    .home section.matrix article.col2 {
-      width: 100%; }
-    .home section.matrix article.col4 {
-      width: 100%; }
-    .home section.matrix article.col6 {
-      width: 100%; }
-    .home section.matrix article header h3 {
-      font-size: 2em; } }
+      width: 60rem; }
+    .home section.matrix article.row2 {
+      padding-bottom: 20rem; }
+    .home section.matrix article.row4 {
+      padding-bottom: 40rem; }
+    .home section.matrix article.row6 {
+      padding-bottom: 60rem; }
+    .home section.matrix article svg {
+      height: 10rem;
+      width: 10rem;
+      padding: 5rem;
+      float: left; }
+    .home section.matrix article header {
+      padding: 2.5rem; }
+      .home section.matrix article header h3 {
+        font-size: 2em;
+        font-weight: 600;
+        padding-bottom: 0.5em; }
+      .home section.matrix article header p {
+        line-height: 1.2em; }
+    .home section.matrix article > a {
+      position: absolute;
+      left: 1em;
+      top: 1em;
+      color: transparent; }
+    .home section.matrix article:hover {
+      background-color: #fff;
+      color: #0099ff;
+      cursor: pointer; }
+      .home section.matrix article:hover a {
+        opacity: 1; }
+@media screen and (min-width: 90rem) {
+  .home section.banner h2.tagline {
+    /*
+    @include viewport-unit(margin-top, 20vh);
+    font-size: 4em;
+    */ } }
+@media screen and (max-width: 62.5rem) {
+  .home section.banner h2 {
+    padding: 0 2.5rem; }
+  .home section.matrix article.col2 {
+    width: 33.333%; }
+  .home section.matrix article.col4 {
+    width: 66.666%; }
+  .home section.matrix article.col6 {
+    width: 99.999%; }
+  .home section.matrix article header h3 {
+    font-size: 3.5vw; } }
+@media screen and (max-width: 50rem) {
+  .home section.banner h2.tagline br {
+    display: none; }
+  .home section.matrix article.col2, .home section.matrix article.col4, .home section.matrix article.col6 {
+    width: 100%; }
+  .home section.matrix article header h3 {
+    font-size: 2em; } }

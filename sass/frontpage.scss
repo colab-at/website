@@ -3,35 +3,10 @@
 
 .home {
 
-	//animations
-	@include keyframes (brighter) {
-	    0% { @include filter(brightness(1.2)); }
-	    100% { @include filter(brightness(1)); }
-	}
-
-	//
-	background-color: $grey-light;
-
-	//
-	div.wrap, .wrap {
-		width: $mid;
-		margin: 0 auto;
-	}
-
-	//
 	header.main-header {
 
-		h1.logo {
-			margin: 1rem 0;
-		}
-
-	}//.main-header
-
-	nav a.logo {
-		margin-top: 1rem;
 	}
 
-	//
 	section.banner {
 
 		@include viewport-unit(height, 100vh);
@@ -50,24 +25,6 @@
 			}
 
 		}
-		
-/*
-		h2.tagline {
-			font-size: 3em;
-			color: $blue-light;
-			text-align: center;
-			background: transparent url('../img/logo_shield_blue_light.svg') center bottom no-repeat;
-			background-size: 1.8em;
-			padding-bottom: 2.2em;
-			
-			@include viewport-unit(margin-top, 25vh);
-
-			strong {
-				display: block;
-				color: #fff;
-			}
-		}
-*/
 
 	}//.banner
 
@@ -133,7 +90,7 @@
 				padding: $padding-normal;
 
 				h3 {
-					font-size: 2em;
+					font-size: $font-bigger;
 					font-weight: $medium;
 					padding-bottom: 0.5em;
 					//word-wrap: break-word;
@@ -173,7 +130,7 @@
 
 	// RESPONSIVE
 
-	// Wide 1280px + 160px
+	// Larger then 1280px + 160px
 	@media screen and (min-width: $wide + $col) {
 
 		header.main-header {
@@ -190,34 +147,16 @@
 			}
 		}
 
-		div.wrap, .wrap {
-			width: $wide;
-		}
-
 
 	}//@media $wide
 
-	// Mid 960px + 40px
+	// Smaller then 960px + 40px
 	@media screen and (max-width: $mid + $padding-normal) {
 
-		div.wrap, .wrap {
-			width: 100%;
-		}
-
-		header.main-header {
-			h1.logo {
-				margin: 1rem $padding-normal;
-			}
-		}
-
-		nav.main-nav {
-			a.logo, ul.menu {
-				margin-left: $padding-normal;
-			}
-		}
-
 		section.banner {
-			padding: 0 $padding-normal;
+			h2 {
+				padding: 0 $padding-normal;
+			}
 		}
 
 		section.matrix {
@@ -248,10 +187,11 @@
 
 	}//@media $mid
 
-	// Small 800px
+	// Smaller then 800px
 	@media screen and (max-width: $small ) {
 
 		section.banner {
+
 			h2.tagline {
 				br {
 					display: none;
@@ -262,19 +202,11 @@
 		section.matrix {
 
 			article {
-				//var
-		  		$col2: 100%;
-		  		$col4: 100%;
-		  		$col6: 100%;
 
-				&.col2 {
-					width: $col2;
-				}
-				&.col4 {
-					width: $col4;
-				}
+				&.col2,
+				&.col4 ,
 				&.col6 {
-					width: $col6;
+					width: 100%;
 				}
 
 				header h3 {

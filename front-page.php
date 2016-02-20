@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-		<section class="banner" role="banner">
-			<div class="wrap">
-				<h2 class="tagline">A collaborative effort to make it possible <br>for <strong>anyone</strong> to design, build and bring <br>their ideas into reality.</h2>
-			</div>
+		<section class="banner wrap" role="banner">
+
+			<h2 class="tagline">A collaborative effort to make it possible <br>for <strong>anyone</strong> to design, build and bring <br>their ideas into reality.</h2>
+
 		</section>
 
 		<section class="matrix wrap">

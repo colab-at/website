@@ -43,7 +43,8 @@ $colab-blue: 	#336699;
 $blue:		 	#0099ff;
 $blue-light: 	#00ffff;
 $yellow-light: 	#ffff00;
-$grey-light: 	#eee;
+$grey-lighter: 	#e6e6e6;
+$grey-lightest: #eee;
 $white: 		#fff;
 
 
@@ -99,10 +100,6 @@ $tags: (
 	),
 	yellow-light: (
 		background-color: $yellow-light,
-		color: inherit
-	),
-	grey-light: (
-		background-color: $grey-light,
 		color: inherit
 	),
 	"white": (

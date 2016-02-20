@@ -19,11 +19,19 @@ html {
 body {
 	position: relative;
 	height: 100%;
+
+	background-color: $blue;
+	@include background-image(linear-gradient(to right, $grey-lightest, $grey-lightest ));
+	background-position: 0 100vh;
+	background-size: 200%;
+	background-repeat: no-repeat;
+	//@include background-image(linear-gradient(135deg, $colab-blue, $blue-light ));
 }
 
 div.wrap, .wrap {
 	@include clearfix;
-	width: 100%;
+	width: $mid;
+	margin: 0 auto;
 }
 
 strong {
@@ -79,6 +87,7 @@ header.main-header {
 		float: left;
 
 		a {
+			display: block;
 			width: $col;
 			line-height: $col;
 
@@ -96,7 +105,7 @@ header.main-header {
 
 button.activate-menu {
 	float: right;
-	margin: 4.6rem $padding-normal;
+	margin: 3.6rem $padding-normal;
 	background-color: $blue;
 	width: 3rem;
 	height: 3rem;
@@ -118,12 +127,12 @@ button.activate-menu {
 }
 
 nav.main-nav {
-	position: absolute;
+	position: fixed;
 	z-index: $z-high;
 	right: 0;
 	top: 0;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	background-color: $white;
 
 	opacity: 0;
@@ -190,13 +199,49 @@ section.banner {
 	@include clearfix;
 	min-height: $banner-height;
 	margin-top: - $header-height;
-
 	background-color: $blue;
-	//@include background-image(linear-gradient(135deg, $colab-blue, $blue-light ));
 
 }//.banner
 
 
+
+// RESPONSIVE
+
+// Larger than 1280px + 160px
+@media screen and (min-width: $wide + $col) {
+
+	div.wrap, .wrap {
+		width: $wide;
+	}
+
+}//@media $wide
+
+// Smaller then 960px + 40px
+@media screen and (max-width: $mid + $padding-normal) {
+
+	div.wrap, .wrap {
+		width: 100%;
+	}
+
+	header.main-header {
+		h1.logo {
+			margin: 0 $padding-normal;
+		}
+	}
+
+	nav.main-nav {
+		a.logo, ul.menu {
+			margin-left: $padding-normal;
+		}
+	}
+
+}//@media $mid
+
+// Smaller then 800px
+@media screen and (max-width: $small ) {
+
+
+}//@media $small
 
 
 

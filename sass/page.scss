@@ -1,146 +1,110 @@
 // page.scss
-@import "compass/layout/stretching";
 @import "main";
+@import "compass/layout/stretching";
+
 
 .page {
 
-	.main-header, .banner {
-		float: left;
-		width: 100%;
-		//margin-left: $sidebar-width;
+	background-position: 0 $col;
 
-		h1.logo {
-			margin-left: $sidebar-width + $padding-normal;
+	header.main-header {
+		//margin-bottom: $col;
+	}
+
+	article.document {
+
+		font-size: $font-normal;
+		@include background-image(linear-gradient(to right, $colab-blue, $colab-blue ));
+		background-position: 0 0;
+		background-size: 100% ($col * 4);
+		background-repeat: no-repeat;
+
+		header {
+			height: $col * 2;
+			color: $white;
+			@include display-flex;
+
+			svg {
+				height: $col;
+				width: $col;
+				padding: $col / 2;
+				float: left;
+				color: $white;
+			}
+
+			h2 {
+				padding: $padding-normal $padding-normal $padding-normal 0;
+				font-size: $font-biggest;
+				line-height: 1.2em;
+				@include align-self(center);
+			}
 		}
 
-		button.activate-menu {
-			margin-top: 3.6rem;
+		section.page {
+
+			position: relative;
+
+			aside.sidebar {
+				position: absolute;
+				left: 0;
+				top: 0;
+				float: left;
+				width: $col * 2;
+				height: 100%;
+				background-color: $grey-lighter;
+				margin-right: $padding-normal;
+			}
+
+			section.content {
+				background-color: $white;
+				padding: $padding-normal;
+				margin-left: $col * 2;
+
+				h3 {
+					font-size: $font-bigger;
+					color: $blue;
+					padding: 1em 0;
+
+					&:first-of-type {
+						padding-top: 0;
+					}
+				}
+
+				p {
+					line-height: 1.3em;
+					font-weight: $regular;
+					color: #333;
+					padding-bottom: 1em;
+				}
+			}
+
 		}
+
+		
 
 	}
 
-	main{
-
-		float: left;
-		overflow: hidden;
-
-		header {
-			position: relative;
-			margin-left: $sidebar-width;
-			background-color: $yellow-light;
-			height: $col * 2;
-			width: 100%;
-
-			div.wrapper {
-				height: inherit;
-				@include display-flex;
-
-				h2.title {
-					padding: $padding-normal;
-					padding-bottom: $padding-normal + 1rem;
-					margin-right: $sidebar-width;
-	  				@include align-self(flex-end);
-					font-size: $font-biggest;
-					font-weight: $medium;
-				}
-
-			}
-		}
-
-		header.fixed {
-			width: 100% !important;	
-
-			div.wrapper {				
-				position: absolute;
-				bottom: 0;
-				height: $col;
-				width: 100%;
-
-				h2.title {
-					padding: $padding-normal;
-					margin-right: $sidebar-width + $col - 2.2rem;
-					@include align-self(center);
-					font-size: $font-bigger;
-				}
-			}
-		}
 
 
-		//
-		section.content {
+	// RESPONSIVE
 
-			margin-left: $sidebar-width;
-			padding: $padding-normal;
-
-			p {
-				font-size: $font-normal;
-				line-height: 1.5em;
-				font-weight: $regular;
-				color: #333;
-				padding-bottom: 1em;
-			}
-
-		}
+	// Larger than 1280px + 160px 
+	@media screen and (min-width: $wide + $col) {
 
 
-	}//.main
+	}//@media $wide
 
-	aside.sidebar{
-
-		background-color: $grey-light;
-		@include box-sizing; // inside borders
-		@include stretch-y; //stretch to view height
-		position: fixed;
-		z-index: $z-higher;
-		width: $sidebar-width;
-		float: left;
-
-		header {
-			font-size: $font-bigger;
-			font-weight: $medium;
-			background-color: $colab-blue;
-			line-height: $col;
-			text-indent: $padding-normal;
-			color: #fff;
-		}
-
-		ul {
-			padding: $padding-normal;
-
-			li {
-
-				&.parent {
-					font-size: $font-big;
-					font-weight: $medium;
-					padding-bottom: 0.5em;
-				}
-
-				a {
-					display: block;
-					line-height: 1.8em;
-					text-decoration: none;
-					color: #999;
-					font-size: $font-normal;
-					font-weight: $medium;
-
-					&:hover, &:active {
-						color: #000;
-					}
-
-					&.selected {
-						color: $colab-blue;
-						border-left: $colab-blue 0.2em solid;
-						padding-left: 0.5em;
-						margin: 0.3em 0;
-						cursor: default;
-					}
-				}
+	// Smaller then 960px + 40px
+	@media screen and (max-width: $mid + $padding-normal) {
 
 
-			}
-		}
+	}//@media $mid
 
-	}//.sidebar
+	// Smaller then 800px
+	@media screen and (max-width: $small ) {
+
+
+	}//@media $small
 
 
 }//end .page
