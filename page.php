@@ -3,7 +3,7 @@
 		<article class="document">
 
 			<header class="wrap">
-				<svg class="icon-idea"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-idea"></use></svg>
+				<svg class="icon-box-inside"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-box-inside"></use></svg>
 				<h2>Build your ideas on top of Colab</h2>
 			</header>
 

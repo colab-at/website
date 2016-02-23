@@ -283,20 +283,19 @@ section.banner {
         -webkit-align-self: center;
         align-self: center; }
     .page article.document section.page {
-      position: relative; }
+      position: relative;
+      background-color: #fff; }
       .page article.document section.page aside.sidebar {
         position: absolute;
-        left: 0;
-        top: 0;
-        float: left;
-        width: 20rem;
-        height: 100%;
+        top: 2.5rem;
+        left: 2.5rem;
+        padding: 2.5rem;
+        width: 15rem;
         background-color: #e6e6e6;
         margin-right: 2.5rem; }
       .page article.document section.page section.content {
-        background-color: #fff;
         padding: 2.5rem;
-        margin-left: 20rem; }
+        margin-left: 22.5rem; }
         .page article.document section.page section.content h3 {
           font-size: 2em;
           color: #0099ff;

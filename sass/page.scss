@@ -43,22 +43,27 @@
 		section.page {
 
 			position: relative;
+			background-color: $white;
+			
 
 			aside.sidebar {
 				position: absolute;
-				left: 0;
-				top: 0;
-				float: left;
-				width: $col * 2;
-				height: 100%;
+				top: $padding-normal;
+				left: $padding-normal;
+				//bottom: $padding-normal;
+				padding: $padding-normal;
+				width: ($col * 2) - ($padding-normal * 2);
+				//min-height: 500px;
+
 				background-color: $grey-lighter;
 				margin-right: $padding-normal;
+
 			}
 
 			section.content {
-				background-color: $white;
+				
 				padding: $padding-normal;
-				margin-left: $col * 2;
+				margin-left: ($col * 2) + $padding-normal;
 
 				h3 {
 					font-size: $font-bigger;
