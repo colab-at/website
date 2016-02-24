@@ -9,7 +9,7 @@
 
 			<section class="page wrap">
 				<aside class="sidebar">
-					aside
+					Sidebar
 				</aside>
 
 				<section class="content">

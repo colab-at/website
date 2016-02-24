@@ -162,26 +162,74 @@ nav.main-nav {
 		}
 	}
 
-	ul.menu {
+	ol.menu {
 		float: left;
 		width: 100%;
 		margin-top: -2rem;
+		margin-left: 2rem;
 
 		li {
-			padding-bottom: 1em;
+			padding-left: 2em;
 
 			a {
+				display: block;
+				float: left;
+				clear: both;
+				padding: 0 0 1em 1.5em;
+
 				font-size: $font-bigger;
 				text-decoration: none;
 				text-align: center;
 				color: $blue;
+
+				background-color: #fff;
+				background-image: url("../img/bkg_menu_li.svg");
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				background-size: 1em;
 				
-				&:hover {
-					color: $colab-blue;
+			}
+
+			ol {
+				padding-bottom: 1em;
+				overflow: hidden;
+				float: left;
+				clear: both;
+
+				li {
+
+					a {
+						font-size: $font-big;
+
+						&:hover {
+							background-position: 0 -100px;
+						}
+
+						&.active {
+							background-position: 0 -200px;
+							font-weight: $medium;
+						}
+					}
+
+					&:last-child {
+						a {
+							padding-bottom: 0;
+						}						
+					}
 				}
 			}
-		}
-	}
+
+		}//li
+
+		> li {
+			padding-left: 0;
+			> a {
+				padding: 0 0 0.5em 0;
+				background: none;
+			}
+		}	
+
+	}//ol.menu
 
 	&.active {
 

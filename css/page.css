@@ -216,19 +216,46 @@ nav.main-nav {
     background-color: #0099ff; }
     nav.main-nav button.activate-menu:hover svg[class^="icon-"], nav.main-nav button.activate-menu:hover svg[class*=" icon-"] {
       color: #fff; }
-  nav.main-nav ul.menu {
+  nav.main-nav ol.menu {
     float: left;
     width: 100%;
-    margin-top: -2rem; }
-    nav.main-nav ul.menu li {
-      padding-bottom: 1em; }
-      nav.main-nav ul.menu li a {
+    margin-top: -2rem;
+    margin-left: 2rem; }
+    nav.main-nav ol.menu li {
+      padding-left: 2em; }
+      nav.main-nav ol.menu li a {
+        display: block;
+        float: left;
+        clear: both;
+        padding: 0 0 1em 1.5em;
         font-size: 2em;
         text-decoration: none;
         text-align: center;
-        color: #0099ff; }
-        nav.main-nav ul.menu li a:hover {
-          color: #336699; }
+        color: #0099ff;
+        background-color: #fff;
+        background-image: url("../img/bkg_menu_li.svg");
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: 1em; }
+      nav.main-nav ol.menu li ol {
+        padding-bottom: 1em;
+        overflow: hidden;
+        float: left;
+        clear: both; }
+        nav.main-nav ol.menu li ol li a {
+          font-size: 1.5em; }
+          nav.main-nav ol.menu li ol li a:hover {
+            background-position: 0 -100px; }
+          nav.main-nav ol.menu li ol li a.active {
+            background-position: 0 -200px;
+            font-weight: 600; }
+        nav.main-nav ol.menu li ol li:last-child a {
+          padding-bottom: 0; }
+    nav.main-nav ol.menu > li {
+      padding-left: 0; }
+      nav.main-nav ol.menu > li > a {
+        padding: 0 0 0.5em 0;
+        background: none; }
   nav.main-nav.active {
     visibility: visible;
     opacity: 1; }

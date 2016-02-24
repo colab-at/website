@@ -47,18 +47,26 @@
                 <a class="logo" href="<?php bloginfo('url'); ?>">
                     <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
                 </a>                
+                
+                <?php makeMenu( 'Colab' ); ?>
+<!--  
+                <ol class="menu">
 
-                <ul class="menu">
-                    <li>
+                   <li>
                         <a href="<?php bloginfo('url'); ?>/colab/about">About</a>
+                        <ol>
+                            <li><a class="active" href="">What is Colab</a></li>
+                            <li><a href="">Manifesto</a></li>
+                            <li><a href="">FAQ</a></li>
+                        </ol>
                     </li>
                     <li>
                         <a href="<?php bloginfo('url'); ?>/colab/docs">Docs</a>
                     </li>
                     <li>
                         <a href="https://blog.colab.at/latest/">Blog</a>
-                    </li>
-                </ul>
+                    </li> 
+                </ol> -->
 
             </div>
         </nav>
