@@ -7,19 +7,49 @@ body.page {
 
 	background-position: 0 $col;
 
-	header.main-header {
-		//margin-bottom: $col;
-	}
-
 	article.document {
-
+		position: relative;
 		font-size: $font-normal;
 		@include background-image(linear-gradient(to right, $blue-dark, $blue-dark ), linear-gradient(to right, $blue-dark, $blue-dark ));
 		background-position: 0 0, 0 bottom;
 		background-size: 100% ($col * 3), 100% $col;
 		background-repeat: no-repeat;
 
+		&:last-of-type {
+			@include background-image(linear-gradient(to right, $blue-dark, $blue-dark ));
+			background-position: 0 0;
+			background-size: 100% ($col * 3);
+			background-repeat: no-repeat;
+		}
+
+		figure {
+			position: absolute;
+			z-index: $z-lowest;
+			left: 0;
+			right: 0;
+			top: 0;
+			width: 100%;
+			height: $col * 3;
+			overflow: hidden;
+			@include display-flex;
+
+			img {
+				@include align-self(center);
+				width: 100%;
+				min-width: $wide;
+			}
+		}
+
+		&:not(:nth-of-type(1)) {
+			figure {
+				top: -$col;
+				height: $col * 4;
+			}
+		}
+
 		header {
+			position: relative;
+			z-index: $z-high;
 			height: $col * 2;
 			color: $white;
 			@include display-flex;
@@ -43,6 +73,7 @@ body.page {
 		section.page {
 
 			position: relative;
+			z-index: $z-low;
 			background-color: $white;
 			
 
@@ -51,14 +82,34 @@ body.page {
 				top: 0;
 				left: 0;
 				bottom: 0;
-				padding: $padding-normal;
-				width: ($col * 2) - ($padding-normal * 2);
-				//min-height: 500px;
+				width: ($col * 2);
+				@include transition(width 0.1s ease-in);
+				min-height: $col;
 
 				background-color: $grey-lighter;
 				margin-right: $padding-normal;
+				overflow: hidden;
 
+				button.open-sidebar {
+					position: absolute;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					width: $padding-normal;
+
+					&:hover {
+						background-color: $grey;
+					}
+
+					display: none;
+				}
+
+				&.open {
+					width: ($col * 2);
+					//@include box-shadow(rgba(0, 0, 0, 0.5) 0 0 20px);
+				}
 			}
+
 
 			section.content {
 				
@@ -85,29 +136,71 @@ body.page {
 
 		}
 
-		
-
 	}
 
 
 
 	// RESPONSIVE
 
-	// Larger than 1280px + 160px 
-	@media screen and (min-width: $wide + $col) {
+	// Smaller than 1280px + 160px
+	@media screen and (max-width: $wide + $padding-normal) {
+
+		article.document {
+			figure {
+				img {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+			section.page {
+
+				aside.sidebar {
+
+					width: $padding-normal;
+
+					button.open-sidebar {
+						display: block;
+					}
+				}
+
+				section.content {
+					
+					margin-left: $padding-normal;
+				}
+			}
+		}
 
 
 	}//@media $wide
 
 	// Smaller then 960px + 40px
 	@media screen and (max-width: $mid + $padding-normal) {
-
+		article.document {
+			figure {
+				img {
+					min-width: auto;
+				}
+			}
+			&:not(:nth-of-type(1)) {
+				figure {
+					top: 0;
+				}
+			}
+		}
 
 	}//@media $mid
 
 	// Smaller then 800px
 	@media screen and (max-width: $small ) {
-
+		article.document {
+			figure {
+				img {
+					width: auto;
+					height: 100%;
+				}
+			}
+		}
 
 	}//@media $small
 

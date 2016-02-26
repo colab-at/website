@@ -120,6 +120,7 @@ function getPostsByCat( $category ) {
 		$posts[$post->ID]['title'] = $post->post_title;
 		$posts[$post->ID]['name'] = $post->post_name;
 		$posts[$post->ID]['url'] = get_permalink( $post->ID );
+		$posts[$post->ID]['image'] = getFeaturedImage( get_post_thumbnail_id( $post->ID ) );
 
 	endforeach;
 	

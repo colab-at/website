@@ -94,7 +94,7 @@ body {
 div.wrap, .wrap {
   overflow: hidden;
   *zoom: 1;
-  width: 60rem;
+  width: 80rem;
   margin: 0 auto; }
 
 strong {
@@ -172,7 +172,7 @@ header.main-header {
         width: inherit;
         vertical-align: middle; }
 
-button.activate-menu {
+button.open-menu {
   float: right;
   margin: 3.6rem 2.5rem;
   background-color: #0099ff;
@@ -181,13 +181,13 @@ button.activate-menu {
   -moz-border-radius: 3rem;
   -webkit-border-radius: 3rem;
   border-radius: 3rem; }
-  button.activate-menu svg[class^="icon-"], button.activate-menu svg[class*=" icon-"] {
+  button.open-menu svg[class^="icon-"], button.open-menu svg[class*=" icon-"] {
     color: #fff;
     width: 2.5em;
     height: 2.5em; }
-  button.activate-menu:hover {
+  button.open-menu:hover {
     background-color: #fff; }
-    button.activate-menu:hover svg[class^="icon-"], button.activate-menu:hover svg[class*=" icon-"] {
+    button.open-menu:hover svg[class^="icon-"], button.open-menu:hover svg[class*=" icon-"] {
       color: #0099ff; }
 
 nav.main-nav {
@@ -212,9 +212,9 @@ nav.main-nav {
     nav.main-nav a.logo img {
       width: inherit;
       vertical-align: middle; }
-  nav.main-nav button.activate-menu:hover {
+  nav.main-nav button.open-menu:hover {
     background-color: #0099ff; }
-    nav.main-nav button.activate-menu:hover svg[class^="icon-"], nav.main-nav button.activate-menu:hover svg[class*=" icon-"] {
+    nav.main-nav button.open-menu:hover svg[class^="icon-"], nav.main-nav button.open-menu:hover svg[class*=" icon-"] {
       color: #fff; }
   nav.main-nav ol.menu {
     float: left;
@@ -267,9 +267,12 @@ section.banner {
   margin-top: -10rem;
   background-color: #0099ff; }
 
-@media screen and (min-width: 90rem) {
+footer.main-footer {
+  height: 500px; }
+
+@media screen and (max-width: 82.5rem) {
   div.wrap, .wrap {
-    width: 80rem; } }
+    width: 60rem; } }
 @media screen and (max-width: 62.5rem) {
   div.wrap, .wrap {
     width: 100%; }

@@ -30,7 +30,7 @@ body {
 
 div.wrap, .wrap {
 	@include clearfix;
-	width: $mid;
+	width: $wide;
 	margin: 0 auto;
 }
 
@@ -103,7 +103,7 @@ header.main-header {
 
 // Main navigation
 
-button.activate-menu {
+button.open-menu {
 	float: right;
 	margin: 3.6rem $padding-normal;
 	background-color: $blue;
@@ -152,7 +152,7 @@ nav.main-nav {
 	}
 
 
-	button.activate-menu {
+	button.open-menu {
 
 		&:hover {
 			background-color: $blue;
@@ -256,14 +256,18 @@ section.banner {
 }//.banner
 
 
+//
+footer.main-footer {
+	height: 500px;
+}
 
 // RESPONSIVE
 
-// Larger than 1280px + 160px
-@media screen and (min-width: $wide + $col) {
+// Smaller than 1280px + 160px
+@media screen and (max-width: $wide + $padding-normal) {
 
 	div.wrap, .wrap {
-		width: $wide;
+		width: $mid;
 	}
 
 }//@media $wide

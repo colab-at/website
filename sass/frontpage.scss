@@ -130,22 +130,8 @@ body.home {
 
 	// RESPONSIVE
 
-	// Larger then 1280px + 160px
-	@media screen and (min-width: $wide + $col) {
-
-		header.main-header {
-
-		}
-
-		section.banner {
-			h2.tagline {
-
-				/*
-				@include viewport-unit(margin-top, 20vh);
-				font-size: 4em;
-				*/
-			}
-		}
+	// Smaller than 1280px + 160px
+	@media screen and (max-width: $wide + $padding-normal) {
 
 
 	}//@media $wide
