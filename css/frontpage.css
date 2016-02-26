@@ -88,7 +88,7 @@ body {
   background-image: -webkit-linear-gradient(left, #eeeeee, #eeeeee);
   background-image: linear-gradient(to right, #eeeeee, #eeeeee);
   background-position: 0 100vh;
-  background-size: 200%;
+  background-size: 10000%;
   background-repeat: no-repeat; }
 
 div.wrap, .wrap {
@@ -192,7 +192,7 @@ button.activate-menu {
 
 nav.main-nav {
   position: fixed;
-  z-index: 777;
+  z-index: 999;
   right: 0;
   top: 0;
   width: 100%;
@@ -278,54 +278,56 @@ section.banner {
     margin: 0 2.5rem; }
 
   nav.main-nav a.logo, nav.main-nav ul.menu {
-    margin-left: 2.5rem; } }
-.home section.banner {
+    margin-left: 2.5rem; }
+  nav.main-nav ol.menu {
+    margin-left: 4.5rem; } }
+body.home section.banner {
   height: 100vh;
   min-height: 768px;
   margin-top: -10rem; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    .home section.banner {
+    body.home section.banner {
       height: 1024px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    .home section.banner {
+    body.home section.banner {
       height: 768px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    .home section.banner {
+    body.home section.banner {
       height: 480px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    .home section.banner {
+    body.home section.banner {
       height: 320px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    .home section.banner {
+    body.home section.banner {
       height: 568px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    .home section.banner {
+    body.home section.banner {
       height: 320px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
-    .home section.banner {
+    body.home section.banner {
       height: 667px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
-    .home section.banner {
+    body.home section.banner {
       height: 375px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
-    .home section.banner {
+    body.home section.banner {
       height: 736px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
-    .home section.banner {
+    body.home section.banner {
       height: 414px; } }
-  .home section.banner h2.tagline {
+  body.home section.banner h2.tagline {
     font-size: 2em;
     font-weight: 300;
     color: #fff;
     line-height: 1.2em;
     margin-top: 5em; }
-    .home section.banner h2.tagline strong {
+    body.home section.banner h2.tagline strong {
       font-weight: 600; }
-.home section.matrix {
+body.home section.matrix {
   position: relative;
-  z-index: 999;
+  z-index: 777;
   margin-top: -20rem; }
-  .home section.matrix article {
+  body.home section.matrix article {
     position: relative;
     float: left;
     height: 0;
@@ -339,63 +341,63 @@ section.banner {
     overflow: hidden;
     width: 20rem;
     padding-bottom: 20rem; }
-    .home section.matrix article.col2 {
+    body.home section.matrix article.col2 {
       width: 20rem; }
-    .home section.matrix article.col4 {
+    body.home section.matrix article.col4 {
       width: 40rem; }
-    .home section.matrix article.col6 {
+    body.home section.matrix article.col6 {
       width: 60rem; }
-    .home section.matrix article.row2 {
+    body.home section.matrix article.row2 {
       padding-bottom: 20rem; }
-    .home section.matrix article.row4 {
+    body.home section.matrix article.row4 {
       padding-bottom: 40rem; }
-    .home section.matrix article.row6 {
+    body.home section.matrix article.row6 {
       padding-bottom: 60rem; }
-    .home section.matrix article svg {
+    body.home section.matrix article svg {
       height: 10rem;
       width: 10rem;
       padding: 5rem;
       float: left; }
-    .home section.matrix article header {
+    body.home section.matrix article header {
       padding: 2.5rem; }
-      .home section.matrix article header h3 {
+      body.home section.matrix article header h3 {
         font-size: 2em;
         font-weight: 600;
         padding-bottom: 0.5em; }
-      .home section.matrix article header p {
+      body.home section.matrix article header p {
         line-height: 1.2em; }
-    .home section.matrix article > a {
+    body.home section.matrix article > a {
       position: absolute;
       left: 1em;
       top: 1em;
       color: transparent; }
-    .home section.matrix article:hover {
+    body.home section.matrix article:hover {
       background-color: #fff;
       color: #0099ff;
       cursor: pointer; }
-      .home section.matrix article:hover a {
+      body.home section.matrix article:hover a {
         opacity: 1; }
 @media screen and (min-width: 90rem) {
-  .home section.banner h2.tagline {
+  body.home section.banner h2.tagline {
     /*
     @include viewport-unit(margin-top, 20vh);
     font-size: 4em;
     */ } }
 @media screen and (max-width: 62.5rem) {
-  .home section.banner h2 {
+  body.home section.banner h2 {
     padding: 0 2.5rem; }
-  .home section.matrix article.col2 {
+  body.home section.matrix article.col2 {
     width: 33.333%; }
-  .home section.matrix article.col4 {
+  body.home section.matrix article.col4 {
     width: 66.666%; }
-  .home section.matrix article.col6 {
+  body.home section.matrix article.col6 {
     width: 99.999%; }
-  .home section.matrix article header h3 {
+  body.home section.matrix article header h3 {
     font-size: 3.5vw; } }
 @media screen and (max-width: 50rem) {
-  .home section.banner h2.tagline br {
+  body.home section.banner h2.tagline br {
     display: none; }
-  .home section.matrix article.col2, .home section.matrix article.col4, .home section.matrix article.col6 {
+  body.home section.matrix article.col2, body.home section.matrix article.col4, body.home section.matrix article.col6 {
     width: 100%; }
-  .home section.matrix article header h3 {
+  body.home section.matrix article header h3 {
     font-size: 2em; } }

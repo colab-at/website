@@ -1,14 +1,45 @@
 // Jquery
 $(function(){
 
-	// All website
+	/*
+	// ALL WEBSITE
+	*/
 
 	$( "button.activate-menu" ).on( "click", function() {
 		$("nav.main-nav").toggleClass("active");
 	});
 
 
-	// if is .home 
+	// Get current url and mark active item in menu
+	var a_active;
+	function activeMenu() {
+		var currentURL = document.URL;
+		currentURL = currentURL.split("#").pop();
+		$( "ol.menu ol li a" ).each(function(i, obj) {
+			var a_url = $(this).attr("href");
+			a_url = a_url.split("#").pop();
+		    if ( currentURL === a_url ) {
+		    	a_active = $(this);
+		    	a_active.addClass("active");
+		    }
+		});
+	}
+	activeMenu();
+
+	$( "ol.menu ol li a" ).on( "click", function() {
+		a_active.removeClass("active");
+		a_active = $(this);
+		a_active.addClass("active");
+		
+		$("nav.main-nav").toggleClass("active");
+	});
+
+
+
+	/* 
+	// HOME
+	*/
+
 	if($("body").hasClass("home")){
 
 		// Passes href value from child a to parent  
@@ -21,7 +52,12 @@ $(function(){
 
 	}//is home
 
-	// if is .page
+
+
+	/*
+	// PAGE
+	*/
+
 	if($("body").hasClass("page")){
 
 		// ScrollMagic

@@ -48,25 +48,53 @@
                     <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
                 </a>                
                 
-                <?php makeMenu( 'Colab' ); ?>
-<!--  
+                <?php
+                // Main menu
+                $pages = getPagePosts('Colab');
+                if ( !empty($pages) ) :
+                    $path = 'http://' . $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                    $a_active = false;
+                ?>
                 <ol class="menu">
-
-                   <li>
-                        <a href="<?php bloginfo('url'); ?>/colab/about">About</a>
-                        <ol>
-                            <li><a class="active" href="">What is Colab</a></li>
-                            <li><a href="">Manifesto</a></li>
-                            <li><a href="">FAQ</a></li>
-                        </ol>
-                    </li>
+                    <?php 
+                    foreach ( $pages as $id => $page ) : 
+                        $page_title = $page['title'];
+                        $page_name = $page['name'];
+                        $page_url = $page['url'];
+                        
+                        if ($path === $page_url) :
+                            $a_active = true;
+                        endif;
+                    ?>
+                
                     <li>
-                        <a href="<?php bloginfo('url'); ?>/colab/docs">Docs</a>
-                    </li>
+                        <a <?php echo checkActive($a_active); $a_active = false; ?> href="<?php echo $page_url; ?>"><?php echo $page_title; ?></a>
+                        
+                        <?php
+                        $posts = $page['posts'];
+                        if ( !empty($posts) ) :
+                        ?>
+                        <ol>
+                            <?php 
+                            foreach ( $posts as $id => $post ) :
+                                $post_tile = $post['title'];
+                                $post_name = $post['name'];
+                                $post_url = $page_url . '#' . $post_name;
+                            ?>
+                            <li><a href="<?php echo $post_url ?>"><?php echo $post_tile; ?></a></li>
+                            <?php endforeach; ?>
+                        </ol>
+                        <?php endif; ?>
+                    </li> 
+
+                    <?php endforeach; ?>
+
                     <li>
                         <a href="https://blog.colab.at/latest/">Blog</a>
                     </li> 
-                </ol> -->
+                </ol>
+
+                <?php endif; ?>
 
             </div>
         </nav>

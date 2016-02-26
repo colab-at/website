@@ -1,10 +1,18 @@
 <?php get_header(); ?>
 		
-		<article class="document">
+		<?php
+			$posts = getPostsByCat( $pagename );
+			foreach ( $posts as $post ) :
+				$title = $post['title'];
+				$name = $post['name'];
+
+		?>
+
+		<article id="<?php print $name ?>" class="document post">
 
 			<header class="wrap">
 				<svg class="icon-box-inside"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-box-inside"></use></svg>
-				<h2>Build your ideas on top of Colab</h2>
+				<h2><?php print $title ?></h2>
 			</header>
 
 			<section class="page wrap">
@@ -23,6 +31,8 @@
 			</section>
 
 		</article>
+
+		<?php endforeach; ?>
 
 
 <?php get_footer(); ?>

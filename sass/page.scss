@@ -3,7 +3,7 @@
 @import "compass/layout/stretching";
 
 
-.page {
+body.page {
 
 	background-position: 0 $col;
 
@@ -14,9 +14,9 @@
 	article.document {
 
 		font-size: $font-normal;
-		@include background-image(linear-gradient(to right, $colab-blue, $colab-blue ));
-		background-position: 0 0;
-		background-size: 100% ($col * 4);
+		@include background-image(linear-gradient(to right, $blue-dark, $blue-dark ), linear-gradient(to right, $blue-dark, $blue-dark ));
+		background-position: 0 0, 0 bottom;
+		background-size: 100% ($col * 3), 100% $col;
 		background-repeat: no-repeat;
 
 		header {
@@ -48,9 +48,9 @@
 
 			aside.sidebar {
 				position: absolute;
-				top: $padding-normal;
-				left: $padding-normal;
-				//bottom: $padding-normal;
+				top: 0;
+				left: 0;
+				bottom: 0;
 				padding: $padding-normal;
 				width: ($col * 2) - ($padding-normal * 2);
 				//min-height: 500px;
@@ -63,7 +63,7 @@
 			section.content {
 				
 				padding: $padding-normal;
-				margin-left: ($col * 2) + $padding-normal;
+				margin-left: ($col * 2);
 
 				h3 {
 					font-size: $font-bigger;

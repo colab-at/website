@@ -39,7 +39,7 @@ $font-normal:	1.1em;
 
 // Colors
 $colab-red:		#ff6633;
-$colab-blue: 	#336699;
+$blue-dark: 	#336699;
 $blue:		 	#0099ff;
 $blue-light: 	#00ffff;
 $yellow-light: 	#ffff00;
@@ -87,7 +87,7 @@ $tags: (
 		color: #fff
 	),
 	about: (
-		background-color: $colab-blue,
+		background-color: $blue-dark,
 		color: #fff
 	),
 	"blue": (

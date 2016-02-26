@@ -1,7 +1,7 @@
 // frontpage.scss
 @import "main";
 
-.home {
+body.home {
 
 	header.main-header {
 
@@ -32,7 +32,7 @@
 	//
 	section.matrix {
 		position: relative;
-		z-index: $z-highest;
+		z-index: $z-high;
 		margin-top: - $col * 2;
 
 		article {

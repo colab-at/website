@@ -88,7 +88,7 @@ body {
   background-image: -webkit-linear-gradient(left, #eeeeee, #eeeeee);
   background-image: linear-gradient(to right, #eeeeee, #eeeeee);
   background-position: 0 100vh;
-  background-size: 200%;
+  background-size: 10000%;
   background-repeat: no-repeat; }
 
 div.wrap, .wrap {
@@ -192,7 +192,7 @@ button.activate-menu {
 
 nav.main-nav {
   position: fixed;
-  z-index: 777;
+  z-index: 999;
   right: 0;
   top: 0;
   width: 100%;
@@ -278,4 +278,6 @@ section.banner {
     margin: 0 2.5rem; }
 
   nav.main-nav a.logo, nav.main-nav ul.menu {
-    margin-left: 2.5rem; } }
+    margin-left: 2.5rem; }
+  nav.main-nav ol.menu {
+    margin-left: 4.5rem; } }

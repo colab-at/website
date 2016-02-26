@@ -15,52 +15,120 @@ remove_action(	'wp_head',			'rest_output_link_wp_head', 10 );
 remove_action(	'wp_head',			'wp_oembed_add_discovery_links', 10 );
 remove_action(	'wp_print_styles',	'print_emoji_styles' ); 
 
-//
-function makeMenu( $parent_title ) {
-    $parent = get_page_by_title( $parent_title );
-    if ( !empty($parent) ) :
-        print '<ol class="menu">';
 
-            $parent_id = $parent->ID;
-            $args = array(
-                'parent'      => $parent_id,
-                'post_type'     => 'page',
-                'post_status'   => 'publish'
-            ); 
-            $pages = get_pages($args);
-            //var_dump($pages);
-            foreach ( $pages as $page ) :
+// Get pages by parent
+function getPages( $parent_title ) {
+	$parent = get_page_by_title( $parent_title );						// get info from parent page
+	$parent_id = $parent->ID;											// get parent ID
+	$args = array(
+        'parent'      => $parent_id,
+        'post_type'     => 'page',
+        'post_status'   => 'publish'
+    ); 
+    $pages = get_pages($args);											// get children 
+    $page_list = array();												// create pages list array
+    
+    foreach ( $pages as $page ) :										// for each child
+    	$page_list[ $page->post_title ] = array();						// create new [page] array
+    	$args = array(
+            'post_parent' => $page->ID,
+            'post_type' => 'page',
+        );
+        $children = get_children( $args );								// get grand-children
+        foreach ( $children as $child ) :								// for each grand-child
+        	$page_list[ $page->post_title ][] = $child->post_title ;	// add value to correspondent [parent]
+        endforeach;
 
-                print '<li>';
-                print '<a href="#">' . $page->post_title . '</a>';
+    endforeach;
 
-                    $args = array(
-                        'post_parent' => $page->ID,
-                        'post_type' => 'page',
-                    );
-                    $children = get_children( $args );
-
-                    if ( !empty($children) ) :
-
-                        print '<ol>';
-
-                        foreach ( $children as $child ) :
-                            print '<li><a href="#">' . $child->post_title . '</a></li>';
-                        endforeach;
-
-                        print '</ol>';
-
-                    endif;
-
-                print '</li>';
-
-            endforeach;
-
-        print '</ol>';
-    endif;
+    return $page_list;
 }
 
 //
+
+/*	Get pages from a parent 
+//	and the posts with the category name same as the page title 
+*/
+function getPagePosts( $parent_title ) {
+	$parent = get_page_by_title( $parent_title );				// get info from parent page
+	$parent_id = $parent->ID;									// get parent ID
+	$args_pages = array(
+		'sort_order'	=> 'asc',
+		'sort_column'	=> 'menu_order',
+        'parent'		=> $parent_id,
+        'post_type'		=> 'page',
+        'post_status'	=> 'publish'
+    ); 
+    $pages_array = get_pages($args_pages);						// get children 
+    $list = array();											// create list array
+    
+    foreach ( $pages_array as $page ) :							// for each child
+    	$list[$page->ID]['id'] = $page->ID;
+    	$list[$page->ID]['title'] = $page->post_title;
+    	$list[$page->ID]['name'] = $page->post_name;
+    	$list[$page->ID]['url'] = get_permalink( $page->ID );
+
+    	$args_posts = array(
+			'category_name'		=> $page->post_title,
+			'meta_key'			=> 'menu_order',
+			'orderby'			=> 'meta_value_num',
+            'order'				=> 'asc',	
+			'post_type'			=> 'post',
+			'post_status'		=> 'publish'
+		);
+		$posts_array = get_posts( $args_posts );
+		
+		foreach ( $posts_array as $post ) :	
+			$list[$page->ID]['posts'][$post->ID]['id'] = $post->ID;
+			$list[$page->ID]['posts'][$post->ID]['title'] = $post->post_title;
+			$list[$page->ID]['posts'][$post->ID]['name'] = $post->post_name;
+			$list[$page->ID]['posts'][$post->ID]['url'] = get_permalink( $post->ID );
+        endforeach;
+		
+    endforeach;
+
+    return $list;
+    wp_reset_postdata();
+}
+
+// Check if class is active in ol.menu
+function checkActive ( $a_active ) {
+	if ( $a_active === true ) :
+		return ' class="active" ';
+	endif;
+}
+
+
+
+// Get posts by category
+function getPostsByCat( $category ) {
+	$posts = array();
+
+	$args = array(
+		'category_name'		=> $category,
+		'meta_key'			=> 'menu_order',
+		'orderby'			=> 'meta_value_num',
+        'order'				=> 'asc',	
+		'post_type'			=> 'post',
+		'post_status'		=> 'publish'
+	);
+	$posts_query = get_posts( $args );
+
+	foreach ( $posts_query as $post ) :
+
+		$posts[$post->ID]['id'] = $post->ID;
+		$posts[$post->ID]['title'] = $post->post_title;
+		$posts[$post->ID]['name'] = $post->post_name;
+		$posts[$post->ID]['url'] = get_permalink( $post->ID );
+
+	endforeach;
+	
+	return $posts;
+	wp_reset_postdata();
+}
+
+
+// Get highlights
 function getHighlights(){
 	$highlights_list = array();
 	$args = array(
