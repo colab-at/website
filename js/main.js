@@ -5,8 +5,9 @@ $(function(){
 	// ALL WEBSITE
 	*/
 
-	$( "button.open-menu" ).on( "click", function() {
+	$("button.open-menu").on( "click", function() {
 		$("nav.main-nav").toggleClass("active");
+		alert("click");
 	});
 
 
@@ -27,11 +28,12 @@ $(function(){
 	activeMenu();
 
 	$( "ol.menu ol li a" ).on( "click", function() {
+
 		a_active.removeClass("active");
 		a_active = $(this);
 		a_active.addClass("active");
 
-		$("nav.main-nav").toggleClass("active");
+		$("button.open-menu").trigger("click");
 	});
 
 

@@ -2,7 +2,7 @@
 
 		<section class="banner wrap" role="banner">
 
-			<h2 class="tagline">A collaborative effort to make it possible <br>for <strong>anyone</strong> to design, build and bring <br>their ideas into reality.</h2>
+			<h2 class="tagline">Colab is a collaborative effort <br>to bring people <strong>together</strong> <br>around great ideas. </h2>
 
 		</section>
 
