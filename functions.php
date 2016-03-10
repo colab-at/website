@@ -116,11 +116,14 @@ function getPostsByCat( $category ) {
 
 	foreach ( $posts_query as $post ) :
 
-		$posts[$post->ID]['id'] = $post->ID;
-		$posts[$post->ID]['title'] = $post->post_title;
-		$posts[$post->ID]['name'] = $post->post_name;
-		$posts[$post->ID]['url'] = get_permalink( $post->ID );
-		$posts[$post->ID]['image'] = getFeaturedImage( get_post_thumbnail_id( $post->ID ) );
+		$posts[$post->ID]['id'] = 			$post->ID;
+		$posts[$post->ID]['title'] = 		$post->post_title;
+		$posts[$post->ID]['name'] = 		$post->post_name;
+		$posts[$post->ID]['url'] = 			get_permalink( $post->ID );
+		$posts[$post->ID]['image'] = 		getFeaturedImage( get_post_thumbnail_id( $post->ID ) );
+		$posts[$post->ID]['author'] = 		get_the_author_meta( 'display_name', $post->post_author );
+		$posts[$post->ID]['content'] = 		apply_filters('the_content', $post->post_content);
+		$posts[$post->ID]['revisions'] = 	wp_get_post_revisions( $post->ID, array('numberposts' => 3) );
 
 	endforeach;
 	
@@ -175,5 +178,11 @@ function getFeaturedImage($image_id) {
 	return $media_array;
 }
 
+
+/**/
+function timeAgo( $date ){
+	$time = human_time_diff( strtotime( $date ), current_time('timestamp') );
+	return $time;
+}
 
 ?>

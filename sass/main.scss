@@ -21,7 +21,7 @@ body {
 	height: 100%;
 
 	background-color: $blue;
-	@include background-image(linear-gradient(to right, $grey-lightest, $grey-lightest ));
+	@include background-image(linear-gradient(to right, $grey-lighter, $grey-lighter ));
 	background-position: 0 100vh;
 	background-size: 10000%;
 	background-repeat: no-repeat;
@@ -30,7 +30,7 @@ body {
 
 div.wrap, .wrap {
 	@include clearfix;
-	width: $wide;
+	width: $mid;
 	margin: 0 auto;
 }
 
@@ -56,7 +56,42 @@ button {
 	&:hover {
 		cursor: pointer;
 	}
+
+	&.round {
+		width: 3.5rem;
+		height: 3.5rem;
+		background-color: $grey-lightest;
+		@include transition(background-color 0.2s);
+		@include border-radius(50%);
+		//@include box-shadow(rgba(0, 0, 0, 0.1) 0 0.5rem 0.5rem 0);
+
+		svg {
+			padding-top: 0.1em;
+			fill: $grey-darker;
+		}
+
+		&:hover {
+			background-color: $grey-lighter;
+			svg {
+				fill: $grey-darkest;
+			}
+		}
+	}
 }
+
+a.button {
+	display: block;
+	text-decoration: none;
+	background-color: $blue;
+	@include transition(background-color 0.2s);
+	color: $white;
+
+	&:hover {
+		background-color: $blue-dark;
+	}
+}
+
+
 
 
 //
@@ -81,7 +116,9 @@ header.main-header {
 	@include clearfix;
 	height: $header-height;
 	position: relative;
-	//z-index: $z-highest;
+	z-index: $z-high;
+	//background-color: $blue;
+	width: 100%;
 
 	h1.logo {
 		float: left;
@@ -102,17 +139,13 @@ header.main-header {
 
 
 // Main navigation
-
 button.open-menu {
 	float: right;
 	margin: 3.6rem $padding-normal;
 	background-color: $blue;
-	width: 3rem;
-	height: 3rem;
-	@include border-radius(3rem);
 
-	svg[class^="icon-"], svg[class*=" icon-"] {
-		color: $white;
+	svg {
+		fill: $white;
 		width: 2.5em;
 		height: 2.5em;
 	} 
@@ -120,8 +153,8 @@ button.open-menu {
 	&:hover {
 		background-color: $white;
 
-		svg[class^="icon-"], svg[class*=" icon-"] {
-			color: $blue;
+		svg {
+			fill: $blue;
 		} 
 	}
 }
@@ -156,8 +189,8 @@ nav.main-nav {
 
 		&:hover {
 			background-color: $blue;
-			svg[class^="icon-"], svg[class*=" icon-"] {
-				color: $white;
+			svg {
+				fill: $white;
 			} 
 		}
 	}
@@ -258,6 +291,33 @@ section.banner {
 //
 footer.main-footer {
 	height: 500px;
+}
+
+// FORMS
+
+form, .form {
+	input, 
+	button, 
+	textarea {
+		font: inherit;
+		display: block;
+		color: #333;
+		line-height: 2.5rem;
+		padding: 0 0.7rem;
+		border: none;
+		outline: none;
+	}
+
+	textarea { 
+		line-height: 1.5em;
+	}
+
+	legend,
+	label {
+		display: none;
+	}
+
+
 }
 
 // RESPONSIVE

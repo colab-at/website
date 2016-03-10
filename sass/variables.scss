@@ -26,17 +26,20 @@ $z-lower:	222;
 $z-lowest:	111;
 
 // Fonts
-$regular:		400;
-$medium:		600;
-$bold:			700;
 $extra-bold:	800;
-$light:			300;
+$bold:			700;
+$medium:		600;
 $italic:		400italic;
+$regular:		400;
+$light:			300;
 
-$font-biggest:	3em;
-$font-bigger:	2em;
-$font-big:		1.5em;
-$font-normal:	1.1em;
+$font-biggest:	3rem;
+$font-bigger:	2rem;
+$font-big:		1.5rem;
+$font-normal:	1.1rem;
+$font-small:	1rem;
+$font-smaller:	0.8rem;
+$font-smallest:	0.5rem;
 
 
 
@@ -46,9 +49,13 @@ $blue-dark: 	#336699;
 $blue:		 	#0099ff;
 $blue-light: 	#00ffff;
 $yellow-light: 	#ffff00;
+$grey-darkest:	#333;
+$grey-darker:	#666;
+$grey-dark:		#999;
 $grey:			#ccc;
+$grey-light: 	#ddd;
 $grey-lighter: 	#e6e6e6;
-$grey-lightest: #eee;
+$grey-lightest: #f5f5f5;
 $white: 		#fff;
 
 

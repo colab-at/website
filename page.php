@@ -3,9 +3,16 @@
 		<?php
 			$posts = getPostsByCat( $pagename );
 			foreach ( $posts as $post ) :
-				$title = $post['title'];
-				$name = $post['name'];
-				$image = $post['image']['full'];
+				$id =				$post['id'];
+				$title =	 		$post['title'];
+				$name = 			$post['name'];
+				$image = 			$post['image']['full'];
+				$author = 			$post['author'];
+				$content = 			$post['content'];
+				$revisions = 		$post['revisions'];
+				//
+				$revisions = 		array_reverse($revisions);
+				$last_revision = 	array_pop($revisions);
 
 		?>
 
@@ -17,26 +24,131 @@
 				<img src="<?php print $image ?>">
 			</figure>
 			<?php endif; ?>
-			<header class="wrap">
-				<svg class="icon-box-inside"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-box-inside"></use></svg>
-				<h2><?php print $title ?></h2>
+
+			<header>
+			<div class="wrap">
+				<h1><?php print $title ?></h1>
+			</div>
 			</header>
 
 			<section class="page wrap">
+
+				<button class="share round"><svg class="icon-share"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-share"></use></svg></button>
 				
 				<section class="content">
-				
-					<h3>Luctus urna volutpat non</h3>
-					<p>Nullam consectetur ante nunc, eget luctus urna volutpat non. Curabitur placerat nibh sed augue luctus tincidunt. Fusce volutpat dolor odio, in auctor nunc malesuada vel. Sed gravida felis finibus accumsan lacinia. Sed lectus dui, convallis ut tellus at, fermentum lacinia nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent gravida lacus mi, vehicula sollicitudin magna vehicula vitae. Donec ultricies ex et lectus tristique rhoncus. Vivamus non risus a nisl pellentesque auctor. Fusce finibus mauris a felis suscipit eleifend in ac odio. Integer id turpis orci. Quisque in imperdiet magna.</p>
-					<h3>Integer id turpis orci. Quisque in imperdiet magna.</h3>
-					<p>Nullam consectetur ante nunc, eget luctus urna volutpat non. Curabitur placerat nibh sed augue luctus tincidunt. Fusce volutpat dolor odio, in auctor nunc malesuada vel. Sed gravida felis finibus accumsan lacinia. Sed lectus dui, convallis ut tellus at, fermentum lacinia nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent gravida lacus mi, vehicula sollicitudin magna vehicula vitae. Donec ultricies ex et lectus tristique rhoncus. Vivamus non risus a nisl pellentesque auctor. Fusce finibus mauris a felis suscipit eleifend in ac odio. Integer id turpis orci. Quisque in imperdiet magna.</p>
-
+					<?php print $content ?>
 				</section>
 
-				<aside class="sidebar">
+				<div class="article-meta">
+					<p>Last edited <time datetime="<?php echo $last_revision->post_date ?>"><?php print timeAgo( $last_revision->post_date) ?> ago</time> by </p>
+					<a class="author" rel="author" href="#"><?php print get_the_author_meta( 'display_name', $last_revision->post_author ); ?></a>
+					<a class="button contribute" href="#">Participate</a>
+				</div>
 
-					<button class="open-sidebar"></button>
-				</aside>
+				<section class="comments">
+
+				<?php 
+				// Comments
+				$args = array(
+					'author_email' => '',
+					'author__in' => '',
+					'author__not_in' => '',
+					'include_unapproved' => '',
+					'fields' => '',
+					'ID' => '',
+					'comment__in' => '',
+					'comment__not_in' => '',
+					'karma' => '',
+					'number' => '',
+					'offset' => '',
+					'orderby' => '',
+					'order' => 'DESC',
+					'parent' => '',
+					'post_author__in' => '',
+					'post_author__not_in' => '',
+					'post_ID' => '', // ignored (use post_id instead)
+					'post_id' => $id,
+					'post__in' => '',
+					'post__not_in' => '',
+					'post_author' => '',
+					'post_name' => '',
+					'post_parent' => '',
+					'post_status' => '',
+					'post_type' => '',
+					'status' => 'all',
+					'type' => '',
+				        'type__in' => '',
+				        'type__not_in' => '',
+					'user_id' => '',
+					'search' => '',
+					'count' => false,
+					'meta_key' => '',
+					'meta_value' => '',
+					'meta_query' => '',
+					'date_query' => null, // See WP_Date_Query
+				);
+				$comments = get_comments( $args );
+
+				$num_comments = count($comments);
+				$num_comments_word = ' comments';
+				if ($num_comments === 1) :
+					$num_comments_word = ' comment';
+				endif;
+				?>
+					<!--
+					<button class="comments round"><svg class="icon-bubble"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-bubble"></use></svg></button>
+					
+					<header>
+						<svg class="icon-comment"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-comment"></use></svg>
+						<h3><span><?php print $num_comments; ?></span> <?php print $num_comments_word; ?> </h3> 
+					</header>
+
+					-->
+
+				<?php foreach ($comments as $comment) : ?>
+
+					<article class="comment">
+						<header class="comment-meta">
+							<svg class="icon-user"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-user"></use></svg>
+							<span class="meta">
+								<a class="author" rel="author" href="#"><?php print $comment->comment_author; ?> </a>
+								<time datetime="<?php echo $comment->comment_date; ?>"><?php print timeAgo($comment->comment_date); ?> ago</time>
+							</span>
+						</header>
+
+						<?php print apply_filters('the_content', $comment->comment_content); ?>
+
+					</article>
+
+				<?php endforeach; ?>
+
+
+				<?php
+				// Comments form
+				$args = array( 
+					'title_reply' => 			'Comments',
+					'comment_notes_before' => 	'',
+					'fields' => 				apply_filters( 'comment_form_default_fields', array(
+													'author' => '<label for="author">' . __( 'Name' ) . '</label> ' . '<input name="author" placeholder="Your name" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" required />',   
+													'email'  => '<label for="email">' . __( 'Email' ) . '</label> ' . '<input name="email" placeholder="Your email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required />',
+													'url'    => '' 
+												) ),
+					'comment_field' => 			'<label for="comment">' . __( 'Comment' ) . '</label>' . '<textarea name="comment" placeholder="Write your comment" cols="45" rows="4" required ></textarea>',
+					'comment_notes_after' => 	'',
+					'title_reply_before' => 	'<h3>',
+					'title_reply_after' => 		'</h3>',
+					'cancel_reply_before' =>	'',
+					'cancel_reply_after' =>		'',
+					'cancel_reply_link' => 		'',
+					'label_submit' => 			'',
+					'submit_button' => 			'<input name="submit" type="submit" value="Send" />',
+					'submit_field' =>			'<fieldset class="form-submit">%1$s %2$s</fieldset>',
+					'format' => 'html5'
+				);
+
+				comment_form( $args, $id ); 
+				?>
+				</section>
 
 			</section>
 

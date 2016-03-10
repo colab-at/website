@@ -29,20 +29,24 @@
 
         <header class="main-header wrap" role="banner">
 
-            <h1 class="logo">
-                <a href="<?php bloginfo('url'); ?>">
-                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
-                </a>
-            </h1>
+            <div class="wrap">
+
+                <h1 class="logo">
+                    <a href="<?php bloginfo('url'); ?>">
+                        <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
+                    </a>
+                </h1>
             
-            <button class="open-menu"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
+                <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
+
+            </div>
             
         </header>
 
         <nav class="main-nav" role="navigation">
             <div class="wrap">
 
-                <button class="open-menu"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
+                <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
 
                 <a class="logo" href="<?php bloginfo('url'); ?>">
                     <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 

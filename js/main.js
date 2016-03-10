@@ -7,7 +7,6 @@ $(function(){
 
 	$("button.open-menu").on( "click", function() {
 		$("nav.main-nav").toggleClass("active");
-		alert("click");
 	});
 
 
