@@ -39,9 +39,12 @@
 					<?php print $content ?>
 				</section>
 
-				<div class="article-meta">
-					<p>Last edited <time datetime="<?php echo $last_revision->post_date ?>"><?php print timeAgo( $last_revision->post_date) ?> ago</time> by </p>
-					<a class="author" rel="author" href="#"><?php print get_the_author_meta( 'display_name', $last_revision->post_author ); ?></a>
+				<div class="article-meta box-meta-cta">
+					<span>
+						<svg class="icon-bubble"><use xlink:href="<?php bloginfo('stylesheet_directory') ?>/img/icons.svg#icon-bubble"></use></svg>
+						<p>Last edited <time datetime="<?php echo $last_revision->post_date ?>"><?php print timeAgo( $last_revision->post_date) ?> ago</time> by <a class="author" rel="author" href="#"><?php print get_the_author_meta( 'display_name', $last_revision->post_author ); ?></a></p>
+					</span>
+					
 					<a class="button contribute" href="#">Participate</a>
 				</div>
 
@@ -105,38 +108,28 @@
 
 					-->
 
-				<?php foreach ($comments as $comment) : ?>
-
-					<article class="comment">
-						<header class="comment-meta">
-							<svg class="icon-user"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-user"></use></svg>
-							<span class="meta">
-								<a class="author" rel="author" href="#"><?php print $comment->comment_author; ?> </a>
-								<time datetime="<?php echo $comment->comment_date; ?>"><?php print timeAgo($comment->comment_date); ?> ago</time>
-							</span>
-						</header>
-
-						<?php print apply_filters('the_content', $comment->comment_content); ?>
-
-					</article>
-
-				<?php endforeach; ?>
-
+					<div class="must-log-in box-meta-cta">
+						<span>
+							<svg class="icon-bubble"><use xlink:href="<?php bloginfo('stylesheet_directory') ?>/img/icons.svg#icon-bubble"></use></svg>
+							<p><a href="#">Make a comment</a></p>
+						</span>
+					</div>
 
 				<?php
 				// Comments form
 				$args = array( 
-					'title_reply' => 			'Comments',
-					'comment_notes_before' => 	'',
 					'fields' => 				apply_filters( 'comment_form_default_fields', array(
 													'author' => '<label for="author">' . __( 'Name' ) . '</label> ' . '<input name="author" placeholder="Your name" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" required />',   
 													'email'  => '<label for="email">' . __( 'Email' ) . '</label> ' . '<input name="email" placeholder="Your email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" required />',
 													'url'    => '' 
 												) ),
+					'must_log_in' =>			'',
+					'comment_notes_before' => 	'',
 					'comment_field' => 			'<label for="comment">' . __( 'Comment' ) . '</label>' . '<textarea name="comment" placeholder="Write your comment" cols="45" rows="4" required ></textarea>',
 					'comment_notes_after' => 	'',
-					'title_reply_before' => 	'<h3>',
-					'title_reply_after' => 		'</h3>',
+					'title_reply_before' => 	'',
+					'title_reply' => 			'',
+					'title_reply_after' => 		'',
 					'cancel_reply_before' =>	'',
 					'cancel_reply_after' =>		'',
 					'cancel_reply_link' => 		'',
@@ -148,6 +141,27 @@
 
 				comment_form( $args, $id ); 
 				?>
+
+				<?php foreach ($comments as $comment) : //var_dump($comment);?>
+
+					<article class="comment">
+						<header class="comment-meta">
+							<svg class="icon-user"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-user"></use></svg>
+							<span class="meta">
+								<a class="author" rel="author" href="#"><?php print $comment->comment_author; ?> </a>
+								<time datetime="<?php echo $comment->comment_date; ?>"><?php print timeAgo($comment->comment_date); ?> ago</time>
+							</span>
+						</header>
+
+						<?php //print apply_filters('the_content', $comment->comment_content); ?>
+						<p><?php comment_excerpt( $comment->comment_ID ); //print apply_filters('the_content', $comment->comment_content); ?></p>
+
+					</article>
+
+				<?php endforeach; ?>
+
+
+				
 				</section>
 
 			</section>

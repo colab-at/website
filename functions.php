@@ -21,27 +21,37 @@ function getPages( $parent_title ) {
 	$parent = get_page_by_title( $parent_title );						// get info from parent page
 	$parent_id = $parent->ID;											// get parent ID
 	$args = array(
-        'parent'      => $parent_id,
-        'post_type'     => 'page',
-        'post_status'   => 'publish'
+        'sort_order'	=> 'asc',
+		'sort_column'	=> 'menu_order',
+        'parent'		=> $parent_id,
+        'post_type'		=> 'page',
+        'post_status'	=> 'publish'
     ); 
     $pages = get_pages($args);											// get children 
-    $page_list = array();												// create pages list array
+    $list = array();												// create pages list array
     
     foreach ( $pages as $page ) :										// for each child
+    	$list[$page->ID]['id'] = $page->ID;
+    	$list[$page->ID]['title'] = $page->post_title;
+    	$list[$page->ID]['name'] = $page->post_name;
+    	$list[$page->ID]['url'] = get_permalink( $page->ID );
+
+    	/*
     	$page_list[ $page->post_title ] = array();						// create new [page] array
     	$args = array(
             'post_parent' => $page->ID,
             'post_type' => 'page',
         );
+
         $children = get_children( $args );								// get grand-children
         foreach ( $children as $child ) :								// for each grand-child
         	$page_list[ $page->post_title ][] = $child->post_title ;	// add value to correspondent [parent]
         endforeach;
+        */
 
     endforeach;
 
-    return $page_list;
+    return $list;
 }
 
 //

@@ -136,6 +136,7 @@ button {
 a.button {
   display: block;
   text-decoration: none;
+  text-align: center;
   background-color: #0099ff;
   -moz-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
@@ -144,6 +145,48 @@ a.button {
   color: #fff; }
   a.button:hover {
     background-color: #336699; }
+
+div.box-meta-cta {
+  background-color: #f5f5f5;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  height: 5rem;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 1.5rem; }
+  div.box-meta-cta > span {
+    float: left;
+    width: 70%;
+    display: -webkit-flex;
+    display: flex; }
+    div.box-meta-cta > span svg, div.box-meta-cta > span p {
+      -webkit-align-self: center;
+      align-self: center; }
+  div.box-meta-cta svg {
+    fill: #0099ff;
+    margin-left: 1em;
+    margin-right: -0.5em; }
+  div.box-meta-cta p {
+    margin-left: 1em; }
+  div.box-meta-cta a {
+    text-decoration: none;
+    color: #0099ff;
+    font-weight: 600; }
+    div.box-meta-cta a:hover {
+      color: #336699; }
+  div.box-meta-cta a.button {
+    float: left;
+    width: 30%;
+    min-width: 10rem;
+    color: #fff;
+    line-height: 5rem;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 4px; }
 
 .colab-red {
   background-color: #ff6633 !important;
@@ -230,7 +273,82 @@ nav.main-nav {
   -o-transition: opacity 0.2s;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
-  visibility: hidden; }
+  visibility: hidden;
+  /*
+  	ol.menu {
+  		float: left;
+  		width: 100%;
+  		margin-top: -2rem;
+  		margin-left: 2rem;
+  
+  		li {
+  			padding-left: 2em;
+  
+  			a {
+  				display: block;
+  				float: left;
+  				clear: both;
+  				padding: 0 0 1em 1.5em;
+  
+  				font-size: $font-bigger;
+  				text-decoration: none;
+  				text-align: center;
+  				color: $blue;
+  
+  				background-color: #fff;
+  				background-image: url("../img/bkg_menu_li.svg");
+  				background-position: 0 0;
+  				background-repeat: no-repeat;
+  				background-size: 1em;
+  
+  				&.active {
+  					//font-weight: $bold;
+  				}
+  				
+  			}
+  
+  			ol {
+  				padding-bottom: 1em;
+  				overflow: hidden;
+  				float: left;
+  				clear: both;
+  
+  				li {
+  
+  					a {
+  						font-size: $font-big;
+  
+  						&:hover {
+  							background-position: 0 -100px;
+  						}
+  
+  						&.active {
+  							background-position: 0 -200px;
+  							font-weight: $medium;
+  						}
+  					}
+  
+  					&:last-child {
+  						a {
+  							padding-bottom: 0;
+  						}						
+  					}
+  				}
+  			}
+  
+  		}//li
+  
+  		> li {
+  			padding-left: 0;
+  			> a {
+  				padding: 0 0 0.5em 0;
+  				background: none;
+  			}
+  		}	
+  
+  	}//ol.menu
+  
+  */ }
   nav.main-nav a.logo {
     display: block;
     float: left;
@@ -245,44 +363,21 @@ nav.main-nav {
       fill: #fff; }
   nav.main-nav ol.menu {
     float: left;
-    width: 100%;
-    margin-top: -2rem;
-    margin-left: 2rem; }
+    clear: both;
+    border-top: #0099ff 0.5rem solid;
+    padding-top: 1rem;
+    width: 10rem; }
     nav.main-nav ol.menu li {
-      padding-left: 2em; }
+      margin-bottom: 1em; }
       nav.main-nav ol.menu li a {
-        display: block;
-        float: left;
-        clear: both;
-        padding: 0 0 1em 1.5em;
-        font-size: 2rem;
+        opacity: 0.7;
+        font-size: 1.5rem;
         text-decoration: none;
-        text-align: center;
-        color: #0099ff;
-        background-color: #fff;
-        background-image: url("../img/bkg_menu_li.svg");
-        background-position: 0 0;
-        background-repeat: no-repeat;
-        background-size: 1em; }
-      nav.main-nav ol.menu li ol {
-        padding-bottom: 1em;
-        overflow: hidden;
-        float: left;
-        clear: both; }
-        nav.main-nav ol.menu li ol li a {
-          font-size: 1.5rem; }
-          nav.main-nav ol.menu li ol li a:hover {
-            background-position: 0 -100px; }
-          nav.main-nav ol.menu li ol li a.active {
-            background-position: 0 -200px;
-            font-weight: 600; }
-        nav.main-nav ol.menu li ol li:last-child a {
-          padding-bottom: 0; }
-    nav.main-nav ol.menu > li {
-      padding-left: 0; }
-      nav.main-nav ol.menu > li > a {
-        padding: 0 0 0.5em 0;
-        background: none; }
+        color: #0099ff; }
+        nav.main-nav ol.menu li a:hover, nav.main-nav ol.menu li a:active, nav.main-nav ol.menu li a.active {
+          opacity: 1; }
+        nav.main-nav ol.menu li a.active {
+          font-weight: 600; }
   nav.main-nav.active {
     visibility: visible;
     opacity: 1; }
@@ -447,30 +542,9 @@ body.page {
           color: #333;
           padding-bottom: 1em; }
       body.page article.document section.page div.article-meta {
-        background-color: #f5f5f5;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-        margin: 0 2.5rem 2.5rem 2.5rem;
-        overflow: hidden;
-        *zoom: 1;
-        line-height: 5rem;
-        font-size: 1.5rem; }
-        body.page article.document section.page div.article-meta svg {
-          width: 3.5rem;
-          line-height: auto; }
-        body.page article.document section.page div.article-meta p {
-          float: left;
-          padding: 0 0.3em 0 2.5rem; }
+        margin: 0 2.5rem 2.5rem 2.5rem; }
         body.page article.document section.page div.article-meta time {
           font-weight: 600; }
-        body.page article.document section.page div.article-meta a.author {
-          text-decoration: none;
-          color: #0099ff;
-          font-weight: 600; }
-        body.page article.document section.page div.article-meta a.button.contribute {
-          float: right;
-          padding: 0 2.5rem; }
       body.page article.document section.page section.comments {
         position: relative;
         background-color: #f5f5f5;
@@ -492,6 +566,9 @@ body.page {
             body.page article.document section.page section.comments > header h3 span {
               font-size: 0.8em;
               font-weight: 600; }
+        body.page article.document section.page section.comments div.must-log-in {
+          margin-bottom: 2.5rem;
+          background-color: #fff; }
         body.page article.document section.page section.comments article.comment {
           margin-bottom: 2.5rem;
           background-color: #fff;

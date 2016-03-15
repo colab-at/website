@@ -150,40 +150,11 @@ body.page {
 			*/
 
 			div.article-meta {
-				background-color: $grey-lightest;
-				@include border-radius(4px);
 				margin: 0 $padding-normal $padding-normal $padding-normal;
-				@include clearfix;
-
-				line-height: 5rem;
-				font-size: $font-big;
-
-				svg {
-					width: 3.5rem;
-					line-height: auto;
-				}
-
-				p {
-					float: left;
-					padding: 0 0.3em 0 $padding-normal;
-				}
 
 				time {
 					font-weight: $medium;
 				}
-
-				a.author {
-					text-decoration: none;
-					color: $blue;
-					font-weight: $medium;
-				}
-
-				a.button.contribute {
-					float: right;
-					padding: 0 $padding-normal;
-
-				}
-
 				
 			}
 
@@ -219,6 +190,13 @@ body.page {
 
 				}
 
+
+
+				div.must-log-in {
+					margin-bottom: $padding-normal;
+					background-color: $white;
+				}
+
 				
 
 				article.comment {
@@ -226,7 +204,7 @@ body.page {
 					background-color: $white;
 					//border: $grey-lighter 1px solid;
 					@include box-shadow($grey 0 0 3px);
-					@include border-radius(4px);
+					@include border-radius($radius-small);
 					padding: 1em;
 
 					header {

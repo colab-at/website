@@ -82,6 +82,7 @@ button {
 a.button {
 	display: block;
 	text-decoration: none;
+	text-align: center;
 	background-color: $blue;
 	@include transition(background-color 0.2s);
 	color: $white;
@@ -91,6 +92,53 @@ a.button {
 	}
 }
 
+div.box-meta-cta {
+	background-color: $grey-lightest;
+	//@include box-shadow($grey-light 0 0 3px);
+	@include border-radius($radius-small);
+	height: 5rem;
+	@include display-flex;
+	font-size: $font-big;
+
+	> span {
+		float: left;
+		width: 70%;
+		@include display-flex;
+
+		svg, p {
+			@include align-self(center);	
+		}
+	}
+
+	svg {
+		fill: $blue;
+		margin-left: 1em;
+		margin-right: -0.5em;
+	}
+
+	p {
+		margin-left: 1em;
+	}
+
+	a {
+		text-decoration: none;
+		color: $blue;
+		font-weight: $medium;
+
+		&:hover {
+			color: $blue-dark;
+		}
+	}
+
+	a.button {
+		float: left;
+		width: 30%;
+		min-width: 10rem;
+		color: $white;
+		line-height: 5rem;
+		@include border-right-radius($radius-small);
+	}
+}
 
 
 
@@ -197,6 +245,34 @@ nav.main-nav {
 
 	ol.menu {
 		float: left;
+		clear: both;
+		border-top: $blue 0.5rem solid;
+		padding-top: 1rem;
+		width: $col;
+
+		li {
+			margin-bottom: 1em;
+
+			a {
+				opacity: 0.7;
+				font-size: $font-big;
+				text-decoration: none;
+				color: $blue;
+
+				&:hover, &:active, &.active {
+					opacity: 1;
+				}
+
+				&.active {
+					font-weight: $medium;
+				}	
+			}
+		}
+	}
+
+/*
+	ol.menu {
+		float: left;
 		width: 100%;
 		margin-top: -2rem;
 		margin-left: 2rem;
@@ -267,6 +343,8 @@ nav.main-nav {
 		}	
 
 	}//ol.menu
+
+*/
 
 	&.active {
 
