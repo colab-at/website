@@ -190,7 +190,7 @@ header.main-header {
 	height: $header-height;
 	position: relative;
 	z-index: $z-high;
-	//background-color: $blue;
+	background-color: $blue;
 	width: 100%;
 
 	h1.logo {
@@ -239,7 +239,7 @@ nav.main-nav {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: $white;
+	background-color: rgba(225, 225, 225, 0.95);
 
 	opacity: 0;
 	@include transition(opacity 0.2s);
@@ -453,6 +453,10 @@ form, .form {
 // Smaller than 1280px + 160px
 @media screen and (max-width: $wide + $padding-normal) {
 
+	button.open-menu {
+		background-color: green;
+	}
+
 	div.wrap, .wrap {
 		width: $mid;
 	}
@@ -461,6 +465,17 @@ form, .form {
 
 // Smaller then 960px + 40px
 @media screen and (max-width: $mid + $padding-normal) {
+
+	button.open-menu {
+		background-color: yellow;
+	}
+
+	button.open-menu {
+		position: absolute;
+		top: 3.6rem; 
+		right: $padding-normal;
+		margin: 0;
+	}
 
 	div.wrap, .wrap {
 		width: 100%;
@@ -477,7 +492,7 @@ form, .form {
 			margin-left: $padding-normal;
 		}
 		ol.menu {
-			margin-left: $padding-normal + 2rem;
+			margin-left: $padding-normal;
 		}
 	}
 
@@ -486,8 +501,50 @@ form, .form {
 // Smaller then 800px
 @media screen and (max-width: $small ) {
 
+	button.open-menu {
+		background-color: red;
+	}
+
 
 }//@media $small
+
+// Smaller then 414px
+@media screen and (max-width: $mobile ) {
+
+	button.open-menu {
+		background-color: violet;
+	}
+
+	div.box-meta-cta {
+		svg {
+			display: none;
+		}
+		p {
+			margin: 0 1rem;
+			font-size: $font-normal;
+		}
+	}
+
+	//
+	button.open-menu {
+		right: $padding-small;
+	}
+	header.main-header {
+		h1.logo {
+			margin: 0 $padding-small;
+		}
+	}
+	nav.main-nav {
+		a.logo, ul.menu {
+			margin-left: $padding-small;
+		}
+		ol.menu {
+			margin-left: $padding-small;
+		}
+	}
+
+
+}//@media $mobile
 
 
 

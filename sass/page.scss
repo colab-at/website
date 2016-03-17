@@ -49,7 +49,7 @@ body.single {
 				position: relative;
 				z-index: $z-low;
 				min-height: $col * 4;
-				height: 100vh;
+				@include viewport-unit(height, 100vh);
 				margin-top: -$header-height;
 			}
 
@@ -74,13 +74,13 @@ body.single {
 			margin-top: - $col * 2;
 			z-index: $z-high;
 			background-color: $white;
-			@include border-radius(4px);
+			@include border-radius($radius-small);
 			overflow: visible;
 
 			button.share {
 				position: absolute;
-				top: $padding-normal;
-				right: - 1.75rem;
+				top: - 1.75rem;
+				right: $padding-normal;
 			}
 			
 
@@ -169,8 +169,6 @@ body.single {
 					font-size: $font-big;
 					margin-bottom: 1em;
 				}
-
-
 
 				article.comment,
 				div.comment-respond,
@@ -411,10 +409,11 @@ body.single {
 	// Smaller than 1280px + 160px
 	@media screen and (max-width: $wide + ($padding-normal*2)) {
 
-		article.document {
+		section.post,
+		article.post {
 			figure {
 				img {
-					height: 100vh;
+					@include viewport-unit(height, 100vh);
 					width: auto;
 					position: absolute;
 					left: 50%;
@@ -430,14 +429,61 @@ body.single {
 	// Smaller then 960px + 40px
 	@media screen and (max-width: $mid + $padding-normal) {
 
+		section.post,
+		article.post {
+			section.page {
+				@include border-radius(0);
+			}
+		}
 
 	}//@media $mid
 
 	// Smaller then 800px
 	@media screen and (max-width: $small ) {
 
+		
 
 	}//@media $small
+
+	// Smaller then 414px
+	@media screen and (max-width: $mobile ) {
+
+		//
+		section.post,
+		article.post {
+			> header {
+				h1 {
+					padding: $padding-normal $padding-small;
+				}
+			}
+			section.page {
+				button.share {
+					right: $padding-small;
+				}
+				section.content {
+					padding: $padding-normal $padding-small;
+				}
+				div.article-meta {
+					margin: 0 $padding-small $padding-normal $padding-small;	
+				}
+				section.comments {
+					padding: $padding-normal $padding-small;
+
+					div.must-log-in {
+						p {
+							display: none;
+						}
+						a.login {
+							float: none;
+						}
+					}
+				}
+			}
+		}
+		
+
+
+	}//@media $mobile
 
 
 }//end .page

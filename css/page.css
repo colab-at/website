@@ -253,6 +253,7 @@ header.main-header {
   height: 10rem;
   position: relative;
   z-index: 777;
+  background-color: #0099ff;
   width: 100%; }
   header.main-header h1.logo {
     float: left; }
@@ -284,7 +285,7 @@ nav.main-nav {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: rgba(225, 225, 225, 0.95);
   opacity: 0;
   -moz-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
@@ -456,9 +457,21 @@ form button, .form input[type="submit"],
     border-color: #336699; }
 
 @media screen and (max-width: 82.5rem) {
+  button.open-menu {
+    background-color: green; }
+
   div.wrap, .wrap {
     width: 60rem; } }
 @media screen and (max-width: 62.5rem) {
+  button.open-menu {
+    background-color: yellow; }
+
+  button.open-menu {
+    position: absolute;
+    top: 3.6rem;
+    right: 2.5rem;
+    margin: 0; }
+
   div.wrap, .wrap {
     width: 100%; }
 
@@ -468,7 +481,30 @@ form button, .form input[type="submit"],
   nav.main-nav a.logo, nav.main-nav ul.menu {
     margin-left: 2.5rem; }
   nav.main-nav ol.menu {
-    margin-left: 4.5rem; } }
+    margin-left: 2.5rem; } }
+@media screen and (max-width: 50rem) {
+  button.open-menu {
+    background-color: red; } }
+@media screen and (max-width: 414px) {
+  button.open-menu {
+    background-color: violet; }
+
+  div.box-meta-cta svg {
+    display: none; }
+  div.box-meta-cta p {
+    margin: 0 1rem;
+    font-size: 1.1rem; }
+
+  button.open-menu {
+    right: 1.25rem; }
+
+  header.main-header h1.logo {
+    margin: 0 1.25rem; }
+
+  nav.main-nav a.logo, nav.main-nav ul.menu {
+    margin-left: 1.25rem; }
+  nav.main-nav ol.menu {
+    margin-left: 1.25rem; } }
 body.page,
 body.single {
   background-position: 0 10rem; }
@@ -529,6 +565,66 @@ body.single {
         min-height: 40rem;
         height: 100vh;
         margin-top: -10rem; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 1024px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 768px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 480px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 320px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 568px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 320px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 667px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 375px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 736px; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+          body.page section.post > header div.wrap,
+          body.page article.post > header div.wrap,
+          body.single section.post > header div.wrap,
+          body.single article.post > header div.wrap {
+            height: 414px; } }
       body.page section.post > header h1,
       body.page article.post > header h1,
       body.single section.post > header h1,
@@ -594,8 +690,8 @@ body.single {
       body.single section.post section.page button.share,
       body.single article.post section.page button.share {
         position: absolute;
-        top: 2.5rem;
-        right: -1.75rem; }
+        top: -1.75rem;
+        right: 2.5rem; }
       body.page section.post section.page section.content,
       body.page article.post section.page section.content,
       body.single section.post section.page section.content,
@@ -1209,10 +1305,117 @@ body.single {
             -webkit-border-top-right-radius: 0;
             border-top-right-radius: 0; }
   @media screen and (max-width: 85rem) {
-    body.page article.document figure img,
-    body.single article.document figure img {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
       height: 100vh;
       width: auto;
       position: absolute;
       left: 50%;
       transform: translateX(-50%); } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 1024px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 768px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 480px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 320px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 568px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 320px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 667px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 375px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 736px; } }
+  @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+    body.page section.post figure img,
+    body.page article.post figure img,
+    body.single section.post figure img,
+    body.single article.post figure img {
+      height: 414px; } }
+
+  @media screen and (max-width: 62.5rem) {
+    body.page section.post section.page,
+    body.page article.post section.page,
+    body.single section.post section.page,
+    body.single article.post section.page {
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0; } }
+  @media screen and (max-width: 414px) {
+    body.page section.post > header h1,
+    body.page article.post > header h1,
+    body.single section.post > header h1,
+    body.single article.post > header h1 {
+      padding: 2.5rem 1.25rem; }
+    body.page section.post section.page button.share,
+    body.page article.post section.page button.share,
+    body.single section.post section.page button.share,
+    body.single article.post section.page button.share {
+      right: 1.25rem; }
+    body.page section.post section.page section.content,
+    body.page article.post section.page section.content,
+    body.single section.post section.page section.content,
+    body.single article.post section.page section.content {
+      padding: 2.5rem 1.25rem; }
+    body.page section.post section.page div.article-meta,
+    body.page article.post section.page div.article-meta,
+    body.single section.post section.page div.article-meta,
+    body.single article.post section.page div.article-meta {
+      margin: 0 1.25rem 2.5rem 1.25rem; }
+    body.page section.post section.page section.comments,
+    body.page article.post section.page section.comments,
+    body.single section.post section.page section.comments,
+    body.single article.post section.page section.comments {
+      padding: 2.5rem 1.25rem; }
+      body.page section.post section.page section.comments div.must-log-in p,
+      body.page article.post section.page section.comments div.must-log-in p,
+      body.single section.post section.page section.comments div.must-log-in p,
+      body.single article.post section.page section.comments div.must-log-in p {
+        display: none; }
+      body.page section.post section.page section.comments div.must-log-in a.login,
+      body.page article.post section.page section.comments div.must-log-in a.login,
+      body.single section.post section.page section.comments div.must-log-in a.login,
+      body.single article.post section.page section.comments div.must-log-in a.login {
+        float: none; } }

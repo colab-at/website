@@ -7,11 +7,14 @@
 // 20 rem = 320px
 $col: 10rem;
 //
-$small:	$col * 5;
-$mid:	$col * 6;
-$wide:	$col * 8;
+$wide:		$col * 8;
+$mid:		$col * 6;
+$small:		$col * 5;
+$mobile:	414px; // iPhone 6s
+
 //
-$padding-normal:	$col / 4;
+$padding-normal: $col / 4;
+$padding-small: $col / 8;
 //
 $header-height:	$col;
 $banner-height:	$header-height;

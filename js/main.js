@@ -10,6 +10,7 @@ $(function(){
 	});
 
 
+/*
 	// Get current url and mark active item in menu
 	var a_active;
 	function activeMenu() {
@@ -35,7 +36,7 @@ $(function(){
 		$("button.open-menu").trigger("click");
 	});
 
-
+*/
 
 	/* 
 	// HOME
