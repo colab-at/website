@@ -7,11 +7,18 @@ if ( !empty($pages) ) :
 <nav class="main-nav" role="navigation">
     <div class="wrap">
 
-        <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
-
         <a class="logo" href="<?php bloginfo('url'); ?>">
             <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
-        </a>                
+        </a>
+
+        <div class="menu-box">
+        <?php if ( is_user_logged_in() ) : ?>
+            <a class="button small transparent log-out" href="<?php echo wp_logout_url( home_url() ); ?>" rel="nofollow">Log out</a>
+        <?php else : ?>
+            <a class="button small transparent log-in" href="<?php echo wp_login_url( htmlspecialchars($_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ) ); ?>" rel="nofollow">Log in</a>
+        <?php endif; ?>
+            <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button> 
+        </div>
         
         <ol class="menu">
             <?php 

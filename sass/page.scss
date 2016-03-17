@@ -334,12 +334,13 @@ body.single {
 
 				div.must-log-in {
 					margin-top: 0;
+					@include clearfix;
 					p {
 						display: inline-block;
 						padding-bottom: 0 !important;
 						color: $grey;
 					}
-					a.login {
+					a.log-in {
 						float: right;
 					}
 				}
@@ -394,9 +395,7 @@ body.single {
 				}				
 
 				
-			}
-
-
+			} // section.comments 
 
 		} // section.page
 
@@ -473,7 +472,7 @@ body.single {
 						p {
 							display: none;
 						}
-						a.login {
+						a.log-in {
 							float: none;
 						}
 					}

@@ -1,0 +1,35 @@
+// login.scss
+@import "variables";
+@import "compass";
+
+body.login {
+
+	h1 {
+		a {
+			background-image: url("../img/logo_blue.svg");
+			background-size: $col;
+			background-position: center center;
+			background-repeat: no-repeat;
+			width: $col;
+					}
+	}
+
+	form#loginform {
+		@include border-radius($radius-small);
+		@include box-shadow(none);
+
+	}
+
+	p#nav,
+	p#backtoblog {
+		a {
+			color: $blue;
+
+			&:hover {
+				color: $blue;
+				text-decoration: underline;
+			}
+		}
+	}
+	p#backtoblog { display: none; }
+}

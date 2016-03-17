@@ -23,6 +23,24 @@ function xtreme_enqueue_comments_reply() {
 }
 add_action( 'comment_form_before', 'xtreme_enqueue_comments_reply' );
 
+// Customize Login page
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/login.css' );
+    wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/css/login.js' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Back to Colab';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
 
 // Get pages by parent
 function getPages( $parent_title ) {

@@ -68,12 +68,13 @@ button {
 		svg {
 			padding-top: 0.1em;
 			fill: $grey-darker;
+			@include transition(fill 0.2s);
 		}
 
 		&:hover {
-			background-color: $grey-lighter;
+			background-color: $blue;
 			svg {
-				fill: $grey-darkest;
+				fill: $white;
 			}
 		}
 	}
@@ -208,13 +209,16 @@ header.main-header {
 		}
 	}
 
+	button.open-menu {
+		float: right;
+		margin: 3.4rem $padding-normal;
+	}
+
 }//.main-header
 
 
 // Main navigation
 button.open-menu {
-	float: right;
-	margin: 3.6rem $padding-normal;
 	background-color: $blue;
 
 	svg {
@@ -239,7 +243,7 @@ nav.main-nav {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(225, 225, 225, 0.95);
+	background-color: rgba(255, 255, 255, 0.95);
 
 	opacity: 0;
 	@include transition(opacity 0.2s);
@@ -257,16 +261,6 @@ nav.main-nav {
 		}
 	}
 
-
-	button.open-menu {
-
-		&:hover {
-			background-color: $blue;
-			svg {
-				fill: $white;
-			} 
-		}
-	}
 
 	ol.menu {
 		float: left;
@@ -294,6 +288,30 @@ nav.main-nav {
 			}
 		}
 	}
+
+	div.menu-box {
+		float: right;
+		margin: 3.4rem $padding-normal;
+	}
+
+	a.log-in,
+	a.log-out {
+		float: left;
+		margin: 0.6rem 1rem;
+	}
+
+	button.open-menu {
+		float: left;
+		
+		&:hover {
+			background-color: $blue;
+			svg {
+				fill: $white;
+			} 
+		}
+	}
+
+	
 
 /*
 	ol.menu {
@@ -470,9 +488,10 @@ form, .form {
 		background-color: yellow;
 	}
 
-	button.open-menu {
+	header.main-header div > button.open-menu,
+	nav.main-nav div.menu-box {
 		position: absolute;
-		top: 3.6rem; 
+		top: 3.4rem; 
 		right: $padding-normal;
 		margin: 0;
 	}
@@ -526,7 +545,8 @@ form, .form {
 	}
 
 	//
-	button.open-menu {
+	header.main-header div > button.open-menu,
+	nav.main-nav div.menu-box {
 		right: $padding-small;
 	}
 	header.main-header {

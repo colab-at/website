@@ -52,7 +52,7 @@ endif;
 
 	<div class="must-log-in">
 		<p>Write a comment...</p>
-		<a class="button small transparent login" href="<?php echo wp_login_url( $post->guid ); ?> ">Log in to comment</a>
+		<a class="button small transparent log-in" href="<?php echo wp_login_url( $post->guid ); ?> " rel="nofollow">Log in to comment</a>
 	</div>
 
 <?php endif; ?>

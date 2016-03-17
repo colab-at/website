@@ -147,7 +147,7 @@ $tags: (
 // Get color value from respective name
 @function color($key) {
 	@if map-has-key($colors, $key) {
-		@return map-deep-get($colors, $key, 'background-color');
+		@return map-deep-get($colors, $key, "background-color");
 	}
 
 	@warn "Unknown `#{$key}` in $colors.";
