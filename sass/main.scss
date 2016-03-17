@@ -90,6 +90,31 @@ a.button {
 	&:hover {
 		background-color: $blue-dark;
 	}
+
+	&.small {
+		line-height: 2em;
+		padding: 0 1em;
+
+		font-size: $font-small;
+		font-weight: $medium;
+
+		border: $blue 1.5px solid;
+		@include border-radius($radius-small);
+
+		&:hover {
+			border-color: $blue-dark;
+		}
+	}
+
+	&.transparent {
+		background-color: transparent;
+		color: $blue;
+
+		&:hover {
+			color: $blue-dark !important;
+			border-color: $blue-dark;
+		}
+	}
 }
 
 div.box-meta-cta {
@@ -112,12 +137,12 @@ div.box-meta-cta {
 
 	svg {
 		fill: $blue;
-		margin-left: 1em;
+		margin-left: 1.5rem;
 		margin-right: -0.5em;
 	}
 
 	p {
-		margin-left: 1em;
+		margin-left: 1.5rem;
 	}
 
 	a {
@@ -388,11 +413,36 @@ form, .form {
 
 	textarea { 
 		line-height: 1.5em;
+		resize: none;
 	}
 
 	legend,
 	label {
 		display: none;
+	}
+
+	input[type="submit"],
+	input[type="button"],
+	button {
+		display: block;
+		float: right;
+		line-height: 2em;
+		padding: 0 1em;
+
+		text-decoration: none;
+		font-size: $font-small;
+		font-weight: $medium;
+		color: $white;
+
+		background-color: $blue;
+		border: $blue 1.5px solid;
+		@include border-radius($radius-small);
+		cursor: pointer;
+
+		&:hover {
+			background-color: $blue-dark;
+			border-color: $blue-dark;
+		}
 	}
 
 

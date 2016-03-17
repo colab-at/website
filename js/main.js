@@ -59,8 +59,21 @@ $(function(){
 	// PAGE
 	*/
 
-	if( $("body").hasClass("page") ){
+	if( $("body").hasClass("page") || $("body").hasClass("single") ){
 
+		//Auto resise commentform textarea
+		autosize( $("#comment") );	
+
+		//
+		$( ".comment" ).on( "click", "a.comment-reply-link", function() {
+			$("#respond").addClass("to-reply");
+		});
+		$( "#cancel-comment-reply-link" ).on( "click", function() {
+			$("#respond").removeClass("to-reply");
+		});
+
+
+/*
 		// Article sidebar
 		$("aside.sidebar").on( "click", "button.open-sidebar", function() {
 			var sidebar = $(this).parent();
@@ -81,6 +94,8 @@ $(function(){
 				$(document).off();
 			}
 		});
+*/
+		
 
 
 

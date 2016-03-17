@@ -15,6 +15,14 @@ remove_action(	'wp_head',			'rest_output_link_wp_head', 10 );
 remove_action(	'wp_head',			'wp_oembed_add_discovery_links', 10 );
 remove_action(	'wp_print_styles',	'print_emoji_styles' ); 
 
+// Enable comment-reply.js 
+function xtreme_enqueue_comments_reply() {
+	if( get_option( 'thread_comments' ) )  {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'comment_form_before', 'xtreme_enqueue_comments_reply' );
+
 
 // Get pages by parent
 function getPages( $parent_title ) {
@@ -194,5 +202,11 @@ function timeAgo( $date ){
 	$time = human_time_diff( strtotime( $date ), current_time('timestamp') );
 	return $time;
 }
+
+/**/
+function customComment($comment, $args, $depth) {
+	get_template_part( 'custom', 'comment' );
+}
+
 
 ?>

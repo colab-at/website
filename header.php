@@ -16,7 +16,6 @@
     <?php else : ?>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/page.css">
     <?php endif; ?>
-        
 
         <?php wp_head(); ?>
 

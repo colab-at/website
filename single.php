@@ -1,33 +1,25 @@
 <?php get_header(); ?>
 		
-		<?php
-			$posts = getPostsByCat( $pagename );
-			foreach ( $posts as $post ) :
-				$id =				$post['id'];
-				$title =	 		$post['title'];
-				$name = 			$post['name'];
-				$image = 			$post['image']['full'];
-				$author = 			$post['author'];
-				$content = 			$post['content'];
-				$revisions = 		$post['revisions'];
-				//
-				$revisions = 		array_reverse($revisions);
-				$last_revision = 	array_pop($revisions);
-
+		<?php while ( have_posts() ) : the_post(); 
+			$image = 			getFeaturedImage( get_post_thumbnail_id( $post->ID ) );
+			//
+			$revisions = 		wp_get_post_revisions( $post->ID, array('numberposts' => 3) );
+			$revisions = 		array_reverse($revisions);
+			$last_revision = 	array_pop($revisions);
 		?>
 
-		<article id="<?php print $name ?>" <?php post_class(); ?>>
+		<section <?php post_class(); ?>>
 			<?php
 			if ($image) :
 			?>
 			<figure>
-				<img src="<?php print $image ?>">
+				<img src="<?php print $image['full'] ?>">
 			</figure>
 			<?php endif; ?>
 
 			<header>
 			<div class="wrap">
-				<h1><?php print $title ?></h1>
+				<h1><?php print $post->post_title ?></h1>
 			</div>
 			</header>
 
@@ -36,7 +28,7 @@
 				<button class="share round"><svg class="icon-share"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-share"></use></svg></button>
 				
 				<section class="content">
-					<?php print $content ?>
+					<?php the_content() ?>
 				</section>
 
 				<div class="article-meta box-meta-cta">
@@ -50,11 +42,9 @@
 
 				<?php comments_template();?>
 
-			</section>
+		</section>
 
-		</article>
-
-		<?php endforeach; ?>
+		<?php endwhile; ?>
 
 
 <?php get_footer(); ?>

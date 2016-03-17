@@ -3,11 +3,13 @@
 @import "compass/layout/stretching";
 
 
-body.page {
+body.page,
+body.single {
 
 	background-position: 0 $col;
 
-	article.document {
+	section.post,
+	article.post {
 		position: relative;
 		font-size: $font-normal;
 
@@ -161,99 +163,237 @@ body.page {
 			section.comments {
 				position: relative;
 				background-color: $grey-lightest;
-				padding: ($padding-normal*2) $padding-normal $padding-normal $padding-normal;
+				padding: $padding-normal;
 
-				button.comments {
-					position: absolute;
-					top: - 1.75rem;
-					left: $padding-normal;
-				}
-
-				> header {
-					margin-bottom: $padding-normal;
-					@include clearfix;
-
-					svg {
-						float: left;
-						margin-right: 0.5em;
-					}
-
-					h3 {
-						font-size: $font-big;
-						float: left;
-
-						span {
-							font-size: 0.8em;
-							font-weight: $medium;
-						}
-					}
-
+				h3 {
+					font-size: $font-big;
+					margin-bottom: 1em;
 				}
 
 
 
+				article.comment,
+				div.comment-respond,
 				div.must-log-in {
-					margin-bottom: $padding-normal;
+					margin-top: $padding-normal;
 					background-color: $white;
-				}
-
-				
-
-				article.comment {
-					margin-bottom: $padding-normal;
-					background-color: $white;
-					//border: $grey-lighter 1px solid;
-					@include box-shadow($grey 0 0 3px);
+					border: $grey-lighter 1px solid;
+					//@include box-shadow($grey 0 0 3px);
 					@include border-radius($radius-small);
-					padding: 1em;
+					padding: 1.5rem;
 
-					header {
+					header,
+					.comment-meta {
 						@include clearfix;
 						margin-bottom: 0.5em;
 
-						svg {
+						span.author-thumb {
+							display: block;
+							overflow: hidden;
+							height: 2rem;
+							width: 2rem;
+							@include border-radius(50%);
 							float: left;
-							fill: $grey-dark;
+							background-color: $grey;
 							margin-right: 0.5em;
+						
+							img {
+								width: inherit;
+							}
 						}
 
 						span.meta {
-							float: left;
-
-							a.author {
-								display: block;
-								font-size: $font-small;
-								text-decoration: none;
-								color: $blue;
-								font-weight: $medium;
-							}
-							time {
-								display: block;
-								line-height: 1.5em;
-								font-size: $font-smaller;
-								color: $grey-dark;
-							}
+							float: left;							
+						}
+						a.author {
+							display: block;
+							font-size: $font-small;
+							text-decoration: none;
+							color: $blue;
+							font-weight: $medium;
+						}
+						time {
+							display: block;
+							line-height: 1.5em;
+							font-size: $font-smallest;
+							color: $grey-darker;
 						}
 					}
+
 
 					p {
 						font-size: $font-small;
 						line-height: 1.5em;
 						padding-bottom: 1em;
 					}
+
+					footer {
+						@include clearfix;
+						clear: both;
+
+						a {
+							display: block;
+							float: right;
+							line-height: 2em;
+							padding: 0 1em;
+
+							text-decoration: none;
+							font-size: $font-small;
+							font-weight: $medium;
+							color: $blue;
+
+							border: $blue 1.5px solid;
+							@include border-radius($radius-small);
+
+							&:hover {
+								color: $blue-dark;
+								border-color: $blue-dark;
+							}
+
+							&.comment-reply-link {}
+
+							&.comment-edit-link {
+								border-color: $white;
+								color: $grey-dark;
+								&:hover {
+									color: $grey-darker;
+								}
+							}
+						}
+					}
+
+					// Reply
+					&.depth-2 {
+						margin-top: -2px;
+						padding-top: 0;
+						@include border-top-radius(0);
+						border-top: 0;
+
+						.wrapper {
+							padding: 1em 1em 0 1em;
+							border-top: $grey-lighter 1px solid;
+
+						}
+
+						span.author-thumb {
+							display: block;
+							overflow: hidden;
+							height: 2rem;
+							width: 2rem;
+							@include border-radius(50%);
+							float: left;
+							background-color: $grey;
+							margin-right: 0.5em;
+						
+							img {
+								width: inherit;
+							}
+						}
+
+						header.comment-meta {
+							margin-bottom: 0;
+							a.author {
+								float: left;
+							}
+							time {
+								float: left;
+								margin-left: 0.5em;
+							}
+							a.comment-edit-link {
+								display: none;
+								float: right;
+								line-height: 1.5em;
+								text-decoration: none;
+								font-size: $font-smallest;
+								color: $grey-dark;
+								margin-left: 0.5em;
+								&:hover {
+									color: $grey-darker;
+									text-decoration: underline;
+								}
+							}
+						}
+						
+						p {
+							font-size: $font-smaller;
+							line-height: 1.2em;
+							padding-bottom: 1em;
+
+							&:last-of-type {
+								padding-bottom: 0;
+							}
+						}
+
+						&:hover {
+							a.comment-edit-link {
+								display: block !important;
+							}
+						}
+
+
+					}
 				}
 
+				div.must-log-in {
+					margin-top: 0;
+					p {
+						display: inline-block;
+						padding-bottom: 0 !important;
+						color: $grey;
+					}
+					a.login {
+						float: right;
+					}
+				}
+
+
 				div.comment-respond {
+					position: relative;
+					margin-top: 0;
 
 					form {
 						input[type="text"],
 						textarea {
-							width: $mid - (2 * $padding-normal) - (2 * 0.7rem);
-							margin-bottom: 0.5em;
+							margin-bottom: 1rem;
+							padding: 0;
+							width: 100%;
+							height: 1.5em;
+							line-height: 1.5em;
+							font-size: $font-small;
+							
+						}
+						input[type="submit"] {
+							float: right;
+						}
+						
+					}
+
+					a#cancel-comment-reply-link {
+						position: absolute;
+						right: 98px;
+						bottom: 1.5rem;
+
+						display: block;
+						line-height: 2em;
+						padding: 0 1em;
+
+						text-decoration: none;
+						font-size: $font-small;
+						font-weight: $medium;
+						color: $grey-dark;
+
+						border: $white 1.5px solid;
+
+						&:hover {
+							color: $grey-darker;
 						}
 					}
 
-				}
+					&.to-reply {
+						margin-top: -2px;
+						@include border-top-radius(0);
+					}
+				}				
 
 				
 			}
