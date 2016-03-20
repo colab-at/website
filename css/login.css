@@ -36,10 +36,10 @@ body.login form#loginform {
   box-shadow: none; }
 body.login p#nav a,
 body.login p#backtoblog a {
-  color: #0099ff; }
+  color: #11a9f4; }
   body.login p#nav a:hover,
   body.login p#backtoblog a:hover {
-    color: #0099ff;
+    color: #11a9f4;
     text-decoration: underline; }
 body.login p#backtoblog {
   display: none; }

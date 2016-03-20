@@ -13,74 +13,165 @@ body.single {
 		position: relative;
 		font-size: $font-normal;
 
-		> figure {
-			position: absolute;
-			z-index: $z-lowest;
-			left: 0;
-			right: 0;
-			top: 0;
-			width: 100%;
-			height: 100vh;
-			min-height: 860px;
-			overflow: hidden;
-			@include display-flex;
+		div.cover{
+			position: relative;
+			z-index: $z-low;
+			min-height: $col * 3;
+			@include viewport-unit(height, 100vh);
+			margin-top: -$header-height;
+			background-color: $blue;
 
-			img {
-				@include align-self(center);
-				width: 100%;
-				min-height: 860px;
-			}
-		}
-
-		&:not(:nth-of-type(1)) {
-			> figure {
-				top: -$col;
-				height: $col * 4;
-			}
-		}
-
-		> header {
-			@include background-image(linear-gradient(to right, $blue-dark, $blue-dark ));
-			background-position: 0 $header-height;
-			background-size: 100% 100vh;
-			background-repeat: no-repeat;
-
-			div.wrap {
-				position: relative;
-				z-index: $z-low;
-				min-height: $col * 4;
-				@include viewport-unit(height, 100vh);
-				margin-top: -$header-height;
-			}
-
-
-			h1 {
-				font-size: $font-biggest;
-				color: $white;
-				line-height: 1.2em;
-				padding: $padding-normal;
-				margin-top: $header-height;
-
+			figure {
 				position: absolute;
+				z-index: $z-lowest;
 				left: 0;
-				bottom: $col * 2;
+				right: 0;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				min-height: 860px;
+				overflow: hidden;
+				@include display-flex;
+
+				img {
+					@include align-self(center);
+					width: 100%;
+					min-height: 860px;
+				}
 			}
 
+			&.full {
+				@include viewport-unit(height, 100vh);
+			}
+
+		}
+		// For multiple posts in page
+		&:not(:nth-of-type(1)) {
+			div.cover{
+				figure {
+					top: -$col;
+					height: $col * 4;
+				}
+			}
+		}
+
+		//
+		div.author-meta,
+		.author-meta {
+			@include clearfix;
+
+			span.author-thumb {
+				display: block;
+				overflow: hidden;
+				@include border-radius(50%);
+				float: left;
+				background-color: $grey;
+			
+				img {
+					width: inherit !important;
+				}
+			}
+			span.meta {
+				float: left;							
+			}
+			a.author {
+				display: block;
+				text-decoration: none;
+				font-weight: $medium;
+			}
+			time {
+				display: block;
+				line-height: 1.3em;
+			}
+
+			&.post {
+				span.author-thumb {
+					height: 3rem;
+					width: 3rem;
+					margin-right: 0.8em;
+				}
+				span.meta {
+					padding-top: 0.2em;					
+				}
+				a.author {
+					font-size: $font-plus;
+					color: $white;
+					opacity: 0.7;
+				}
+				time {
+					font-size: $font-small;
+					color: $white;
+					opacity: 0.5;
+				}
+			}
+
+			&.comment {
+
+				span.author-thumb {
+					height: 2rem;
+					width: 2rem;
+					margin-right: 0.5em;
+				}
+				a.author {
+					font-size: $font-small;
+					color: $blue;
+				}
+				time {
+					font-size: $font-smallest;
+					color: $grey-darker;
+				}
+			}
 		}
 
 		section.page {
 
 			position: relative;
-			margin-top: - $col * 2;
+			margin-top: - (($col * 2) + $header-height);
 			z-index: $z-high;
 			background-color: $white;
 			@include border-radius($radius-small);
 			overflow: visible;
 
-			button.share {
+			> header {
+				position: relative;
+				min-height: $col * 2;
+				background-color: $blue-dark;
+				@include border-top-radius($radius-small);
+
+				h1 {
+					font-size: $font-biggest;
+					color: $white;
+					line-height: 1.2em;
+					padding: $padding-normal $padding-normal 1rem $padding-normal;
+					//
+					margin-top: $header-height;
+
+				}
+
+				.author-meta {
+					position: absolute;
+					left: $padding-normal;
+					bottom: $padding-normal;
+				}
+
+			}
+
+			button.plus {
 				position: absolute;
-				top: - 1.75rem;
+				z-index: $z-higher;
+				top: ($col * 2) - 1.75rem;
 				right: $padding-normal;
+
+				@include transform( rotate(0deg) );
+				@include transition( all 0.2s );
+
+				&.active {
+					@include transform( rotate(45deg) );
+				}
+
+				&:hover {
+					background-color: $blue-darker;
+				}
 			}
 			
 
@@ -107,6 +198,7 @@ body.single {
 
 				p {
 					line-height: 1.5em;
+					font-size: $font-normal;
 					font-weight: $regular;
 					color: #333;
 					padding-bottom: 1em;
@@ -114,50 +206,119 @@ body.single {
 			}
 
 
-			/*
-			aside.sidebar {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				width: ($col * 2);
-				@include transition(width 0.1s ease-in);
-				min-height: $col;
-
-				background-color: $grey-lighter;
-				overflow: hidden;
-
-				button.open-sidebar {
-					position: absolute;
-					left: 0;
-					top: 0;
-					bottom: 0;
-					width: $padding-normal;
-
-					background-color: $grey-lighter;
-					@include transition(background-color 0.2s);
-
-					&:hover {
-						background-color: $grey;
-					}
-
-					display: none;
-				}
-
-				&.open {
-					width: ($col * 2);
-					//@include box-shadow(rgba(0, 0, 0, 0.5) 0 0 20px);
-				}
-			}
-			*/
-
-			div.article-meta {
+			div.cta-box {
 				margin: 0 $padding-normal $padding-normal $padding-normal;
 
 				time {
 					font-weight: $medium;
 				}
 				
+			}
+
+			
+			section.post-meta {
+				@include clearfix;
+				position: absolute;
+				z-index: $z-high;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				@include border-top-radius($radius-small);
+				background-color: rgba(255, 255, 255, 1);
+
+				//
+				opacity: 0;
+				@include transition(all 0.5s);
+				visibility: hidden;
+
+				&.active {
+					visibility: visible;
+					opacity: 1;
+				}
+
+				header {
+					@include clearfix;
+					background-color: $blue-dark;
+					height: $col*2;
+
+					h3 {
+						font-size: $font-biggest;
+						color: $white;
+						line-height: 1.2em;
+						padding: $padding-normal;
+					}
+					p {
+						font-size: $font-big;
+						color: $blue-dark;
+					}
+
+					div.cta-box.share {
+						background-color: $white;
+						button:hover {
+							background-color: $blue-darker;
+						}
+					}
+				}
+
+				
+
+				ol.post-log {
+					margin: $padding-normal;
+
+					li {
+						@include clearfix;
+						@include display-flex;
+						@include align-items(center);
+
+						border-bottom: 1px solid $grey-lighter;
+						padding: 0.7em;
+
+						&:hover {
+							background-color: $grey-lightest;
+						}
+
+
+						span.author-thumb {
+							display: block;
+							overflow: hidden;
+							height: 2rem;
+							width: 2rem;
+							@include border-radius(50%);
+							background-color: $grey;
+							margin-right: 0.4em;
+						
+							img {
+								width: inherit;
+							}
+						}
+						a.author {
+							font-weight: $medium;
+							text-decoration: none;
+							color: $blue;
+							margin-right: 0.4em;
+						}
+						p.action {
+							margin-right: 0.4em;
+						}
+						svg {
+							margin-left: auto;
+							width: 1em;
+						}
+						time {
+							margin-left: auto;
+							font-size: $font-small;
+							color: $grey-dark
+
+						}
+					}
+
+				}
+
+				> div.cta-box {
+					margin-top: $padding-normal;
+				}
+
 			}
 
 			section.comments {
@@ -410,13 +571,15 @@ body.single {
 
 		section.post,
 		article.post {
-			figure {
-				img {
-					@include viewport-unit(height, 100vh);
-					width: auto;
-					position: absolute;
-					left: 50%;
-					transform: translateX(-50%);
+			div.cover{
+				figure {
+					img {
+						@include viewport-unit(height, 100vh);
+						width: auto;
+						position: absolute;
+						left: 50%;
+						transform: translateX(-50%);
+					}
 				}
 			}
 			
@@ -430,7 +593,8 @@ body.single {
 
 		section.post,
 		article.post {
-			section.page {
+			section.page,
+			section.page > header {
 				@include border-radius(0);
 			}
 		}
@@ -440,7 +604,7 @@ body.single {
 	// Smaller then 800px
 	@media screen and (max-width: $small ) {
 
-		
+
 
 	}//@media $small
 
@@ -450,17 +614,30 @@ body.single {
 		//
 		section.post,
 		article.post {
-			> header {
-				h1 {
-					padding: $padding-normal $padding-small;
-				}
-			}
 			section.page {
-				button.share {
+				> header {
+					h1 {
+						padding: $padding-normal $padding-small;
+					}
+					div.author-meta {
+						left: $padding-small;
+					}
+				}
+				button.plus {
 					right: $padding-small;
 				}
 				section.content {
 					padding: $padding-normal $padding-small;
+				}
+				section.post-meta {
+					> header {
+						h3 {
+							padding: $padding-normal $padding-small;
+						}
+						.cta-box {
+							margin: 0 $padding-small;
+						}
+					}
 				}
 				div.article-meta {
 					margin: 0 $padding-small $padding-normal $padding-small;	
@@ -476,6 +653,12 @@ body.single {
 							float: none;
 						}
 					}
+				}
+			}
+
+			div.overlay {
+				button.close {
+					right: $padding-small;
 				}
 			}
 		}

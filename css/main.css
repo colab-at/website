@@ -80,7 +80,7 @@ html {
 body {
   position: relative;
   height: 100%;
-  background-color: #0099ff;
+  background-color: #11a9f4;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #e6e6e6), color-stop(100%, #e6e6e6));
@@ -107,6 +107,7 @@ strong {
   fill: currentColor; }
 
 button {
+  font-family: "Open Sans", Helvetica, Arial, Geneva, sans-serif;
   background-color: transparent;
   padding: 0;
   margin: 0;
@@ -117,7 +118,7 @@ button {
   button.round {
     width: 3.5rem;
     height: 3.5rem;
-    background-color: #f5f5f5;
+    background-color: #11a9f4;
     -moz-transition: background-color 0.2s;
     -o-transition: background-color 0.2s;
     -webkit-transition: background-color 0.2s;
@@ -127,129 +128,241 @@ button {
     border-radius: 50%; }
     button.round svg {
       padding-top: 0.1em;
-      fill: #666;
-      -moz-transition: fill 0.2s;
-      -o-transition: fill 0.2s;
-      -webkit-transition: fill 0.2s;
-      transition: fill 0.2s; }
+      fill: #fff; }
     button.round:hover {
-      background-color: #0099ff; }
+      background-color: #0b87c3; }
       button.round:hover svg {
         fill: #fff; }
+  button.plus svg, button.close svg {
+    width: 1.4rem; }
 
-a.button {
+a.button,
+button.button {
   display: block;
   text-decoration: none;
-  text-align: center;
-  background-color: #0099ff;
+  background-color: #11a9f4;
   -moz-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
-  color: #fff; }
-  a.button:hover {
-    background-color: #336699; }
-  a.button.small {
+  color: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+  a.button:hover,
+  button.button:hover {
+    background-color: #0b87c3; }
+  a.button.small,
+  button.button.small {
     line-height: 2em;
     padding: 0 1em;
     font-size: 1rem;
     font-weight: 600;
-    border: #0099ff 1.5px solid;
+    border: #11a9f4 1.5px solid;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px; }
-    a.button.small:hover {
-      border-color: #336699; }
-  a.button.transparent {
+    a.button.small:hover,
+    button.button.small:hover {
+      border-color: #0b87c3; }
+  a.button.transparent,
+  button.button.transparent {
     background-color: transparent;
-    color: #0099ff; }
-    a.button.transparent:hover {
-      color: #336699 !important;
-      border-color: #336699; }
+    color: #11a9f4; }
+    a.button.transparent:hover,
+    button.button.transparent:hover {
+      color: #0b87c3 !important;
+      border-color: #0b87c3; }
 
-div.box-meta-cta {
+div.cta-box {
   background-color: #f5f5f5;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  height: 5rem;
+  height: 3.5rem;
   display: -webkit-flex;
   display: flex;
-  font-size: 1.5rem; }
-  div.box-meta-cta > span {
+  font-size: 1.3rem; }
+  div.cta-box > span {
+    display: block;
     float: left;
-    width: 70%;
+    width: 75%;
     display: -webkit-flex;
-    display: flex; }
-    div.box-meta-cta > span svg, div.box-meta-cta > span p {
-      -webkit-align-self: center;
-      align-self: center; }
-  div.box-meta-cta svg {
-    fill: #0099ff;
-    margin-left: 1.5rem;
-    margin-right: -0.5em; }
-  div.box-meta-cta p {
-    margin-left: 1.5rem; }
-  div.box-meta-cta a {
-    text-decoration: none;
-    color: #0099ff;
-    font-weight: 600; }
-    div.box-meta-cta a:hover {
-      color: #336699; }
-  div.box-meta-cta a.button {
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center; }
+  div.cta-box svg {
+    fill: #11a9f4;
+    margin-left: 1rem; }
+  div.cta-box p {
+    margin-left: 1rem; }
+    div.cta-box p a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #11a9f4; }
+      div.cta-box p a:hover {
+        color: #0b87c3; }
+  div.cta-box form {
+    width: 100%; }
+  div.cta-box input[type="text"] {
+    width: 95%;
+    padding: 0 1rem;
+    color: #999;
+    background-color: transparent; }
+    div.cta-box input[type="text"]:focus {
+      color: #333; }
+  div.cta-box .button {
     float: left;
-    width: 30%;
+    width: 25%;
     min-width: 10rem;
+    font-size: 1.3rem;
+    font-weight: 600 !important;
     color: #fff;
-    line-height: 5rem;
     -moz-border-radius-topright: 4px;
     -webkit-border-top-right-radius: 4px;
     border-top-right-radius: 4px;
     -moz-border-radius-bottomright: 4px;
     -webkit-border-bottom-right-radius: 4px;
     border-bottom-right-radius: 4px; }
+    div.cta-box .button svg {
+      fill: #fff;
+      margin: 0 1rem 0 -1rem; }
+    div.cta-box .button:hover {
+      color: #fff; }
+
+div.overlay,
+.overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  visibility: hidden; }
+  div.overlay.active,
+  .overlay.active {
+    visibility: visible;
+    opacity: 1; }
+  div.overlay div.wrap,
+  .overlay div.wrap {
+    position: relative;
+    height: 1000px; }
+  div.overlay button.close,
+  .overlay button.close {
+    position: absolute;
+    top: 3.4rem;
+    right: 2.5rem; }
+
+section.matrix article {
+  position: relative;
+  float: left;
+  height: 0;
+  font-size: 1.1rem;
+  background-color: #ccc;
+  color: #333;
+  -moz-transition: background-color 0.2s, color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  overflow: hidden;
+  width: 20rem;
+  padding-bottom: 20rem; }
+  section.matrix article.col2 {
+    width: 20rem; }
+  section.matrix article.col4 {
+    width: 40rem; }
+  section.matrix article.col6 {
+    width: 60rem; }
+  section.matrix article.row2 {
+    padding-bottom: 20rem; }
+  section.matrix article.row4 {
+    padding-bottom: 40rem; }
+  section.matrix article.row6 {
+    padding-bottom: 60rem; }
+  section.matrix article svg {
+    height: 10rem;
+    width: 10rem;
+    padding: 5rem;
+    float: left; }
+  section.matrix article header {
+    padding: 2.5rem; }
+    section.matrix article header h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      padding-bottom: 0.5em; }
+    section.matrix article header p {
+      line-height: 1.2em; }
+  section.matrix article > a {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    color: transparent; }
+  section.matrix article:hover {
+    background-color: #fff;
+    color: #11a9f4;
+    cursor: pointer; }
+    section.matrix article:hover a {
+      opacity: 1; }
 
 .colab-red {
   background-color: #ff6633 !important;
   color: #fff !important; }
   .colab-red:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .about {
-  background-color: #336699 !important;
+  background-color: #0b87c3 !important;
   color: #fff !important; }
   .about:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
+
+.blue-dark {
+  background-color: #0b87c3 !important;
+  color: #fff !important; }
+  .blue-dark:hover {
+    background-color: #fff !important;
+    color: #11a9f4 !important; }
 
 .blue {
-  background-color: #0099ff !important;
+  background-color: #11a9f4 !important;
   color: inherit !important; }
   .blue:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .blue-light {
   background-color: #00ffff !important;
   color: inherit !important; }
   .blue-light:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .yellow-light {
   background-color: #ffff00 !important;
   color: inherit !important; }
   .yellow-light:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .white {
   background-color: #fff !important;
   color: #0099FF !important; }
   .white:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 header.main-header {
   overflow: hidden;
@@ -257,7 +370,6 @@ header.main-header {
   height: 10rem;
   position: relative;
   z-index: 777;
-  background-color: #0099ff;
   width: 100%; }
   header.main-header h1.logo {
     float: left; }
@@ -273,153 +385,57 @@ header.main-header {
     margin: 3.4rem 2.5rem; }
 
 button.open-menu {
-  background-color: #0099ff; }
+  background-color: #11a9f4; }
   button.open-menu svg {
     fill: #fff;
     width: 2.5em;
     height: 2.5em; }
   button.open-menu:hover {
-    background-color: #fff; }
+    background-color: #0b87c3; }
     button.open-menu:hover svg {
-      fill: #0099ff; }
+      fill: #fff; }
 
-nav.main-nav {
-  position: fixed;
-  z-index: 999;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  opacity: 0;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  visibility: hidden;
-  /*
-  	ol.menu {
-  		float: left;
-  		width: 100%;
-  		margin-top: -2rem;
-  		margin-left: 2rem;
-  
-  		li {
-  			padding-left: 2em;
-  
-  			a {
-  				display: block;
-  				float: left;
-  				clear: both;
-  				padding: 0 0 1em 1.5em;
-  
-  				font-size: $font-bigger;
-  				text-decoration: none;
-  				text-align: center;
-  				color: $blue;
-  
-  				background-color: #fff;
-  				background-image: url("../img/bkg_menu_li.svg");
-  				background-position: 0 0;
-  				background-repeat: no-repeat;
-  				background-size: 1em;
-  
-  				&.active {
-  					//font-weight: $bold;
-  				}
-  				
-  			}
-  
-  			ol {
-  				padding-bottom: 1em;
-  				overflow: hidden;
-  				float: left;
-  				clear: both;
-  
-  				li {
-  
-  					a {
-  						font-size: $font-big;
-  
-  						&:hover {
-  							background-position: 0 -100px;
-  						}
-  
-  						&.active {
-  							background-position: 0 -200px;
-  							font-weight: $medium;
-  						}
-  					}
-  
-  					&:last-child {
-  						a {
-  							padding-bottom: 0;
-  						}						
-  					}
-  				}
-  			}
-  
-  		}//li
-  
-  		> li {
-  			padding-left: 0;
-  			> a {
-  				padding: 0 0 0.5em 0;
-  				background: none;
-  			}
-  		}	
-  
-  	}//ol.menu
-  
-  */ }
-  nav.main-nav a.logo {
-    display: block;
-    float: left;
-    width: 10rem;
-    line-height: 10rem; }
-    nav.main-nav a.logo img {
-      width: inherit;
-      vertical-align: middle; }
-  nav.main-nav ol.menu {
-    float: left;
-    clear: both;
-    border-top: #0099ff 0.5rem solid;
-    padding-top: 1rem;
-    width: 10rem; }
-    nav.main-nav ol.menu li {
-      margin-bottom: 1em; }
-      nav.main-nav ol.menu li a {
-        opacity: 0.7;
-        font-size: 1.5rem;
-        text-decoration: none;
-        color: #0099ff; }
-        nav.main-nav ol.menu li a:hover, nav.main-nav ol.menu li a:active, nav.main-nav ol.menu li a.active {
-          opacity: 1; }
-        nav.main-nav ol.menu li a.active {
-          font-weight: 600; }
-  nav.main-nav div.menu-box {
-    float: right;
-    margin: 3.4rem 2.5rem; }
-  nav.main-nav a.log-in,
-  nav.main-nav a.log-out {
-    float: left;
-    margin: 0.6rem 1rem; }
-  nav.main-nav button.open-menu {
-    float: left; }
-    nav.main-nav button.open-menu:hover {
-      background-color: #0099ff; }
-      nav.main-nav button.open-menu:hover svg {
-        fill: #fff; }
-  nav.main-nav.active {
-    visibility: visible;
-    opacity: 1; }
+nav.main-nav a.logo {
+  display: block;
+  float: left;
+  width: 10rem;
+  line-height: 10rem; }
+  nav.main-nav a.logo img {
+    width: inherit;
+    vertical-align: middle; }
+nav.main-nav ol.menu {
+  float: left;
+  clear: both;
+  border-top: #11a9f4 0.5rem solid;
+  padding-top: 1rem;
+  width: 10rem; }
+  nav.main-nav ol.menu li {
+    margin-bottom: 1em; }
+    nav.main-nav ol.menu li a {
+      opacity: 0.7;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #11a9f4; }
+      nav.main-nav ol.menu li a:hover, nav.main-nav ol.menu li a:active, nav.main-nav ol.menu li a.active {
+        opacity: 1; }
+      nav.main-nav ol.menu li a.active {
+        font-weight: 600; }
+nav.main-nav div.menu-box {
+  float: right;
+  margin: 3.4rem 2.5rem; }
+nav.main-nav a.log-in,
+nav.main-nav a.log-out {
+  float: left;
+  margin: 0.6rem 1rem; }
+nav.main-nav button.open-menu {
+  float: left; }
 
 section.banner {
   overflow: hidden;
   *zoom: 1;
   min-height: 10rem;
   margin-top: -10rem;
-  background-color: #0099ff; }
+  background-color: #11a9f4; }
 
 footer.main-footer {
   height: 500px; }
@@ -456,8 +472,8 @@ form button, .form input[type="submit"],
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background-color: #0099ff;
-  border: #0099ff 1.5px solid;
+  background-color: #11a9f4;
+  border: #11a9f4 1.5px solid;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -467,8 +483,8 @@ form button, .form input[type="submit"],
   form button:hover, .form input[type="submit"]:hover,
   .form input[type="button"]:hover,
   .form button:hover {
-    background-color: #336699;
-    border-color: #336699; }
+    background-color: #0b87c3;
+    border-color: #0b87c3; }
 
 @media screen and (max-width: 82.5rem) {
   button.open-menu {
@@ -499,14 +515,19 @@ form button, .form input[type="submit"],
     margin-left: 2.5rem; } }
 @media screen and (max-width: 50rem) {
   button.open-menu {
-    background-color: red; } }
+    background-color: red; }
+
+  div.cta-box input {
+    width: 90% !important; }
+  div.cta-box a.button svg {
+    display: none; } }
 @media screen and (max-width: 414px) {
   button.open-menu {
     background-color: violet; }
 
-  div.box-meta-cta svg {
-    display: none; }
-  div.box-meta-cta p {
+  div.cta-box input {
+    width: 85% !important; }
+  div.cta-box p {
     margin: 0 1rem;
     font-size: 1.1rem; }
 

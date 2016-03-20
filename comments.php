@@ -74,7 +74,7 @@ endif;
 		'walker'            => null,
 		'max_depth'         => '2',
 		'style'             => 'div',
-		'callback'          => customComment,	// custom-comment.php
+		'callback'          => customComment,	// templates/comment-template.php
 		'end-callback'      => null,
 		'type'              => 'all',
 		'reply_text'        => 'Reply',

@@ -33,7 +33,7 @@
 
 			<section class="page wrap">
 
-				<button class="share round"><svg class="icon-share"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-share"></use></svg></button>
+				<button class="plus round"><svg class="icon-plus"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-plus"></use></svg></button>
 				
 				<section class="content">
 					<?php print $content ?>

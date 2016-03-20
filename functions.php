@@ -42,6 +42,7 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
 
+
 // Get pages by parent
 function getPages( $parent_title ) {
 	$parent = get_page_by_title( $parent_title );						// get info from parent page
@@ -223,7 +224,7 @@ function timeAgo( $date ){
 
 /**/
 function customComment($comment, $args, $depth) {
-	get_template_part( 'custom', 'comment' );
+	get_template_part( 'templates/comment', 'template' );
 }
 
 

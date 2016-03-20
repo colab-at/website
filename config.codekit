@@ -119,15 +119,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/custom-comment.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/custom-comment.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/doc\/css.md": {
 		"criticStyle": 0,
 		"enableFootnotes": 1,
@@ -405,6 +396,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/overlay.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/overlay.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/page.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -545,6 +545,24 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/comment-template.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/comment-template.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/templates\/post-meta.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/post-meta.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

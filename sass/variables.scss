@@ -43,6 +43,7 @@ $light:			300;
 $font-biggest:	3rem;
 $font-bigger:	2rem;
 $font-big:		1.5rem;
+$font-plus:		1.3rem;
 $font-normal:	1.1rem;
 $font-small:	1rem;
 $font-smaller:	0.9rem;
@@ -52,10 +53,12 @@ $font-smallest:	0.8rem;
 
 // Colors
 $colab-red:		#ff6633;
-$blue-dark: 	#336699;
-$blue:		 	#0099ff;
+$blue-darker: 	#006699;
+$blue-dark: 	#0b87c3;
+$blue:		 	#11a9f4;
 $blue-light: 	#00ffff;
 $yellow-light: 	#ffff00;
+$black:			#000;
 $grey-darkest:	#333;
 $grey-darker:	#666;
 $grey-dark:		#999;
@@ -105,6 +108,10 @@ $tags: (
 		color: #fff
 	),
 	about: (
+		background-color: $blue-dark,
+		color: #fff
+	),
+	blue-dark: (
 		background-color: $blue-dark,
 		color: #fff
 	),

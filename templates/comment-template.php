@@ -1,7 +1,7 @@
 <?php if ( $comment->comment_parent == 0 ) : ?>
 <article <?php comment_class() ?> id="comment-<?php comment_ID() ?>">
 
-	<header class="comment-meta">
+	<header class="author-meta comment">
 		<span class="author-thumb"><?php print get_avatar( $comment, '32'); ?></span>
 		<span class="meta">
 			<a class="author" rel="author" href="#"><?php print $comment->comment_author; ?> </a>

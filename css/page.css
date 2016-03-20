@@ -80,7 +80,7 @@ html {
 body {
   position: relative;
   height: 100%;
-  background-color: #0099ff;
+  background-color: #11a9f4;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #e6e6e6), color-stop(100%, #e6e6e6));
@@ -107,6 +107,7 @@ strong {
   fill: currentColor; }
 
 button {
+  font-family: "Open Sans", Helvetica, Arial, Geneva, sans-serif;
   background-color: transparent;
   padding: 0;
   margin: 0;
@@ -117,7 +118,7 @@ button {
   button.round {
     width: 3.5rem;
     height: 3.5rem;
-    background-color: #f5f5f5;
+    background-color: #11a9f4;
     -moz-transition: background-color 0.2s;
     -o-transition: background-color 0.2s;
     -webkit-transition: background-color 0.2s;
@@ -127,129 +128,241 @@ button {
     border-radius: 50%; }
     button.round svg {
       padding-top: 0.1em;
-      fill: #666;
-      -moz-transition: fill 0.2s;
-      -o-transition: fill 0.2s;
-      -webkit-transition: fill 0.2s;
-      transition: fill 0.2s; }
+      fill: #fff; }
     button.round:hover {
-      background-color: #0099ff; }
+      background-color: #0b87c3; }
       button.round:hover svg {
         fill: #fff; }
+  button.plus svg, button.close svg {
+    width: 1.4rem; }
 
-a.button {
+a.button,
+button.button {
   display: block;
   text-decoration: none;
-  text-align: center;
-  background-color: #0099ff;
+  background-color: #11a9f4;
   -moz-transition: background-color 0.2s;
   -o-transition: background-color 0.2s;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
-  color: #fff; }
-  a.button:hover {
-    background-color: #336699; }
-  a.button.small {
+  color: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+  a.button:hover,
+  button.button:hover {
+    background-color: #0b87c3; }
+  a.button.small,
+  button.button.small {
     line-height: 2em;
     padding: 0 1em;
     font-size: 1rem;
     font-weight: 600;
-    border: #0099ff 1.5px solid;
+    border: #11a9f4 1.5px solid;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px; }
-    a.button.small:hover {
-      border-color: #336699; }
-  a.button.transparent {
+    a.button.small:hover,
+    button.button.small:hover {
+      border-color: #0b87c3; }
+  a.button.transparent,
+  button.button.transparent {
     background-color: transparent;
-    color: #0099ff; }
-    a.button.transparent:hover {
-      color: #336699 !important;
-      border-color: #336699; }
+    color: #11a9f4; }
+    a.button.transparent:hover,
+    button.button.transparent:hover {
+      color: #0b87c3 !important;
+      border-color: #0b87c3; }
 
-div.box-meta-cta {
+div.cta-box {
   background-color: #f5f5f5;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  height: 5rem;
+  height: 3.5rem;
   display: -webkit-flex;
   display: flex;
-  font-size: 1.5rem; }
-  div.box-meta-cta > span {
+  font-size: 1.3rem; }
+  div.cta-box > span {
+    display: block;
     float: left;
-    width: 70%;
+    width: 75%;
     display: -webkit-flex;
-    display: flex; }
-    div.box-meta-cta > span svg, div.box-meta-cta > span p {
-      -webkit-align-self: center;
-      align-self: center; }
-  div.box-meta-cta svg {
-    fill: #0099ff;
-    margin-left: 1.5rem;
-    margin-right: -0.5em; }
-  div.box-meta-cta p {
-    margin-left: 1.5rem; }
-  div.box-meta-cta a {
-    text-decoration: none;
-    color: #0099ff;
-    font-weight: 600; }
-    div.box-meta-cta a:hover {
-      color: #336699; }
-  div.box-meta-cta a.button {
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center; }
+  div.cta-box svg {
+    fill: #11a9f4;
+    margin-left: 1rem; }
+  div.cta-box p {
+    margin-left: 1rem; }
+    div.cta-box p a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #11a9f4; }
+      div.cta-box p a:hover {
+        color: #0b87c3; }
+  div.cta-box form {
+    width: 100%; }
+  div.cta-box input[type="text"] {
+    width: 95%;
+    padding: 0 1rem;
+    color: #999;
+    background-color: transparent; }
+    div.cta-box input[type="text"]:focus {
+      color: #333; }
+  div.cta-box .button {
     float: left;
-    width: 30%;
+    width: 25%;
     min-width: 10rem;
+    font-size: 1.3rem;
+    font-weight: 600 !important;
     color: #fff;
-    line-height: 5rem;
     -moz-border-radius-topright: 4px;
     -webkit-border-top-right-radius: 4px;
     border-top-right-radius: 4px;
     -moz-border-radius-bottomright: 4px;
     -webkit-border-bottom-right-radius: 4px;
     border-bottom-right-radius: 4px; }
+    div.cta-box .button svg {
+      fill: #fff;
+      margin: 0 1rem 0 -1rem; }
+    div.cta-box .button:hover {
+      color: #fff; }
+
+div.overlay,
+.overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  visibility: hidden; }
+  div.overlay.active,
+  .overlay.active {
+    visibility: visible;
+    opacity: 1; }
+  div.overlay div.wrap,
+  .overlay div.wrap {
+    position: relative;
+    height: 1000px; }
+  div.overlay button.close,
+  .overlay button.close {
+    position: absolute;
+    top: 3.4rem;
+    right: 2.5rem; }
+
+section.matrix article {
+  position: relative;
+  float: left;
+  height: 0;
+  font-size: 1.1rem;
+  background-color: #ccc;
+  color: #333;
+  -moz-transition: background-color 0.2s, color 0.2s;
+  -o-transition: background-color 0.2s, color 0.2s;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  overflow: hidden;
+  width: 20rem;
+  padding-bottom: 20rem; }
+  section.matrix article.col2 {
+    width: 20rem; }
+  section.matrix article.col4 {
+    width: 40rem; }
+  section.matrix article.col6 {
+    width: 60rem; }
+  section.matrix article.row2 {
+    padding-bottom: 20rem; }
+  section.matrix article.row4 {
+    padding-bottom: 40rem; }
+  section.matrix article.row6 {
+    padding-bottom: 60rem; }
+  section.matrix article svg {
+    height: 10rem;
+    width: 10rem;
+    padding: 5rem;
+    float: left; }
+  section.matrix article header {
+    padding: 2.5rem; }
+    section.matrix article header h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      padding-bottom: 0.5em; }
+    section.matrix article header p {
+      line-height: 1.2em; }
+  section.matrix article > a {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    color: transparent; }
+  section.matrix article:hover {
+    background-color: #fff;
+    color: #11a9f4;
+    cursor: pointer; }
+    section.matrix article:hover a {
+      opacity: 1; }
 
 .colab-red {
   background-color: #ff6633 !important;
   color: #fff !important; }
   .colab-red:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .about {
-  background-color: #336699 !important;
+  background-color: #0b87c3 !important;
   color: #fff !important; }
   .about:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
+
+.blue-dark {
+  background-color: #0b87c3 !important;
+  color: #fff !important; }
+  .blue-dark:hover {
+    background-color: #fff !important;
+    color: #11a9f4 !important; }
 
 .blue {
-  background-color: #0099ff !important;
+  background-color: #11a9f4 !important;
   color: inherit !important; }
   .blue:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .blue-light {
   background-color: #00ffff !important;
   color: inherit !important; }
   .blue-light:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .yellow-light {
   background-color: #ffff00 !important;
   color: inherit !important; }
   .yellow-light:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 .white {
   background-color: #fff !important;
   color: #0099FF !important; }
   .white:hover {
     background-color: #fff !important;
-    color: #0099ff !important; }
+    color: #11a9f4 !important; }
 
 header.main-header {
   overflow: hidden;
@@ -257,7 +370,6 @@ header.main-header {
   height: 10rem;
   position: relative;
   z-index: 777;
-  background-color: #0099ff;
   width: 100%; }
   header.main-header h1.logo {
     float: left; }
@@ -273,153 +385,57 @@ header.main-header {
     margin: 3.4rem 2.5rem; }
 
 button.open-menu {
-  background-color: #0099ff; }
+  background-color: #11a9f4; }
   button.open-menu svg {
     fill: #fff;
     width: 2.5em;
     height: 2.5em; }
   button.open-menu:hover {
-    background-color: #fff; }
+    background-color: #0b87c3; }
     button.open-menu:hover svg {
-      fill: #0099ff; }
+      fill: #fff; }
 
-nav.main-nav {
-  position: fixed;
-  z-index: 999;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  opacity: 0;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  visibility: hidden;
-  /*
-  	ol.menu {
-  		float: left;
-  		width: 100%;
-  		margin-top: -2rem;
-  		margin-left: 2rem;
-  
-  		li {
-  			padding-left: 2em;
-  
-  			a {
-  				display: block;
-  				float: left;
-  				clear: both;
-  				padding: 0 0 1em 1.5em;
-  
-  				font-size: $font-bigger;
-  				text-decoration: none;
-  				text-align: center;
-  				color: $blue;
-  
-  				background-color: #fff;
-  				background-image: url("../img/bkg_menu_li.svg");
-  				background-position: 0 0;
-  				background-repeat: no-repeat;
-  				background-size: 1em;
-  
-  				&.active {
-  					//font-weight: $bold;
-  				}
-  				
-  			}
-  
-  			ol {
-  				padding-bottom: 1em;
-  				overflow: hidden;
-  				float: left;
-  				clear: both;
-  
-  				li {
-  
-  					a {
-  						font-size: $font-big;
-  
-  						&:hover {
-  							background-position: 0 -100px;
-  						}
-  
-  						&.active {
-  							background-position: 0 -200px;
-  							font-weight: $medium;
-  						}
-  					}
-  
-  					&:last-child {
-  						a {
-  							padding-bottom: 0;
-  						}						
-  					}
-  				}
-  			}
-  
-  		}//li
-  
-  		> li {
-  			padding-left: 0;
-  			> a {
-  				padding: 0 0 0.5em 0;
-  				background: none;
-  			}
-  		}	
-  
-  	}//ol.menu
-  
-  */ }
-  nav.main-nav a.logo {
-    display: block;
-    float: left;
-    width: 10rem;
-    line-height: 10rem; }
-    nav.main-nav a.logo img {
-      width: inherit;
-      vertical-align: middle; }
-  nav.main-nav ol.menu {
-    float: left;
-    clear: both;
-    border-top: #0099ff 0.5rem solid;
-    padding-top: 1rem;
-    width: 10rem; }
-    nav.main-nav ol.menu li {
-      margin-bottom: 1em; }
-      nav.main-nav ol.menu li a {
-        opacity: 0.7;
-        font-size: 1.5rem;
-        text-decoration: none;
-        color: #0099ff; }
-        nav.main-nav ol.menu li a:hover, nav.main-nav ol.menu li a:active, nav.main-nav ol.menu li a.active {
-          opacity: 1; }
-        nav.main-nav ol.menu li a.active {
-          font-weight: 600; }
-  nav.main-nav div.menu-box {
-    float: right;
-    margin: 3.4rem 2.5rem; }
-  nav.main-nav a.log-in,
-  nav.main-nav a.log-out {
-    float: left;
-    margin: 0.6rem 1rem; }
-  nav.main-nav button.open-menu {
-    float: left; }
-    nav.main-nav button.open-menu:hover {
-      background-color: #0099ff; }
-      nav.main-nav button.open-menu:hover svg {
-        fill: #fff; }
-  nav.main-nav.active {
-    visibility: visible;
-    opacity: 1; }
+nav.main-nav a.logo {
+  display: block;
+  float: left;
+  width: 10rem;
+  line-height: 10rem; }
+  nav.main-nav a.logo img {
+    width: inherit;
+    vertical-align: middle; }
+nav.main-nav ol.menu {
+  float: left;
+  clear: both;
+  border-top: #11a9f4 0.5rem solid;
+  padding-top: 1rem;
+  width: 10rem; }
+  nav.main-nav ol.menu li {
+    margin-bottom: 1em; }
+    nav.main-nav ol.menu li a {
+      opacity: 0.7;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #11a9f4; }
+      nav.main-nav ol.menu li a:hover, nav.main-nav ol.menu li a:active, nav.main-nav ol.menu li a.active {
+        opacity: 1; }
+      nav.main-nav ol.menu li a.active {
+        font-weight: 600; }
+nav.main-nav div.menu-box {
+  float: right;
+  margin: 3.4rem 2.5rem; }
+nav.main-nav a.log-in,
+nav.main-nav a.log-out {
+  float: left;
+  margin: 0.6rem 1rem; }
+nav.main-nav button.open-menu {
+  float: left; }
 
 section.banner {
   overflow: hidden;
   *zoom: 1;
   min-height: 10rem;
   margin-top: -10rem;
-  background-color: #0099ff; }
+  background-color: #11a9f4; }
 
 footer.main-footer {
   height: 500px; }
@@ -456,8 +472,8 @@ form button, .form input[type="submit"],
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background-color: #0099ff;
-  border: #0099ff 1.5px solid;
+  background-color: #11a9f4;
+  border: #11a9f4 1.5px solid;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -467,8 +483,8 @@ form button, .form input[type="submit"],
   form button:hover, .form input[type="submit"]:hover,
   .form input[type="button"]:hover,
   .form button:hover {
-    background-color: #336699;
-    border-color: #336699; }
+    background-color: #0b87c3;
+    border-color: #0b87c3; }
 
 @media screen and (max-width: 82.5rem) {
   button.open-menu {
@@ -499,14 +515,19 @@ form button, .form input[type="submit"],
     margin-left: 2.5rem; } }
 @media screen and (max-width: 50rem) {
   button.open-menu {
-    background-color: red; } }
+    background-color: red; }
+
+  div.cta-box input {
+    width: 90% !important; }
+  div.cta-box a.button svg {
+    display: none; } }
 @media screen and (max-width: 414px) {
   button.open-menu {
     background-color: violet; }
 
-  div.box-meta-cta svg {
-    display: none; }
-  div.box-meta-cta p {
+  div.cta-box input {
+    width: 85% !important; }
+  div.cta-box p {
     margin: 0 1rem;
     font-size: 1.1rem; }
 
@@ -530,184 +551,377 @@ body.single {
   body.single article.post {
     position: relative;
     font-size: 1.1rem; }
-    body.page section.post > figure,
-    body.page article.post > figure,
-    body.single section.post > figure,
-    body.single article.post > figure {
-      position: absolute;
-      z-index: 111;
-      left: 0;
-      right: 0;
-      top: 0;
-      width: 100%;
+    body.page section.post div.cover,
+    body.page article.post div.cover,
+    body.single section.post div.cover,
+    body.single article.post div.cover {
+      position: relative;
+      z-index: 333;
+      min-height: 30rem;
       height: 100vh;
-      min-height: 860px;
-      overflow: hidden;
-      display: -webkit-flex;
-      display: flex; }
-      body.page section.post > figure img,
-      body.page article.post > figure img,
-      body.single section.post > figure img,
-      body.single article.post > figure img {
-        -webkit-align-self: center;
-        align-self: center;
+      margin-top: -10rem;
+      background-color: #11a9f4; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 1024px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 768px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 480px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 320px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 568px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 320px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 667px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 375px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 736px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
+        body.page section.post div.cover,
+        body.page article.post div.cover,
+        body.single section.post div.cover,
+        body.single article.post div.cover {
+          height: 414px; } }
+      body.page section.post div.cover figure,
+      body.page article.post div.cover figure,
+      body.single section.post div.cover figure,
+      body.single article.post div.cover figure {
+        position: absolute;
+        z-index: 111;
+        left: 0;
+        right: 0;
+        top: 0;
         width: 100%;
-        min-height: 860px; }
-    body.page section.post:not(:nth-of-type(1)) > figure,
-    body.page article.post:not(:nth-of-type(1)) > figure,
-    body.single section.post:not(:nth-of-type(1)) > figure,
-    body.single article.post:not(:nth-of-type(1)) > figure {
-      top: -10rem;
-      height: 40rem; }
-    body.page section.post > header,
-    body.page article.post > header,
-    body.single section.post > header,
-    body.single article.post > header {
-      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzNjY5OSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzMzNjY5OSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-      background-size: 100%;
-      background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #336699), color-stop(100%, #336699));
-      background-image: -moz-linear-gradient(left, #336699, #336699);
-      background-image: -webkit-linear-gradient(left, #336699, #336699);
-      background-image: linear-gradient(to right, #336699, #336699);
-      background-position: 0 10rem;
-      background-size: 100% 100vh;
-      background-repeat: no-repeat; }
-      body.page section.post > header div.wrap,
-      body.page article.post > header div.wrap,
-      body.single section.post > header div.wrap,
-      body.single article.post > header div.wrap {
-        position: relative;
-        z-index: 333;
-        min-height: 40rem;
         height: 100vh;
-        margin-top: -10rem; }
+        min-height: 860px;
+        overflow: hidden;
+        display: -webkit-flex;
+        display: flex; }
+        body.page section.post div.cover figure img,
+        body.page article.post div.cover figure img,
+        body.single section.post div.cover figure img,
+        body.single article.post div.cover figure img {
+          -webkit-align-self: center;
+          align-self: center;
+          width: 100%;
+          min-height: 860px; }
+      body.page section.post div.cover.full,
+      body.page article.post div.cover.full,
+      body.single section.post div.cover.full,
+      body.single article.post div.cover.full {
+        height: 100vh; }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 1024px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 768px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 480px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 320px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 568px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 320px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 667px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 375px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 736px; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
-          body.page section.post > header div.wrap,
-          body.page article.post > header div.wrap,
-          body.single section.post > header div.wrap,
-          body.single article.post > header div.wrap {
+          body.page section.post div.cover.full,
+          body.page article.post div.cover.full,
+          body.single section.post div.cover.full,
+          body.single article.post div.cover.full {
             height: 414px; } }
-      body.page section.post > header h1,
-      body.page article.post > header h1,
-      body.single section.post > header h1,
-      body.single article.post > header h1 {
-        font-size: 3rem;
+    body.page section.post:not(:nth-of-type(1)) div.cover figure,
+    body.page article.post:not(:nth-of-type(1)) div.cover figure,
+    body.single section.post:not(:nth-of-type(1)) div.cover figure,
+    body.single article.post:not(:nth-of-type(1)) div.cover figure {
+      top: -10rem;
+      height: 40rem; }
+    body.page section.post div.author-meta,
+    body.page section.post .author-meta,
+    body.page article.post div.author-meta,
+    body.page article.post .author-meta,
+    body.single section.post div.author-meta,
+    body.single section.post .author-meta,
+    body.single article.post div.author-meta,
+    body.single article.post .author-meta {
+      overflow: hidden;
+      *zoom: 1; }
+      body.page section.post div.author-meta span.author-thumb,
+      body.page section.post .author-meta span.author-thumb,
+      body.page article.post div.author-meta span.author-thumb,
+      body.page article.post .author-meta span.author-thumb,
+      body.single section.post div.author-meta span.author-thumb,
+      body.single section.post .author-meta span.author-thumb,
+      body.single article.post div.author-meta span.author-thumb,
+      body.single article.post .author-meta span.author-thumb {
+        display: block;
+        overflow: hidden;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        float: left;
+        background-color: #ccc; }
+        body.page section.post div.author-meta span.author-thumb img,
+        body.page section.post .author-meta span.author-thumb img,
+        body.page article.post div.author-meta span.author-thumb img,
+        body.page article.post .author-meta span.author-thumb img,
+        body.single section.post div.author-meta span.author-thumb img,
+        body.single section.post .author-meta span.author-thumb img,
+        body.single article.post div.author-meta span.author-thumb img,
+        body.single article.post .author-meta span.author-thumb img {
+          width: inherit !important; }
+      body.page section.post div.author-meta span.meta,
+      body.page section.post .author-meta span.meta,
+      body.page article.post div.author-meta span.meta,
+      body.page article.post .author-meta span.meta,
+      body.single section.post div.author-meta span.meta,
+      body.single section.post .author-meta span.meta,
+      body.single article.post div.author-meta span.meta,
+      body.single article.post .author-meta span.meta {
+        float: left; }
+      body.page section.post div.author-meta a.author,
+      body.page section.post .author-meta a.author,
+      body.page article.post div.author-meta a.author,
+      body.page article.post .author-meta a.author,
+      body.single section.post div.author-meta a.author,
+      body.single section.post .author-meta a.author,
+      body.single article.post div.author-meta a.author,
+      body.single article.post .author-meta a.author {
+        display: block;
+        text-decoration: none;
+        font-weight: 600; }
+      body.page section.post div.author-meta time,
+      body.page section.post .author-meta time,
+      body.page article.post div.author-meta time,
+      body.page article.post .author-meta time,
+      body.single section.post div.author-meta time,
+      body.single section.post .author-meta time,
+      body.single article.post div.author-meta time,
+      body.single article.post .author-meta time {
+        display: block;
+        line-height: 1.3em; }
+      body.page section.post div.author-meta.post span.author-thumb,
+      body.page section.post .author-meta.post span.author-thumb,
+      body.page article.post div.author-meta.post span.author-thumb,
+      body.page article.post .author-meta.post span.author-thumb,
+      body.single section.post div.author-meta.post span.author-thumb,
+      body.single section.post .author-meta.post span.author-thumb,
+      body.single article.post div.author-meta.post span.author-thumb,
+      body.single article.post .author-meta.post span.author-thumb {
+        height: 3rem;
+        width: 3rem;
+        margin-right: 0.8em; }
+      body.page section.post div.author-meta.post span.meta,
+      body.page section.post .author-meta.post span.meta,
+      body.page article.post div.author-meta.post span.meta,
+      body.page article.post .author-meta.post span.meta,
+      body.single section.post div.author-meta.post span.meta,
+      body.single section.post .author-meta.post span.meta,
+      body.single article.post div.author-meta.post span.meta,
+      body.single article.post .author-meta.post span.meta {
+        padding-top: 0.2em; }
+      body.page section.post div.author-meta.post a.author,
+      body.page section.post .author-meta.post a.author,
+      body.page article.post div.author-meta.post a.author,
+      body.page article.post .author-meta.post a.author,
+      body.single section.post div.author-meta.post a.author,
+      body.single section.post .author-meta.post a.author,
+      body.single article.post div.author-meta.post a.author,
+      body.single article.post .author-meta.post a.author {
+        font-size: 1.3rem;
         color: #fff;
-        line-height: 1.2em;
-        padding: 2.5rem;
-        margin-top: 10rem;
-        position: absolute;
-        left: 0;
-        bottom: 20rem; }
+        opacity: 0.7; }
+      body.page section.post div.author-meta.post time,
+      body.page section.post .author-meta.post time,
+      body.page article.post div.author-meta.post time,
+      body.page article.post .author-meta.post time,
+      body.single section.post div.author-meta.post time,
+      body.single section.post .author-meta.post time,
+      body.single article.post div.author-meta.post time,
+      body.single article.post .author-meta.post time {
+        font-size: 1rem;
+        color: #fff;
+        opacity: 0.5; }
+      body.page section.post div.author-meta.comment span.author-thumb,
+      body.page section.post .author-meta.comment span.author-thumb,
+      body.page article.post div.author-meta.comment span.author-thumb,
+      body.page article.post .author-meta.comment span.author-thumb,
+      body.single section.post div.author-meta.comment span.author-thumb,
+      body.single section.post .author-meta.comment span.author-thumb,
+      body.single article.post div.author-meta.comment span.author-thumb,
+      body.single article.post .author-meta.comment span.author-thumb {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0.5em; }
+      body.page section.post div.author-meta.comment a.author,
+      body.page section.post .author-meta.comment a.author,
+      body.page article.post div.author-meta.comment a.author,
+      body.page article.post .author-meta.comment a.author,
+      body.single section.post div.author-meta.comment a.author,
+      body.single section.post .author-meta.comment a.author,
+      body.single article.post div.author-meta.comment a.author,
+      body.single article.post .author-meta.comment a.author {
+        font-size: 1rem;
+        color: #11a9f4; }
+      body.page section.post div.author-meta.comment time,
+      body.page section.post .author-meta.comment time,
+      body.page article.post div.author-meta.comment time,
+      body.page article.post .author-meta.comment time,
+      body.single section.post div.author-meta.comment time,
+      body.single section.post .author-meta.comment time,
+      body.single article.post div.author-meta.comment time,
+      body.single article.post .author-meta.comment time {
+        font-size: 0.8rem;
+        color: #666; }
     body.page section.post section.page,
     body.page article.post section.page,
     body.single section.post section.page,
     body.single article.post section.page {
       position: relative;
-      margin-top: -20rem;
+      margin-top: -30rem;
       z-index: 777;
       background-color: #fff;
       -moz-border-radius: 4px;
       -webkit-border-radius: 4px;
       border-radius: 4px;
-      overflow: visible;
-      			/*
-      			aside.sidebar {
-      				position: absolute;
-      				top: 0;
-      				right: 0;
-      				bottom: 0;
-      				width: ($col * 2);
-      				@include transition(width 0.1s ease-in);
-      				min-height: $col;
-      
-      				background-color: $grey-lighter;
-      				overflow: hidden;
-      
-      				button.open-sidebar {
-      					position: absolute;
-      					left: 0;
-      					top: 0;
-      					bottom: 0;
-      					width: $padding-normal;
-      
-      					background-color: $grey-lighter;
-      					@include transition(background-color 0.2s);
-      
-      					&:hover {
-      						background-color: $grey;
-      					}
-      
-      					display: none;
-      				}
-      
-      				&.open {
-      					width: ($col * 2);
-      					//@include box-shadow(rgba(0, 0, 0, 0.5) 0 0 20px);
-      				}
-      			}
-      			*/ }
-      body.page section.post section.page button.share,
-      body.page article.post section.page button.share,
-      body.single section.post section.page button.share,
-      body.single article.post section.page button.share {
+      overflow: visible; }
+      body.page section.post section.page > header,
+      body.page article.post section.page > header,
+      body.single section.post section.page > header,
+      body.single article.post section.page > header {
+        position: relative;
+        min-height: 20rem;
+        background-color: #0b87c3;
+        -moz-border-radius-topleft: 4px;
+        -webkit-border-top-left-radius: 4px;
+        border-top-left-radius: 4px;
+        -moz-border-radius-topright: 4px;
+        -webkit-border-top-right-radius: 4px;
+        border-top-right-radius: 4px; }
+        body.page section.post section.page > header h1,
+        body.page article.post section.page > header h1,
+        body.single section.post section.page > header h1,
+        body.single article.post section.page > header h1 {
+          font-size: 3rem;
+          color: #fff;
+          line-height: 1.2em;
+          padding: 2.5rem 2.5rem 1rem 2.5rem;
+          margin-top: 10rem; }
+        body.page section.post section.page > header .author-meta,
+        body.page article.post section.page > header .author-meta,
+        body.single section.post section.page > header .author-meta,
+        body.single article.post section.page > header .author-meta {
+          position: absolute;
+          left: 2.5rem;
+          bottom: 2.5rem; }
+      body.page section.post section.page button.plus,
+      body.page article.post section.page button.plus,
+      body.single section.post section.page button.plus,
+      body.single article.post section.page button.plus {
         position: absolute;
-        top: -1.75rem;
-        right: 2.5rem; }
+        z-index: 888;
+        top: 18.25rem;
+        right: 2.5rem;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s; }
+        body.page section.post section.page button.plus.active,
+        body.page article.post section.page button.plus.active,
+        body.single section.post section.page button.plus.active,
+        body.single article.post section.page button.plus.active {
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg); }
+        body.page section.post section.page button.plus:hover,
+        body.page article.post section.page button.plus:hover,
+        body.single section.post section.page button.plus:hover,
+        body.single article.post section.page button.plus:hover {
+          background-color: #006699; }
       body.page section.post section.page section.content,
       body.page article.post section.page section.content,
       body.single section.post section.page section.content,
@@ -725,7 +939,7 @@ body.single {
         body.single article.post section.page section.content h3 {
           font-size: 2rem;
           font-weight: 300;
-          color: #0099ff;
+          color: #11a9f4;
           line-height: 1.2em;
           padding: 1em 0; }
           body.page section.post section.page section.content h1 strong, body.page section.post section.page section.content h2 strong, body.page section.post section.page section.content h3 strong,
@@ -755,19 +969,154 @@ body.single {
         body.single section.post section.page section.content p,
         body.single article.post section.page section.content p {
           line-height: 1.5em;
+          font-size: 1.1rem;
           font-weight: 400;
           color: #333;
           padding-bottom: 1em; }
-      body.page section.post section.page div.article-meta,
-      body.page article.post section.page div.article-meta,
-      body.single section.post section.page div.article-meta,
-      body.single article.post section.page div.article-meta {
+      body.page section.post section.page div.cta-box,
+      body.page article.post section.page div.cta-box,
+      body.single section.post section.page div.cta-box,
+      body.single article.post section.page div.cta-box {
         margin: 0 2.5rem 2.5rem 2.5rem; }
-        body.page section.post section.page div.article-meta time,
-        body.page article.post section.page div.article-meta time,
-        body.single section.post section.page div.article-meta time,
-        body.single article.post section.page div.article-meta time {
+        body.page section.post section.page div.cta-box time,
+        body.page article.post section.page div.cta-box time,
+        body.single section.post section.page div.cta-box time,
+        body.single article.post section.page div.cta-box time {
           font-weight: 600; }
+      body.page section.post section.page section.post-meta,
+      body.page article.post section.page section.post-meta,
+      body.single section.post section.page section.post-meta,
+      body.single article.post section.page section.post-meta {
+        overflow: hidden;
+        *zoom: 1;
+        position: absolute;
+        z-index: 777;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        -moz-border-radius-topleft: 4px;
+        -webkit-border-top-left-radius: 4px;
+        border-top-left-radius: 4px;
+        -moz-border-radius-topright: 4px;
+        -webkit-border-top-right-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: white;
+        opacity: 0;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        visibility: hidden; }
+        body.page section.post section.page section.post-meta.active,
+        body.page article.post section.page section.post-meta.active,
+        body.single section.post section.page section.post-meta.active,
+        body.single article.post section.page section.post-meta.active {
+          visibility: visible;
+          opacity: 1; }
+        body.page section.post section.page section.post-meta header,
+        body.page article.post section.page section.post-meta header,
+        body.single section.post section.page section.post-meta header,
+        body.single article.post section.page section.post-meta header {
+          overflow: hidden;
+          *zoom: 1;
+          background-color: #0b87c3;
+          height: 20rem; }
+          body.page section.post section.page section.post-meta header h3,
+          body.page article.post section.page section.post-meta header h3,
+          body.single section.post section.page section.post-meta header h3,
+          body.single article.post section.page section.post-meta header h3 {
+            font-size: 3rem;
+            color: #fff;
+            line-height: 1.2em;
+            padding: 2.5rem; }
+          body.page section.post section.page section.post-meta header p,
+          body.page article.post section.page section.post-meta header p,
+          body.single section.post section.page section.post-meta header p,
+          body.single article.post section.page section.post-meta header p {
+            font-size: 1.5rem;
+            color: #0b87c3; }
+          body.page section.post section.page section.post-meta header div.cta-box.share,
+          body.page article.post section.page section.post-meta header div.cta-box.share,
+          body.single section.post section.page section.post-meta header div.cta-box.share,
+          body.single article.post section.page section.post-meta header div.cta-box.share {
+            background-color: #fff; }
+            body.page section.post section.page section.post-meta header div.cta-box.share button:hover,
+            body.page article.post section.page section.post-meta header div.cta-box.share button:hover,
+            body.single section.post section.page section.post-meta header div.cta-box.share button:hover,
+            body.single article.post section.page section.post-meta header div.cta-box.share button:hover {
+              background-color: #006699; }
+        body.page section.post section.page section.post-meta ol.post-log,
+        body.page article.post section.page section.post-meta ol.post-log,
+        body.single section.post section.page section.post-meta ol.post-log,
+        body.single article.post section.page section.post-meta ol.post-log {
+          margin: 2.5rem; }
+          body.page section.post section.page section.post-meta ol.post-log li,
+          body.page article.post section.page section.post-meta ol.post-log li,
+          body.single section.post section.page section.post-meta ol.post-log li,
+          body.single article.post section.page section.post-meta ol.post-log li {
+            overflow: hidden;
+            *zoom: 1;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 0.7em; }
+            body.page section.post section.page section.post-meta ol.post-log li:hover,
+            body.page article.post section.page section.post-meta ol.post-log li:hover,
+            body.single section.post section.page section.post-meta ol.post-log li:hover,
+            body.single article.post section.page section.post-meta ol.post-log li:hover {
+              background-color: #f5f5f5; }
+            body.page section.post section.page section.post-meta ol.post-log li span.author-thumb,
+            body.page article.post section.page section.post-meta ol.post-log li span.author-thumb,
+            body.single section.post section.page section.post-meta ol.post-log li span.author-thumb,
+            body.single article.post section.page section.post-meta ol.post-log li span.author-thumb {
+              display: block;
+              overflow: hidden;
+              height: 2rem;
+              width: 2rem;
+              -moz-border-radius: 50%;
+              -webkit-border-radius: 50%;
+              border-radius: 50%;
+              background-color: #ccc;
+              margin-right: 0.4em; }
+              body.page section.post section.page section.post-meta ol.post-log li span.author-thumb img,
+              body.page article.post section.page section.post-meta ol.post-log li span.author-thumb img,
+              body.single section.post section.page section.post-meta ol.post-log li span.author-thumb img,
+              body.single article.post section.page section.post-meta ol.post-log li span.author-thumb img {
+                width: inherit; }
+            body.page section.post section.page section.post-meta ol.post-log li a.author,
+            body.page article.post section.page section.post-meta ol.post-log li a.author,
+            body.single section.post section.page section.post-meta ol.post-log li a.author,
+            body.single article.post section.page section.post-meta ol.post-log li a.author {
+              font-weight: 600;
+              text-decoration: none;
+              color: #11a9f4;
+              margin-right: 0.4em; }
+            body.page section.post section.page section.post-meta ol.post-log li p.action,
+            body.page article.post section.page section.post-meta ol.post-log li p.action,
+            body.single section.post section.page section.post-meta ol.post-log li p.action,
+            body.single article.post section.page section.post-meta ol.post-log li p.action {
+              margin-right: 0.4em; }
+            body.page section.post section.page section.post-meta ol.post-log li svg,
+            body.page article.post section.page section.post-meta ol.post-log li svg,
+            body.single section.post section.page section.post-meta ol.post-log li svg,
+            body.single article.post section.page section.post-meta ol.post-log li svg {
+              margin-left: auto;
+              width: 1em; }
+            body.page section.post section.page section.post-meta ol.post-log li time,
+            body.page article.post section.page section.post-meta ol.post-log li time,
+            body.single section.post section.page section.post-meta ol.post-log li time,
+            body.single article.post section.page section.post-meta ol.post-log li time {
+              margin-left: auto;
+              font-size: 1rem;
+              color: #999; }
+        body.page section.post section.page section.post-meta > div.cta-box,
+        body.page article.post section.page section.post-meta > div.cta-box,
+        body.single section.post section.page section.post-meta > div.cta-box,
+        body.single article.post section.page section.post-meta > div.cta-box {
+          margin-top: 2.5rem; }
       body.page section.post section.page section.comments,
       body.page article.post section.page section.comments,
       body.single section.post section.page section.comments,
@@ -938,7 +1287,7 @@ body.single {
               display: block;
               font-size: 1rem;
               text-decoration: none;
-              color: #0099ff;
+              color: #11a9f4;
               font-weight: 600; }
             body.page section.post section.page section.comments article.comment header time,
             body.page section.post section.page section.comments article.comment .comment-meta time,
@@ -1017,8 +1366,8 @@ body.single {
               text-decoration: none;
               font-size: 1rem;
               font-weight: 600;
-              color: #0099ff;
-              border: #0099ff 1.5px solid;
+              color: #11a9f4;
+              border: #11a9f4 1.5px solid;
               -moz-border-radius: 4px;
               -webkit-border-radius: 4px;
               border-radius: 4px; }
@@ -1034,8 +1383,8 @@ body.single {
               body.single article.post section.page section.comments article.comment footer a:hover,
               body.single article.post section.page section.comments div.comment-respond footer a:hover,
               body.single article.post section.page section.comments div.must-log-in footer a:hover {
-                color: #336699;
-                border-color: #336699; }
+                color: #0b87c3;
+                border-color: #0b87c3; }
               body.page section.post section.page section.comments article.comment footer a.comment-edit-link,
               body.page section.post section.page section.comments div.comment-respond footer a.comment-edit-link,
               body.page section.post section.page section.comments div.must-log-in footer a.comment-edit-link,
@@ -1323,100 +1672,119 @@ body.single {
             -webkit-border-top-right-radius: 0;
             border-top-right-radius: 0; }
   @media screen and (max-width: 85rem) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 100vh;
       width: auto;
       position: absolute;
       left: 50%;
       transform: translateX(-50%); } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 1024px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 768px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 480px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 320px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 568px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 320px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 667px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 375px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 736px; } }
   @media only screen and (max-width: 85rem) and (-webkit-min-device-pixel-ratio: 1) and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) {
-    body.page section.post figure img,
-    body.page article.post figure img,
-    body.single section.post figure img,
-    body.single article.post figure img {
+    body.page section.post div.cover figure img,
+    body.page article.post div.cover figure img,
+    body.single section.post div.cover figure img,
+    body.single article.post div.cover figure img {
       height: 414px; } }
 
   @media screen and (max-width: 62.5rem) {
     body.page section.post section.page,
+    body.page section.post section.page > header,
     body.page article.post section.page,
+    body.page article.post section.page > header,
     body.single section.post section.page,
-    body.single article.post section.page {
+    body.single section.post section.page > header,
+    body.single article.post section.page,
+    body.single article.post section.page > header {
       -moz-border-radius: 0;
       -webkit-border-radius: 0;
       border-radius: 0; } }
   @media screen and (max-width: 414px) {
-    body.page section.post > header h1,
-    body.page article.post > header h1,
-    body.single section.post > header h1,
-    body.single article.post > header h1 {
+    body.page section.post section.page > header h1,
+    body.page article.post section.page > header h1,
+    body.single section.post section.page > header h1,
+    body.single article.post section.page > header h1 {
       padding: 2.5rem 1.25rem; }
-    body.page section.post section.page button.share,
-    body.page article.post section.page button.share,
-    body.single section.post section.page button.share,
-    body.single article.post section.page button.share {
+    body.page section.post section.page > header div.author-meta,
+    body.page article.post section.page > header div.author-meta,
+    body.single section.post section.page > header div.author-meta,
+    body.single article.post section.page > header div.author-meta {
+      left: 1.25rem; }
+    body.page section.post section.page button.plus,
+    body.page article.post section.page button.plus,
+    body.single section.post section.page button.plus,
+    body.single article.post section.page button.plus {
       right: 1.25rem; }
     body.page section.post section.page section.content,
     body.page article.post section.page section.content,
     body.single section.post section.page section.content,
     body.single article.post section.page section.content {
       padding: 2.5rem 1.25rem; }
+    body.page section.post section.page section.post-meta > header h3,
+    body.page article.post section.page section.post-meta > header h3,
+    body.single section.post section.page section.post-meta > header h3,
+    body.single article.post section.page section.post-meta > header h3 {
+      padding: 2.5rem 1.25rem; }
+    body.page section.post section.page section.post-meta > header .cta-box,
+    body.page article.post section.page section.post-meta > header .cta-box,
+    body.single section.post section.page section.post-meta > header .cta-box,
+    body.single article.post section.page section.post-meta > header .cta-box {
+      margin: 0 1.25rem; }
     body.page section.post section.page div.article-meta,
     body.page article.post section.page div.article-meta,
     body.single section.post section.page div.article-meta,
@@ -1436,4 +1804,9 @@ body.single {
       body.page article.post section.page section.comments div.must-log-in a.log-in,
       body.single section.post section.page section.comments div.must-log-in a.log-in,
       body.single article.post section.page section.comments div.must-log-in a.log-in {
-        float: none; } }
+        float: none; }
+    body.page section.post div.overlay button.close,
+    body.page article.post div.overlay button.close,
+    body.single section.post div.overlay button.close,
+    body.single article.post div.overlay button.close {
+      right: 1.25rem; } }

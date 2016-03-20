@@ -1,5 +1,5 @@
 // Jquery
-$(function(){
+(function($){
 
 	/*
 	// ALL WEBSITE
@@ -9,6 +9,16 @@ $(function(){
 		$("nav.main-nav").toggleClass("active");
 	});
 
+	//Overlay
+	function activeOverlay() {
+
+		$("#overlay").toggleClass("active");
+		
+	}
+
+	$( "#overlay" ).on( "click", "#button-close", function() {
+		activeOverlay();
+	});
 
 /*
 	// Get current url and mark active item in menu
@@ -65,12 +75,30 @@ $(function(){
 		//Auto resise commentform textarea
 		autosize( $("#comment") );	
 
-		//
+		//Change class to comment form when replying to a comment
 		$( ".comment" ).on( "click", "a.comment-reply-link", function() {
 			$("#respond").addClass("to-reply");
 		});
 		$( "#cancel-comment-reply-link" ).on( "click", function() {
 			$("#respond").removeClass("to-reply");
+		});
+
+		//Activate overlay
+		$( "#button-plus" ).on( "click", function() {
+			$("#post-meta").toggleClass("active");
+			$(this).toggleClass("active");
+			$( "#post-meta .cta-box input" ).trigger( "focus" );
+		});
+
+		//
+		$( "#post-meta .cta-box input" ).on( "focus", function() {
+			$(this).select();
+		});
+
+		$( "#post-meta .cta-box.share" ).on( "click", "button.share", function() {
+			$( "#post-meta .cta-box input" ).trigger( "focus" );
+			document.execCommand("copy");
+			alert("Link copied to clipboard. Now go share :)");
 		});
 
 
@@ -153,5 +181,5 @@ $(function(){
 	}//isPage
 
 
-}); //Jquery
+})( jQuery );
 

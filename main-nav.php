@@ -4,7 +4,7 @@ $pages = getPages('Colab');
 if ( !empty($pages) ) :
 ?>
 
-<nav class="main-nav" role="navigation">
+<nav class="main-nav overlay" role="navigation">
     <div class="wrap">
 
         <a class="logo" href="<?php bloginfo('url'); ?>">
