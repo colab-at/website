@@ -4,12 +4,13 @@
 // Dimensions
 // 1 REM = 16px
 // 5 rem = 80px
+// 10 rem = 160px
 // 20 rem = 320px
 $col: 10rem;
 //
-$wide:		$col * 8;
-$mid:		$col * 6;
-$small:		$col * 5;
+$wide:		$col * 8;	// 1280px
+$mid:		$col * 6;	// 960px
+$small:		$col * 5;	// 800px
 $mobile:	414px; // iPhone 6s
 
 //
@@ -17,7 +18,8 @@ $padding-normal: $col / 4;
 $padding-small: $col / 8;
 //
 $header-height:	$col;
-$banner-height:	$header-height;
+$header-width:	$col + ($padding-normal * 2);
+$cover-height:	$col * 5; //800px
 $sidebar-width:	$col * 2;
 
 // Border radius

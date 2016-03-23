@@ -26,20 +26,26 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header class="main-header wrap" role="banner">
+        <header class="main-header">
 
-            <div class="wrap">
+            <h1 class="logo">
+                <a href="<?php bloginfo('url'); ?>">
+                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
+                </a>
+            </h1>
 
-                <h1 class="logo">
-                    <a href="<?php bloginfo('url'); ?>">
-                        <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
-                    </a>
-                </h1>
+            <?php get_template_part( 'main', 'nav' ); ?>
 
-                <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
-
-            </div>
-            
+            <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
+        
         </header>
 
-        <?php get_template_part( 'main', 'nav' ); ?>
+        <div class="alt-logo wrap">
+            <div class="logo">
+                <a href="<?php bloginfo('url'); ?>">
+                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
+                </a>
+            </div>
+        </div>
+
+        

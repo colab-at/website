@@ -5,8 +5,7 @@
 
 body.page,
 body.single {
-
-	background-position: 0 $col;
+	padding-left: $padding-normal; //$header-width + ($padding-normal*2);
 
 	section.post,
 	article.post {
@@ -16,9 +15,8 @@ body.single {
 		div.cover{
 			position: relative;
 			z-index: $z-low;
-			min-height: $col * 3;
-			@include viewport-unit(height, 100vh);
-			margin-top: -$header-height;
+			height: $cover-height;
+			//@include viewport-unit(height, 100vh);
 			background-color: $blue;
 
 			figure {
@@ -566,8 +564,8 @@ body.single {
 
 	// RESPONSIVE
 
-	// Smaller than 1280px + 160px
-	@media screen and (max-width: $wide + ($padding-normal*2)) {
+	// if smaller than 1280px
+	@media screen and ( max-width: $wide ) {
 
 		section.post,
 		article.post {
@@ -588,7 +586,7 @@ body.single {
 
 	}//@media $wide
 
-	// Smaller then 960px + 40px
+	// if smaller then 960px + 40px
 	@media screen and (max-width: $mid + $padding-normal) {
 
 		section.post,
@@ -601,14 +599,14 @@ body.single {
 
 	}//@media $mid
 
-	// Smaller then 800px
+	// if smaller then 800px
 	@media screen and (max-width: $small ) {
 
 
 
 	}//@media $small
 
-	// Smaller then 414px
+	// if smaller then 414px
 	@media screen and (max-width: $mobile ) {
 
 		//
@@ -668,4 +666,4 @@ body.single {
 	}//@media $mobile
 
 
-}//end .page
+}//end .page, .single

@@ -87,7 +87,6 @@
 		$( "#button-plus" ).on( "click", function() {
 			$("#post-meta").toggleClass("active");
 			$(this).toggleClass("active");
-			$( "#post-meta .cta-box input" ).trigger( "focus" );
 		});
 
 		//

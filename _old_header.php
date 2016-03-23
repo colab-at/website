@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Colab</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
@@ -16,18 +16,132 @@
     <?php else : ?>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/page.css">
     <?php endif; ?>
-        
 
         <?php wp_head(); ?>
 
     </head>
     <body <?php body_class( $class ); ?> >
 
+        <style type="text/css">
+            
+//
+header.main-header {
+
+    @include clearfix;
+    height: $header-height;
+    position: relative;
+    z-index: $z-high;
+    //background-color: $blue;
+    width: 100%;
+
+    h1.logo {
+        float: left;
+
+        a {
+            display: block;
+            width: $col;
+            line-height: $col;
+
+            img {
+                width: inherit;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    button.open-menu {
+        float: right;
+        margin: 3.4rem $padding-normal;
+    }
+
+}//.main-header
+
+
+// Main navigation
+button.open-menu {
+    background-color: $blue;
+
+    svg {
+        fill: $white;
+        width: 2.5em;
+        height: 2.5em;
+    } 
+
+    &:hover {
+        background-color: $blue-dark;
+
+        svg {
+            fill: $white;
+        } 
+    }
+}
+
+nav.main-nav {
+
+    a.logo {
+        display: block;
+        float: left;
+        width: $col;
+        line-height: $col;
+
+        img {
+            width: inherit;
+            vertical-align: middle;
+        }
+    }
+
+
+    ol.menu {
+        float: left;
+        clear: both;
+        border-top: $blue 0.5rem solid;
+        padding-top: 1rem;
+        width: $col;
+
+        li {
+            margin-bottom: 1em;
+
+            a {
+                opacity: 0.7;
+                font-size: $font-big;
+                text-decoration: none;
+                color: $blue;
+
+                &:hover, &:active, &.active {
+                    opacity: 1;
+                }
+
+                &.active {
+                    font-weight: $medium;
+                }   
+            }
+        }
+    }
+
+    div.menu-box {
+        float: right;
+        margin: 3.4rem $padding-normal;
+    }
+
+    a.log-in,
+    a.log-out {
+        float: left;
+        margin: 0.6rem 1rem;
+    }
+
+    button.open-menu {
+        float: left;
+    }
+}
+
+
+        </style>
+
         <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header class="main-header wrap" role="banner">
+        <header class="main-header wrap">
 
             <div class="wrap">
 
@@ -36,69 +150,11 @@
                         <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo.svg" alt="Colab" > 
                     </a>
                 </h1>
-            
+
                 <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
 
             </div>
             
         </header>
 
-        <nav class="main-nav" role="navigation">
-            <div class="wrap">
-
-                <button class="open-menu round"><svg class="icon-menu"><use xlink:href="<?php bloginfo('stylesheet_directory'); ?>/img/icons.svg#icon-menu"></use></svg></button>
-
-                <a class="logo" href="<?php bloginfo('url'); ?>">
-                    <img class="svg" src="<?php echo get_template_directory_uri() ?>/img/logo_blue.svg" alt="Colab" > 
-                </a>                
-                
-                <?php
-                // Main menu
-                $pages = getPagePosts('Colab');
-                if ( !empty($pages) ) :
-                    $path = 'http://' . $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-                    $a_active = false;
-                ?>
-                <ol class="menu">
-                    <?php 
-                    foreach ( $pages as $id => $page ) : 
-                        $page_title = $page['title'];
-                        $page_name = $page['name'];
-                        $page_url = $page['url'];
-                        
-                        if ($path === $page_url) :
-                            $a_active = true;
-                        endif;
-                    ?>
-                
-                    <li>
-                        <a <?php echo checkActive($a_active); $a_active = false; ?> href="<?php echo $page_url; ?>"><?php echo $page_title; ?></a>
-                        
-                        <?php
-                        $posts = $page['posts'];
-                        if ( !empty($posts) ) :
-                        ?>
-                        <ol>
-                            <?php 
-                            foreach ( $posts as $id => $post ) :
-                                $post_tile = $post['title'];
-                                $post_name = $post['name'];
-                                $post_url = $page_url . '#' . $post_name;
-                            ?>
-                            <li><a href="<?php echo $post_url ?>"><?php echo $post_tile; ?></a></li>
-                            <?php endforeach; ?>
-                        </ol>
-                        <?php endif; ?>
-                    </li> 
-
-                    <?php endforeach; ?>
-
-                    <li>
-                        <a href="https://blog.colab.at/latest/">Blog</a>
-                    </li> 
-                </ol>
-
-                <?php endif; ?>
-
-            </div>
-        </nav>
+        <?php get_template_part( 'main', 'nav' ); ?>
