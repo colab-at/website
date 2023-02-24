@@ -6,4 +6,4 @@ A new website for Colab with general information and links to documentation, dis
 [A new website](https://github.com/colab-at/.github/discussions/2)
 
 ### Related tasks:
-[Make website: colab.at](https://github.com/orgs/colab-at/projects/1/views/1?pane=issue&itemId=21148979)
+[Make website: colab.at](https://github.com/colab-at/website/issues/2)
